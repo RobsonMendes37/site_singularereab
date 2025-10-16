@@ -20,7 +20,7 @@ const ProgramsSection: React.FC = () => {
           </h1>
         </div>
         <Row className="g-5 justify-content-center">
-          {programs.map((program, index) => (
+          {programsData.map((program, index) => (
             <Col key={program.id} md={6} lg={6} xl={4} className="wow fadeIn" data-wow-delay={`${0.1 + index * 0.2}s`}>
               <div className="program-item rounded">
                 <div className="program-img position-relative">

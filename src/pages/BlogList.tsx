@@ -15,7 +15,7 @@ const BlogList: React.FC = () => {
     window.scrollTo(0, 0);
     // Simula uma chamada de API
     setTimeout(() => {
-      const published = fullBlogPosts.filter(post => post.published);
+      const published = blogPostsData.filter(post => post.published);
       setFilteredPosts(published);
       setLoading(false);
     }, 500);

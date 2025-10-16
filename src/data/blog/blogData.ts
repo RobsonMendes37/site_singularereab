@@ -78,6 +78,15 @@ export const blogPostsData: BlogPost[] = [
 // - NÃO altere o "slug" - ele é usado na URL da página
 // - Para trocar imagem: use URL completa ou nome do arquivo em src/assets/images/
 
+// Categorias do blog
+export const blogCategories = [
+  { id: '1', name: 'Desenvolvimento Infantil', slug: 'desenvolvimento', icon: 'fas fa-child', color: '#4A90E2' },
+  { id: '2', name: 'Tratamentos', slug: 'tratamentos', icon: 'fas fa-heartbeat', color: '#9B59B6' },
+  { id: '3', name: 'Dicas para Pais', slug: 'dicas-pais', icon: 'fas fa-hand-holding-heart', color: '#FF6B9D' },
+  { id: '4', name: 'Casos de Sucesso', slug: 'casos-sucesso', icon: 'fas fa-star', color: '#F39C12' },
+  { id: '5', name: 'Notícias', slug: 'noticias', icon: 'fas fa-newspaper', color: '#1ABC9C' },
+];
+
 // Funções auxiliares para o blog
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
   return blogPostsData.find(post => post.slug === slug);

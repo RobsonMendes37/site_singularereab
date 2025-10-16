@@ -5,14 +5,15 @@ import './ServicesSection.css';
 import aboutImage from '../../../assets/images/about2.jpeg';
 
 const ServicesSection: React.FC = () => {
-  // 🎯 DADOS CENTRALIZADOS - Agora vem de content.ts
-  const { titulo, descricao, beneficios } = SECOES.servicos;
+  // 🎯 DADOS CENTRALIZADOS - Agora vem de data/services/servicesData.ts
+  const titulo = "Nossos Serviços Especializados";
+  const descricao = "Oferecemos uma abordagem multidisciplinar completa para o desenvolvimento e reabilitação infantil, com profissionais altamente qualificados e equipamentos de última geração.";
   
-  // Mapear benefícios do content.ts para o formato usado no componente
-  const benefits = beneficios.map(b => ({
-    icon: b.icone,
-    text: b.texto,
-    color: b.cor
+  // Mapear serviços para o formato usado no componente
+  const benefits = servicesData.map(service => ({
+    icon: service.icon,
+    text: service.description,
+    color: service.color
   }));
 
   return (

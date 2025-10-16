@@ -3,11 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { ScrollReveal } from '../components/common/ScrollReveal';
 import Breadcrumb from '../components/common/Breadcrumb';
-import { TRATAMENTOS } from '../content';
+import { treatmentsData } from '../data';
 
 const TreatmentDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const treatment = slug ? TRATAMENTOS.find(t => t.slug === slug) : null;
+  const treatment = slug ? treatmentsData.find(t => t.slug === slug) : null;
 
   useEffect(() => {
     window.scrollTo(0, 0);
