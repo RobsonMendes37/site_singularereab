@@ -11,9 +11,9 @@ const ServicesSection: React.FC = () => {
   
   // Mapear serviços para o formato usado no componente
   const benefits = servicesData.map(service => ({
-    icon: service.icon,
-    text: service.description,
-    color: service.color
+    icon: service.icone,
+    text: service.descricao,
+    color: service.cor
   }));
 
   return (

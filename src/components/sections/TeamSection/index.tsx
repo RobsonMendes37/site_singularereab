@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { teamData } from '../../../data';
 import './TeamSection.css';
 
 interface TeamMember {
@@ -10,65 +11,7 @@ interface TeamMember {
   specialty: string;
 }
 
-const teamMembers: TeamMember[] = [
-  {
-    id: 1,
-    name: "Dra. Ana Carolina Silva",
-    role: "Fisioterapeuta",
-    specialty: "Neurologia Pediátrica",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop"
-  },
-  {
-    id: 2,
-    name: "Dr. Rafael Martins",
-    role: "Fonoaudiólogo",
-    specialty: "Linguagem Infantil",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop"
-  },
-  {
-    id: 3,
-    name: "Dra. Juliana Costa",
-    role: "Psicóloga",
-    specialty: "Desenvolvimento Infantil",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop"
-  },
-  {
-    id: 4,
-    name: "Dra. Mariana Oliveira",
-    role: "Terapeuta Ocupacional",
-    specialty: "Integração Sensorial",
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=500&fit=crop"
-  },
-  {
-    id: 5,
-    name: "Dr. Pedro Santos",
-    role: "Médico Pediatra",
-    specialty: "Neurologia",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=500&fit=crop"
-  },
-  {
-    id: 6,
-    name: "Dra. Camila Rodrigues",
-    role: "Psicopedagoga",
-    specialty: "Aprendizagem",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop"
-  },
-  
-  {
-    id: 8,
-    name: "Prof. Lucas Almeida",
-    role: "Educador Físico",
-    specialty: "Psicomotricidade",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=500&fit=crop"
-  },
-  {
-    id: 9,
-    name: "Prof. Almeida",
-    role: "Educador Físico",
-    specialty: "Psicomotricidade",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=500&fit=crop"
-  }
-];
+// 🎯 DADOS CENTRALIZADOS - Agora vem de data/team/teamData.ts
 
 const TeamSection: React.FC = () => {
   // Sem carrossel - mostra todos os membros sempre
@@ -91,7 +34,7 @@ const TeamSection: React.FC = () => {
 
         <div className="team-grid wow fadeIn" data-wow-delay="0.3s">
           <Row className="g-2 justify-content-center">
-            {teamMembers.map((member) => (
+            {teamData.map((member) => (
               <Col key={member.id} xs={6} sm={6} md={4} lg={3} xl={3}>
                 {/* Container externo com borda gradiente */}
                 <div 
