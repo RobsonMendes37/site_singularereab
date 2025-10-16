@@ -27,11 +27,7 @@ const AboutSection: React.FC = () => {
         <Row className="g-5 align-items-center">
           <Col lg={6} className="wow fadeIn order-2 order-lg-1" data-wow-delay="0.1s">
             {/* Container do vídeo inline - USANDO VÍDEO LOCAL */}
-            <div style={{
-              position: 'relative',
-              borderRadius: '20px',
-              overflow: 'hidden',
-              boxShadow: '0 15px 40px rgba(0,0,0,0.15)',
+            <div className="about-video-container" style={{
               border: '5px solid white',
               background: 'white'
             }}>
