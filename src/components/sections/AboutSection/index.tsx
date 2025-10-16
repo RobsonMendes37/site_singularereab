@@ -35,7 +35,7 @@ const AboutSection: React.FC = () => {
               border: '5px solid white',
               background: 'white'
             }}>
-              <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+              <div style={{ position: 'relative', paddingBottom: '177.78%', height: 0 }}>
                 {/* Vídeo Local HTML5 */}
                 <video
                   ref={videoRef}
