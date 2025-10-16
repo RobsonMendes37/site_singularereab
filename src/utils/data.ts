@@ -1,5 +1,4 @@
 import { Service, Program, Event, TeamMember, Testimonial, ContactInfo } from '../types';
-import { BlogPost } from '../types/blog.types';
 
 export const services: Service[] = [
   {
@@ -112,86 +111,7 @@ export const events: Event[] = [
   }
 ];
 
-export const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "Sinais de Atraso no Desenvolvimento: Quando Procurar Ajuda?",
-    description: "Identifique os marcos importantes do desenvolvimento infantil e saiba quando é hora de buscar avaliação profissional. Entenda os sinais de alerta em cada fase.",
-    date: "20 Out 2025",
-    comments: 24,
-    author: {
-      name: "Dra. Ana Carolina Silva",
-      role: "Fisioterapeuta Pediátrica",
-      image: "program-teacher.jpg"
-    },
-    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=400&fit=crop"
-  },
-  {
-    id: 2,
-    title: "Terapia Ocupacional: Como Ajuda no Desenvolvimento Infantil",
-    description: "Descubra como a terapia ocupacional trabalha habilidades motoras, sensoriais e cognitivas, promovendo independência e qualidade de vida para crianças.",
-    date: "15 Out 2025",
-    comments: 18,
-    author: {
-      name: "Dra. Mariana Oliveira",
-      role: "Terapeuta Ocupacional",
-      image: "program-teacher.jpg"
-    },
-    image: "https://images.unsplash.com/photo-1587616211892-e9b1ea5c24b4?w=600&h=400&fit=crop"
-  },
-  {
-    id: 3,
-    title: "Autismo: Estratégias Para o Dia a Dia em Casa",
-    description: "Dicas práticas e comprovadas para criar rotinas eficazes, melhorar a comunicação e promover a autonomia de crianças autistas no ambiente familiar.",
-    date: "10 Out 2025",
-    comments: 32,
-    author: {
-      name: "Dra. Juliana Costa",
-      role: "Psicóloga Infantil",
-      image: "program-teacher.jpg"
-    },
-    image: "https://images.unsplash.com/photo-1503919005314-30d93d07d823?w=600&h=400&fit=crop"
-  },
-  {
-    id: 4,
-    title: "Fonoaudiologia: Desenvolvimento da Fala e Linguagem",
-    description: "Entenda como a fonoaudiologia atua no desenvolvimento da comunicação, linguagem oral e escrita, deglutição e funções orofaciais.",
-    date: "05 Out 2025",
-    comments: 15,
-    author: {
-      name: "Dr. Rafael Martins",
-      role: "Fonoaudiólogo",
-      image: "program-teacher.jpg"
-    },
-    image: "https://images.unsplash.com/photo-1581594549595-35f6edc7b762?w=600&h=400&fit=crop"
-  },
-  {
-    id: 5,
-    title: "Síndrome de Down: Potencial e Possibilidades",
-    description: "Conheça as capacidades e potencialidades das crianças com Síndrome de Down e como a intervenção precoce pode maximizar seu desenvolvimento.",
-    date: "28 Set 2025",
-    comments: 21,
-    author: {
-      name: "Dr. Pedro Santos",
-      role: "Médico Pediatra",
-      image: "program-teacher.jpg"
-    },
-    image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&h=400&fit=crop"
-  },
-  {
-    id: 6,
-    title: "TDAH Infantil: Identificação e Tratamento",
-    description: "Saiba como identificar o Transtorno de Déficit de Atenção e Hiperatividade e conheça as abordagens terapêuticas mais eficazes.",
-    date: "22 Set 2025",
-    comments: 27,
-    author: {
-      name: "Dra. Camila Rodrigues",
-      role: "Psicopedagoga",
-      image: "program-teacher.jpg"
-    },
-    image: "https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=600&h=400&fit=crop"
-  }
-];
+// Blog posts moved to src/data/blog/blogData.ts
 
 export const teamMembers: TeamMember[] = [
   {
