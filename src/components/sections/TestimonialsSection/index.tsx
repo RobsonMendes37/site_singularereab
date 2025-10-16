@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { DEPOIMENTOS } from '../../../content';
+import { testimonialsData } from '../../../data';
 import { useCarousel } from '../../../hooks/useCarousel';
 import { useBreakpoints } from '../../../hooks/useWindowSize';
 import { COLORS } from '../../../constants/colors';
 
 const TestimonialsSection: React.FC = () => {
-  // 🎯 DADOS CENTRALIZADOS - Agora vem de content.ts
-  // Mapeia DEPOIMENTOS para o formato que o componente espera
-  const testimonials = DEPOIMENTOS.map(dep => ({
+  // 🎯 DADOS CENTRALIZADOS - Agora vem de data/testimonials/testimonialsData.ts
+  // Mapeia testimonialsData para o formato que o componente espera
+  const testimonials = testimonialsData.map(dep => ({
     id: dep.id,
     author: {
       name: dep.nome,

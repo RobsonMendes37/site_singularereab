@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import { SECOES } from '../../../content';
+import { heroSlides } from '../../../data';
 import './HeroSection.css';
 
 interface HeroSlide {
@@ -16,9 +16,9 @@ const HeroSection: React.FC = () => {
   const [lastManualChange, setLastManualChange] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // 🎯 DADOS CENTRALIZADOS - Agora vem de content.ts
-  const slides: HeroSlide[] = SECOES.hero.slides.map((slide, index) => ({
-    id: index + 1,
+  // 🎯 DADOS CENTRALIZADOS - Agora vem de data/hero/heroData.ts
+  const slides: HeroSlide[] = heroSlides.map((slide) => ({
+    id: slide.id,
     title: slide.titulo,
     subtitle: slide.subtitulo,
     backgroundImage: slide.imagemFundo

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { SECOES } from '../../../content';
+import { aboutData } from '../../../data';
 import './AboutSection.css';
 // Importar vídeo local
 import videoAbout from '../../../assets/videos/about.mp4';
@@ -10,8 +10,8 @@ const AboutSection: React.FC = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   
-  // 🎯 DADOS CENTRALIZADOS - Agora vem de content.ts
-  const { titulo, texto, textoBotao, linkBotao } = SECOES.sobre;
+  // 🎯 DADOS CENTRALIZADOS - Agora vem de data/about/aboutData.ts
+  const { titulo, texto, textoBotao, linkBotao } = aboutData;
   
   // 🎥 VÍDEO LOCAL - Usando vídeo em assets/videos/about.mp4
   const handlePlayVideo = () => {

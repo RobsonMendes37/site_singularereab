@@ -14,67 +14,62 @@
  * - NÃO altere as chaves como "id:", "titulo:", etc.
  */
 
-export interface BlogPost {
-  id: number;
-  slug: string; // NÃO ALTERAR - usado na URL
-  titulo: string;
-  resumo: string;
-  categoria: string;
-  data: string;
-  tempoLeitura: number; // em minutos
-  imagem: string; // URL da imagem ou nome do arquivo
-  autor: {
-    nome: string;
-    cargo: string;
-    foto: string;
-  };
-}
+import { BlogPost } from '../../types/blog.types';
 
 export const blogPostsData: BlogPost[] = [
   {
     id: 1,
     slug: "sinais-atraso-desenvolvimento", // NÃO ALTERAR
-    titulo: "Marcos do Desenvolvimento Infantil: Identificando Sinais de Alerta",
-    resumo: "Conheça os principais marcos do desenvolvimento infantil por faixa etária e aprenda a identificar sinais que indicam a necessidade de avaliação profissional especializada.",
-    categoria: "Desenvolvimento Infantil",
-    data: "15 Jan 2025",
-    tempoLeitura: 8,
-    imagem: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800",
-    autor: {
-      nome: "Dra. Ana Carolina Silva",
-      cargo: "Fisioterapeuta Pediátrica",
-      foto: "https://randomuser.me/api/portraits/women/1.jpg"
-    }
+    title: "Marcos do Desenvolvimento Infantil: Identificando Sinais de Alerta",
+    description: "Conheça os principais marcos do desenvolvimento infantil por faixa etária e aprenda a identificar sinais que indicam a necessidade de avaliação profissional especializada.",
+    content: "Conteúdo completo do post...", // Conteúdo completo
+    category: "Desenvolvimento Infantil",
+    date: "2025-01-15",
+    readTime: 8,
+    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800",
+    author: {
+      name: "Dra. Ana Carolina Silva",
+      role: "Fisioterapeuta Pediátrica",
+      image: "https://randomuser.me/api/portraits/women/1.jpg"
+    },
+    published: true,
+    featured: true
   },
   {
     id: 2,
     slug: "importancia-terapia-ocupacional", // NÃO ALTERAR
-    titulo: "A Importância da Terapia Ocupacional no Desenvolvimento Infantil",
-    resumo: "Entenda como a Terapia Ocupacional pode auxiliar crianças com dificuldades nas atividades do dia a dia, coordenação motora e integração sensorial.",
-    categoria: "Tratamentos",
-    data: "20 Jan 2025",
-    tempoLeitura: 6,
-    imagem: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800",
-    autor: {
-      nome: "Dr. Carlos Eduardo Santos",
-      cargo: "Terapeuta Ocupacional",
-      foto: "https://randomuser.me/api/portraits/men/2.jpg"
-    }
+    title: "A Importância da Terapia Ocupacional no Desenvolvimento Infantil",
+    description: "Entenda como a Terapia Ocupacional pode auxiliar crianças com dificuldades nas atividades do dia a dia, coordenação motora e integração sensorial.",
+    content: "Conteúdo completo do post...", // Conteúdo completo
+    category: "Tratamentos",
+    date: "2025-01-20",
+    readTime: 6,
+    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800",
+    author: {
+      name: "Dr. Carlos Eduardo Santos",
+      role: "Terapeuta Ocupacional",
+      image: "https://randomuser.me/api/portraits/men/2.jpg"
+    },
+    published: true,
+    featured: true
   },
   {
     id: 3,
     slug: "dicas-estimulacao-linguagem", // NÃO ALTERAR
-    titulo: "10 Dicas para Estimular a Linguagem do Seu Filho em Casa",
-    resumo: "Aprenda estratégias práticas e eficazes para estimular o desenvolvimento da linguagem e comunicação das crianças no ambiente familiar.",
-    categoria: "Dicas para Pais",
-    data: "25 Jan 2025",
-    tempoLeitura: 5,
-    imagem: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800",
-    autor: {
-      nome: "Dra. Maria Fernanda Lima",
-      cargo: "Fonoaudióloga",
-      foto: "https://randomuser.me/api/portraits/women/3.jpg"
-    }
+    title: "10 Dicas para Estimular a Linguagem do Seu Filho em Casa",
+    description: "Aprenda estratégias práticas e eficazes para estimular o desenvolvimento da linguagem e comunicação das crianças no ambiente familiar.",
+    content: "Conteúdo completo do post...", // Conteúdo completo
+    category: "Dicas para Pais",
+    date: "2025-01-25",
+    readTime: 5,
+    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800",
+    author: {
+      name: "Dra. Maria Fernanda Lima",
+      role: "Fonoaudióloga",
+      image: "https://randomuser.me/api/portraits/women/3.jpg"
+    },
+    published: true,
+    featured: true
   }
 ];
 

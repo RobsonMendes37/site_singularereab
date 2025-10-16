@@ -33,19 +33,7 @@ export interface Event {
   image: string;
 }
 
-export interface BlogPost {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  comments: number;
-  author: {
-    name: string;
-    role: string;
-    image: string;
-  };
-  image: string;
-}
+// BlogPost interface moved to blog.types.ts
 
 export interface TeamMember {
   id: number;

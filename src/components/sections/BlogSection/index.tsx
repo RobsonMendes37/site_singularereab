@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { fullBlogPosts } from '../../../utils/blogData';
+import { blogPostsData } from '../../../data';
 import { BlogCard } from '../../blog/BlogCard';
 import { Link } from 'react-router-dom';
 import { useCarousel } from '../../../hooks/useCarousel';
@@ -8,7 +8,7 @@ import { useBreakpoints } from '../../../hooks/useWindowSize';
 
 const BlogSection: React.FC = () => {
   // Pega os 3 posts publicados mais recentes
-  const recentPosts = fullBlogPosts
+  const recentPosts = blogPostsData
     .filter(post => post.published)
     .slice(0, 3);
 

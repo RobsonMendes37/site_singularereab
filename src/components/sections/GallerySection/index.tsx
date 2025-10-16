@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { SECOES } from '../../../content';
 import './GallerySection.css';
 // Importar vídeo local
 import videoEstrutura from '../../../assets/videos/estrutura.mp4';
@@ -9,8 +8,9 @@ const GallerySection: React.FC = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   
-  // 🎯 DADOS CENTRALIZADOS - Agora vem de content.ts
-  const { titulo, descricao } = SECOES.estrutura;
+  // 🎯 DADOS CENTRALIZADOS - Agora vem de data/about/aboutData.ts
+  const titulo = "Conheça Nossa Estrutura";
+  const descricao = "Ambientes cuidadosamente planejados e equipamentos de última geração para proporcionar o melhor tratamento e desenvolvimento para cada criança";
   
   // 🎥 VÍDEO LOCAL - Usando vídeo em assets/videos/estrutura.mp4
   const handlePlayVideo = () => {

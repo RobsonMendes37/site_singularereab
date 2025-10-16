@@ -1,14 +1,11 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { config } from '../../../config';
+import { contactData } from '../../../data';
 import './ContactSection.css';
 
 const ContactSection: React.FC = () => {
-  // 🎯 DADOS CENTRALIZADOS - Agora vem de config.ts
-  const {
-    contact: { phone, email, whatsappLink, whatsappLinkWithMessage },
-    clinic: { address }
-  } = config;
+  // 🎯 DADOS CENTRALIZADOS - Agora vem de data/contact/contactData.ts
+  const { endereco, telefone, email, horarios, whatsapp } = contactData;
 
   return (
     <div className="container-fluid contact py-4">
@@ -51,11 +48,8 @@ const ContactSection: React.FC = () => {
                     <i className="fas fa-map-marker-alt me-2 icon"></i>
                     Clínica Singulare
                   </h5>
-                  <p className="contact-address-text mb-1">
-                    {address.street} - {address.complement}
-                  </p>
                   <p className="contact-address-text mb-3">
-                    {address.neighborhood}, {address.city} - {address.state}, {address.cep}
+                    {endereco}
                   </p>
                 </div>
                 
@@ -73,7 +67,7 @@ const ContactSection: React.FC = () => {
                 </div>
 
                 <a
-                  href={address.mapUrl}
+                  href="https://maps.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-map-link"
@@ -89,7 +83,7 @@ const ContactSection: React.FC = () => {
             <div className="contact-info-card h-100 d-flex flex-column justify-content-center p-4">
               {/* Botão WhatsApp Destaque */}
               <a
-                href={whatsappLinkWithMessage}
+                href={whatsapp ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}` : '#'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-whatsapp-main"
@@ -111,22 +105,22 @@ const ContactSection: React.FC = () => {
               <div className="contact-options">
                 {/* WhatsApp */}
                 <a
-                  href={whatsappLink}
+                  href={whatsapp ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}` : '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-button contact-button-whatsapp"
                 >
                   <i className="fab fa-whatsapp icon"></i>
-                  <span className="text">{phone}</span>
+                  <span className="text">{whatsapp || telefone}</span>
                 </a>
 
                 {/* Telefone */}
                 <a
-                  href={`tel:+55${phone.replace(/\D/g, '')}`}
+                  href={`tel:+55${telefone.replace(/\D/g, '')}`}
                   className="contact-button contact-button-phone"
                 >
                   <i className="fas fa-phone icon"></i>
-                  <span className="text">{phone}</span>
+                  <span className="text">{telefone}</span>
                 </a>
 
                 {/* Email */}
