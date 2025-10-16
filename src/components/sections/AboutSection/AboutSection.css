@@ -6,8 +6,9 @@
 /* ========== Container do Vídeo ========== */
 .about-video-container {
   position: relative;
+  height: 100%;
   width: 100%;
-  max-width: 400px; /* Limita a largura para vídeos verticais */
+  max-width: 300px; /* Limita a largura para vídeos verticais */
   margin: 0 auto; /* Centraliza o container */
   padding-bottom: 177.78%; /* 9:16 Aspect Ratio (vertical) */
   overflow: hidden;
@@ -102,7 +103,7 @@
 .about-video-modal-content {
   position: relative;
   width: 90%;
-  max-width: 400px; /* Ajustado para vídeos verticais */
+  max-width: 300px; /* Ajustado para vídeos verticais */
   aspect-ratio: 9 / 16; /* Formato vertical */
   background: black;
   border-radius: 12px;
@@ -189,21 +190,21 @@
 /* ========== Responsividade para Vídeos Verticais ========== */
 @media (max-width: 768px) {
   .about-video-container {
-    max-width: 300px; /* Menor em mobile */
+    max-width: 250px; /* Menor em mobile */
   }
   
   .about-video-modal-content {
-    max-width: 300px; /* Menor em mobile */
+    max-width: 250px; /* Menor em mobile */
   }
 }
 
 @media (max-width: 576px) {
   .about-video-container {
-    max-width: 250px; /* Ainda menor em telas pequenas */
+    max-width: 200px; /* Ainda menor em telas pequenas */
   }
   
   .about-video-modal-content {
-    max-width: 250px; /* Ainda menor em telas pequenas */
+    max-width: 200px; /* Ainda menor em telas pequenas */
   }
 }
 
