@@ -206,8 +206,6 @@
     max-width: 250px; /* Ainda menor em telas pequenas */
   }
 }
-  animation: rotateIcon 3s linear infinite;
-}
 
 @keyframes rotateIcon {
   0%, 90% {
