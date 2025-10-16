@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { TRATAMENTOS } from '../../../content';
+import { treatmentsData } from '../../../data';
 import { COLORS } from '../../../constants/colors';
 import OptimizedImage from '../../common/OptimizedImage';
 import './TreatmentsSection.css';
@@ -25,7 +25,7 @@ const TreatmentsSection: React.FC = () => {
         </div>
 
         <Row className="justify-content-center">
-          {TRATAMENTOS.map((treatment, index) => {
+          {treatmentsData.map((treatment, index) => {
             // Importa imagem local dinamicamente
             const imageSrc = treatment.imagem.startsWith('http') 
               ? treatment.imagem 

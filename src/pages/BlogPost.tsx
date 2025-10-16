@@ -6,7 +6,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import { getBlogPostBySlug, getRelatedPosts } from '../utils/blogData';
+import { getBlogPostBySlug, getRelatedPosts } from '../data';
 import { ShareButtons } from '../components/blog/ShareButtons';
 import { BlogCard } from '../components/blog/BlogCard';
 import { SEO } from '../components/common/SEO';

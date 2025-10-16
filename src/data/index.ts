@@ -35,7 +35,7 @@ export { testimonialsData } from './testimonials/testimonialsData';
 export type { Testimonial } from './testimonials/testimonialsData';
 
 // Blog
-export { blogPostsData } from './blog/blogData';
+export { blogPostsData, getBlogPostBySlug, getRelatedPosts, filterBlogPosts } from './blog/blogData';
 export type { BlogPost } from '../types/blog.types';
 
 // Events

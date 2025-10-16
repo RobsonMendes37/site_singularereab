@@ -77,6 +77,39 @@ export const blogPostsData: BlogPost[] = [
 // - Para adicionar novo post: copie um bloco { } e altere as informações
 // - NÃO altere o "slug" - ele é usado na URL da página
 // - Para trocar imagem: use URL completa ou nome do arquivo em src/assets/images/
+
+// Funções auxiliares para o blog
+export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
+  return blogPostsData.find(post => post.slug === slug);
+};
+
+export const getRelatedPosts = (currentPost: BlogPost, limit: number = 3): BlogPost[] => {
+  return blogPostsData
+    .filter(post => post.id !== currentPost.id && post.category === currentPost.category)
+    .slice(0, limit);
+};
+
+export const filterBlogPosts = (filters: {
+  category?: string;
+  search?: string;
+}): BlogPost[] => {
+  let filtered = blogPostsData;
+
+  if (filters.category) {
+    filtered = filtered.filter(post => post.category === filters.category);
+  }
+
+  if (filters.search) {
+    const searchLower = filters.search.toLowerCase();
+    filtered = filtered.filter(post => 
+      post.title.toLowerCase().includes(searchLower) ||
+      post.description.toLowerCase().includes(searchLower) ||
+      post.content.toLowerCase().includes(searchLower)
+    );
+  }
+
+  return filtered;
+};
 // - Para alterar data: use formato "DD MMM YYYY" (ex: "15 Jan 2025")
 // - Para alterar tempo de leitura: use número em minutos
 // - Para remover post: delete o bloco { } inteiro

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { programs } from '../../../utils/data';
+import { programsData } from '../../../data';
 import { Link } from 'react-router-dom';
 
 const ProgramsSection: React.FC = () => {

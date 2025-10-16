@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { SECOES } from '../../../content';
+import { servicesData } from '../../../data';
 import './ServicesSection.css';
 import aboutImage from '../../../assets/images/about2.jpeg';
 

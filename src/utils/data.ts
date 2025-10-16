@@ -1,4 +1,4 @@
-import { Service, Program, Event, TeamMember, Testimonial, ContactInfo } from '../types';
+import { Service, Program, Event, ContactInfo } from '../types';
 
 export const services: Service[] = [
   {
@@ -113,131 +113,9 @@ export const events: Event[] = [
 
 // Blog posts moved to src/data/blog/blogData.ts
 
-export const teamMembers: TeamMember[] = [
-  {
-    id: 1,
-    name: "Dra. Ana Silva",
-    role: "Fisioterapeuta",
-    image: "team-1.jpg",
-    socialLinks: {
-      facebook: "#",
-      twitter: "#",
-      instagram: "#",
-      linkedin: "#"
-    }
-  },
-  {
-    id: 2,
-    name: "Dr. Carlos Lima",
-    role: "Terapeuta Ocupacional",
-    image: "team-2.jpg",
-    socialLinks: {
-      facebook: "#",
-      twitter: "#",
-      instagram: "#",
-      linkedin: "#"
-    }
-  },
-  {
-    id: 3,
-    name: "Dra. Maria Santos",
-    role: "Fonoaudióloga",
-    image: "team-3.jpg",
-    socialLinks: {
-      facebook: "#",
-      twitter: "#",
-      instagram: "#",
-      linkedin: "#"
-    }
-  },
-  {
-    id: 4,
-    name: "Dr. João Oliveira",
-    role: "Psicólogo",
-    image: "team-4.jpg",
-    socialLinks: {
-      facebook: "#",
-      twitter: "#",
-      instagram: "#",
-      linkedin: "#"
-    }
-  }
-];
+// Team members moved to src/data/team/teamData.ts
 
-export const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: "Mariana Oliveira",
-    profession: "Mãe do Matheus, 6 anos",
-    content: "Quando descobrimos que nosso filho tinha autismo, ficamos perdidos. A Clínica Singulare nos acolheu de uma forma incrível! Hoje, após 2 anos de tratamento, o Matheus já consegue se comunicar melhor, brincar com outras crianças e sua autonomia aumentou significativamente. A equipe multidisciplinar trabalha de forma integrada e isso faz toda a diferença. Somos eternamente gratos!",
-    rating: 5,
-    image: "testimonial-1.jpg"
-  },
-  {
-    id: 2,
-    name: "Alessandro Costa",
-    profession: "Pai da Sofia, 4 anos",
-    content: "Minha filha tinha grandes dificuldades na fala e isso afetava sua autoestima. Na Clínica Singulare, encontramos profissionais dedicados que usam técnicas modernas e eficazes. Em 8 meses de fonoaudiologia, a evolução foi impressionante! Hoje ela conversa, canta e se expressa com confiança. O ambiente acolhedor e lúdico faz com que ela ame vir para as sessões. Recomendo de coração!",
-    rating: 5,
-    image: "testimonial-2.jpg"
-  },
-  {
-    id: 3,
-    name: "Juliana Ferreira",
-    profession: "Mãe do Lucas, 5 anos",
-    content: "O Lucas nasceu com paralisia cerebral e os médicos disseram que ele teria muitas limitações. Mas na Clínica Singulare, encontramos esperança e um tratamento excepcional! A fisioterapia e a terapia ocupacional transformaram a vida dele. Hoje ele já consegue andar com apoio, segurar objetos e está muito mais independente. A dedicação dos profissionais é algo que nos emociona todos os dias. Obrigada por cuidarem do nosso filho com tanto amor!",
-    rating: 5,
-    image: "testimonial-3.jpg"
-  },
-  {
-    id: 4,
-    name: "Carlos Mendes",
-    profession: "Pai do Gabriel, 7 anos",
-    content: "Como pai de uma criança com TDAH, eu estava desesperado vendo as dificuldades do meu filho na escola. A Clínica Singulare nos ofereceu um plano de tratamento personalizado com psicologia, psicopedagogia e terapia ocupacional. Em 1 ano, o Gabriel melhorou muito sua concentração, está com notas melhores e mais importante, está feliz! A estrutura da clínica é maravilhosa e os profissionais são altamente qualificados. Investimento que vale cada centavo!",
-    rating: 5,
-    image: "testimonial-1.jpg"
-  },
-  {
-    id: 5,
-    name: "Fernanda Alves",
-    profession: "Mãe da Isabela, 3 anos",
-    content: "A Isabela tinha atraso no desenvolvimento motor e não conseguia sentar sozinha com 2 anos. Chegamos na Clínica Singulare angustiados e fomos recebidos com muito carinho e profissionalismo. O trabalho da fisioterapeuta é sensacional! Hoje, com 3 anos, minha filha já anda, corre e brinca como qualquer criança da idade dela. É emocionante ver essa transformação! A clínica mudou nossas vidas e só tenho gratidão.",
-    rating: 5,
-    image: "testimonial-2.jpg"
-  },
-  {
-    id: 6,
-    name: "Roberto Santos",
-    profession: "Pai do Miguel, 8 anos",
-    content: "O Miguel foi diagnosticado com síndrome de Down e desde bebê fazemos acompanhamento na Clínica Singulare. O trabalho integrado entre fisioterapia, fonoaudiologia e terapia ocupacional é fundamental para o desenvolvimento dele. Hoje ele está alfabetizado, se comunica super bem e é muito independente nas atividades diárias. A equipe é como uma família para nós! A estrutura da clínica é excelente e o ambiente é super acolhedor. Recomendo com toda certeza!",
-    rating: 5,
-    image: "testimonial-3.jpg"
-  },
-  {
-    id: 7,
-    name: "Fernanda Lima",
-    profession: "Mãe da Alice, 5 anos",
-    content: "Ambiente acolhedor e profissionais extremamente competentes. A Alice se sente segura e feliz aqui. Gratidão por todo o cuidado e carinho!",
-    rating: 5,
-    image: "testimonial-1.jpg"
-  },
-  {
-    id: 8,
-    name: "Paulo Mendes",
-    profession: "Pai do Henrique, 6 anos",
-    content: "A evolução do meu filho tem sido surpreendente! A equipe é muito dedicada e sempre nos mantém informados sobre cada progresso. Excelente trabalho!",
-    rating: 5,
-    image: "testimonial-2.jpg"
-  },
-  {
-    id: 9,
-    name: "Camila Rodrigues",
-    profession: "Mãe da Beatriz, 4 anos",
-    content: "Melhor escolha que fizemos! Os profissionais são altamente capacitados e realmente se importam com o bem-estar das crianças. Muito obrigada!",
-    rating: 5,
-    image: "testimonial-3.jpg"
-  }
-];
+// Testimonials moved to src/data/testimonials/testimonialsData.ts
 
 export const contactInfo: ContactInfo = {
   address: "Rua das Flores, 123 - Vila Madalena, São Paulo - SP",

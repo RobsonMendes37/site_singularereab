@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import { blogCategories } from '../../utils/blogData';
+import { blogCategories } from '../../data';
 
 interface BlogFiltersProps {
   onFilterChange: (filters: { category?: string; search?: string }) => void;

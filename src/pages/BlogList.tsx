@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { fullBlogPosts, filterBlogPosts } from '../utils/blogData';
+import { blogPostsData, filterBlogPosts } from '../data';
 import { BlogCard } from '../components/blog/BlogCard';
 import { BlogFilters } from '../components/blog/BlogFilters';
 import { BlogPost as BlogPostType } from '../types/blog.types';
