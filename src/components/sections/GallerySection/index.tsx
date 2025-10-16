@@ -138,7 +138,7 @@ const GallerySection: React.FC = () => {
                   {/* Container do Vídeo - USANDO VÍDEO LOCAL */}
                   <div style={{
                     position: 'relative',
-                    maxWidth: '900px',
+                    maxWidth: '400px',
                     margin: '0 auto',
                     zIndex: 1
                   }}>
@@ -151,7 +151,7 @@ const GallerySection: React.FC = () => {
                       background: 'white'
                     }}>
                       {/* Vídeo Local ou Thumbnail */}
-                      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+                      <div style={{ position: 'relative', paddingBottom: '177.78%', height: 0 }}>
                         {/* Vídeo Local HTML5 */}
                         <video
                           ref={videoRef}

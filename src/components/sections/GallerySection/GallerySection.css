@@ -18,7 +18,9 @@
 .gallery-video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  max-width: 400px; /* Limita a largura para vídeos verticais */
+  margin: 0 auto; /* Centraliza o container */
+  padding-bottom: 177.78%; /* 9:16 Aspect Ratio (vertical) */
   overflow: hidden;
   border-radius: 20px;
   cursor: pointer;
@@ -100,8 +102,8 @@
 .gallery-video-modal-content {
   position: relative;
   width: 90%;
-  max-width: 1200px;
-  aspect-ratio: 16 / 9;
+  max-width: 400px; /* Ajustado para vídeos verticais */
+  aspect-ratio: 9 / 16; /* Formato vertical */
   background: black;
   border-radius: 12px;
   overflow: hidden;
@@ -153,6 +155,14 @@
     font-size: 2.5rem;
   }
 
+  .gallery-video-container {
+    max-width: 300px; /* Menor em tablets */
+  }
+  
+  .gallery-video-modal-content {
+    max-width: 300px; /* Menor em tablets */
+  }
+
   .gallery-play-button {
     width: 60px;
     height: 60px;
@@ -173,18 +183,20 @@
   }
 
   .gallery-video-container {
+    max-width: 250px; /* Ainda menor em mobile */
     border-radius: 15px;
+  }
+  
+  .gallery-video-modal-content {
+    max-width: 250px; /* Ainda menor em mobile */
+    width: 95%;
+    border-radius: 8px;
   }
 
   .gallery-play-button {
     width: 50px;
     height: 50px;
     font-size: 20px;
-  }
-
-  .gallery-video-modal-content {
-    width: 95%;
-    border-radius: 8px;
   }
 }
 
