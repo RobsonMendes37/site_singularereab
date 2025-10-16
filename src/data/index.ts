@@ -36,7 +36,7 @@ export type { Testimonial } from './testimonials/testimonialsData';
 
 // Blog
 export { blogPostsData } from './blog/blogData';
-export type { BlogPost } from '../../types/blog.types';
+export type { BlogPost } from '../types/blog.types';
 
 // Events
 export { eventsData } from './events/eventsData';

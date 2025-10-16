@@ -1,4 +1,5 @@
-import { Service, Program, Event, BlogPost, TeamMember, Testimonial, ContactInfo } from '../types';
+import { Service, Program, Event, TeamMember, Testimonial, ContactInfo } from '../types';
+import { BlogPost } from '../types/blog.types';
 
 export const services: Service[] = [
   {

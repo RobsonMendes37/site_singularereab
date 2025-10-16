@@ -5,7 +5,7 @@ import './ContactSection.css';
 
 const ContactSection: React.FC = () => {
   // 🎯 DADOS CENTRALIZADOS - Agora vem de data/contact/contactData.ts
-  const { endereco, telefone, email, horarios, whatsapp } = contactData;
+  const { endereco, telefone, email, whatsapp } = contactData;
 
   return (
     <div className="container-fluid contact py-4">
