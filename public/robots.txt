@@ -1,3 +1,20 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://singularereab.com.br/sitemap.xml
+Sitemap: https://clinica-singulare.vercel.app/sitemap.xml
+
+# Crawl-delay (opcional, para evitar sobrecarga do servidor)
+Crawl-delay: 10
+
+# User-agents específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

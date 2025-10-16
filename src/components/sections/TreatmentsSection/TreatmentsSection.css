@@ -1,0 +1,28 @@
+/**
+ * TreatmentsSection Styles
+ * Estilos para reduzir gap entre cards
+ */
+
+/* ========== Reduzir Gap entre Cards ========== */
+.treatments .mb-5 {
+  margin-bottom: 1.5rem !important; /* Reduzido de 3rem (mb-5 padrão) */
+}
+
+/* ========== Responsivo ========== */
+@media (max-width: 768px) {
+  .treatments .mb-5 {
+    margin-bottom: 1.2rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .treatments .mb-5 {
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Cards mais quadrados no mobile */
+  .treatment-card {
+    height: 200px !important;
+  }
+}
+

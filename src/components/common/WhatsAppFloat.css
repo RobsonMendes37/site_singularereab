@@ -1,0 +1,89 @@
+/**
+ * WhatsApp Float Button
+ * Botão flutuante fixo para contato rápido via WhatsApp
+ */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 80px; /* Aumentado de 20px para 80px - mais para cima */
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  z-index: 9999;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  animation: pulse-whatsapp 2s infinite;
+}
+
+.whatsapp-float i {
+  font-size: 30px;
+  color: white;
+  line-height: 1;
+}
+
+/* Hover effect */
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7);
+  background: #20BA5A;
+}
+
+/* Pulse animation */
+@keyframes pulse-whatsapp {
+  0%, 100% { 
+    transform: scale(1); 
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  }
+  50% { 
+    transform: scale(1.05); 
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7);
+  }
+}
+
+/* Active state (touch feedback) */
+.whatsapp-float:active {
+  transform: scale(0.95);
+}
+
+/* Responsivo - ajustar para mobile */
+@media (max-width: 576px) {
+  .whatsapp-float {
+    bottom: 90px; /* Aumentado para dar mais espaço ao botão de voltar */
+    right: 15px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .whatsapp-float i {
+    font-size: 28px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 577px) and (max-width: 991px) {
+  .whatsapp-float {
+    bottom: 75px; /* Aumentado para tablet também */
+    right: 18px;
+    width: 58px;
+    height: 58px;
+  }
+}
+
+/* Garantir que não sobreponha elementos importantes */
+.whatsapp-float {
+  pointer-events: auto;
+}
+
+/* Acessibilidade - focus visible */
+.whatsapp-float:focus-visible {
+  outline: 3px solid #20BA5A;
+  outline-offset: 4px;
+}
+

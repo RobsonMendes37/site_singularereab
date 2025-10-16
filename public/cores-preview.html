@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleta de Cores - Clínica Singulare 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #143557;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: #143557;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #12B2C9;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .color-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .color-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .color-preview {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .color-info {
+            padding: 20px;
+            background: white;
+        }
+
+        .color-name {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .color-hex {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: #12B2C9;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .color-usage {
+            color: #718096;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .gradient-card {
+            height: 200px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .gradient-info {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .gradient-code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            color: #2d3748;
+            background: #f7fafc;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        .cmyk-values {
+            background: #f7fafc;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        .cmyk-values strong {
+            color: #2d3748;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .color-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Paleta de Cores</h1>
+        <p class="subtitle">Identidade Visual 2025 - Clínica Singulare</p>
+
+        <!-- Cores Primárias -->
+        <div class="section">
+            <h2 class="section-title">Cores Primárias</h2>
+            <div class="color-grid">
+                <!-- Azul Marinho -->
+                <div class="color-card">
+                    <div class="color-preview" style="background: #143557;">
+                        ★
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Azul Marinho</div>
+                        <div class="color-hex">#143557</div>
+                        <div class="color-usage">Cor principal da marca, títulos, navegação, botões primários</div>
+                        <div class="cmyk-values">
+                            <strong>CMYK:</strong> C100% M78% Y38% K32%
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Azul Turquesa -->
+                <div class="color-card">
+                    <div class="color-preview" style="background: #12B2C9;">
+                        ♦
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Azul Turquesa</div>
+                        <div class="color-hex">#12B2C9</div>
+                        <div class="color-usage">Cor secundária, destaques, hover states, elementos interativos</div>
+                        <div class="cmyk-values">
+                            <strong>CMYK:</strong> C73% M03% Y21% K00%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cores de Destaque -->
+        <div class="section">
+            <h2 class="section-title">Cores de Destaque</h2>
+            <div class="color-grid">
+                <!-- Rosa Médio -->
+                <div class="color-card">
+                    <div class="color-preview" style="background: #B577AF;">
+                        ●
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Rosa Médio</div>
+                        <div class="color-hex">#B577AF</div>
+                        <div class="color-usage">Elementos decorativos, cards, ícones especiais, acentos</div>
+                        <div class="cmyk-values">
+                            <strong>CMYK:</strong> C33% M61% Y01% K00%
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lilás Claro -->
+                <div class="color-card">
+                    <div class="color-preview" style="background: #BEA7D1;">
+                        ◆
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Lilás Claro</div>
+                        <div class="color-hex">#BEA7D1</div>
+                        <div class="color-usage">Backgrounds suaves, elementos secundários, gradientes</div>
+                        <div class="cmyk-values">
+                            <strong>CMYK:</strong> C29% M38% Y00% K00%
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branco -->
+                <div class="color-card">
+                    <div class="color-preview" style="background: #FFFFFF; color: #143557; border: 2px solid #e2e8f0;">
+                        ✦
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Branco</div>
+                        <div class="color-hex">#FFFFFF</div>
+                        <div class="color-usage">Backgrounds, contraste com cores escuras, textos em fundos coloridos</div>
+                        <div class="cmyk-values">
+                            <strong>CMYK:</strong> C00% M00% Y00% K00%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gradientes -->
+        <div class="section">
+            <h2 class="section-title">Gradientes da Identidade Visual</h2>
+            
+            <div class="gradient-info">
+                <strong>Gradiente 1: Azul Marinho → Turquesa</strong>
+                <div class="gradient-code">background: linear-gradient(135deg, #143557 0%, #12B2C9 100%);</div>
+            </div>
+            <div class="gradient-card" style="background: linear-gradient(135deg, #143557 0%, #12B2C9 100%);">
+                Gradiente 1
+            </div>
+
+            <div class="gradient-info">
+                <strong>Gradiente 2: Turquesa → Rosa</strong>
+                <div class="gradient-code">background: linear-gradient(135deg, #12B2C9 0%, #B577AF 100%);</div>
+            </div>
+            <div class="gradient-card" style="background: linear-gradient(135deg, #12B2C9 0%, #B577AF 100%);">
+                Gradiente 2
+            </div>
+
+            <div class="gradient-info">
+                <strong>Gradiente 3: Turquesa → Lilás</strong>
+                <div class="gradient-code">background: linear-gradient(135deg, #12B2C9 0%, #BEA7D1 100%);</div>
+            </div>
+            <div class="gradient-card" style="background: linear-gradient(135deg, #12B2C9 0%, #BEA7D1 100%);">
+                Gradiente 3
+            </div>
+        </div>
+
+        <!-- Exemplos de Uso -->
+        <div class="section">
+            <h2 class="section-title">Exemplos de Aplicação</h2>
+            
+            <div style="display: grid; gap: 20px; margin-top: 20px;">
+                <!-- Botão Primário -->
+                <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                    <h3 style="color: #2d3748; margin-bottom: 15px;">Botão Primário</h3>
+                    <button style="
+                        background: #143557;
+                        color: white;
+                        border: none;
+                        padding: 12px 30px;
+                        border-radius: 25px;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        box-shadow: 0 4px 15px rgba(20, 53, 87, 0.3);
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.background='#12B2C9'; this.style.transform='translateY(-2px)'" 
+                       onmouseout="this.style.background='#143557'; this.style.transform='translateY(0)'">
+                        Agende uma Consulta
+                    </button>
+                </div>
+
+                <!-- Card com Gradiente -->
+                <div style="
+                    background: linear-gradient(135deg, #12B2C9 0%, #B577AF 100%);
+                    padding: 30px;
+                    border-radius: 15px;
+                    color: white;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                ">
+                    <h3 style="margin-bottom: 10px; font-size: 1.5rem;">Card com Gradiente</h3>
+                    <p style="margin: 0; font-size: 1.1rem; opacity: 0.95;">
+                        Exemplo de card usando o Gradiente 2 da identidade visual
+                    </p>
+                </div>
+
+                <!-- Título Principal -->
+                <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                    <h1 style="color: #143557; font-size: 2.5rem; margin: 0;">
+                        Título Principal
+                    </h1>
+                    <p style="color: #718096; margin-top: 10px;">
+                        Usando a cor Azul Marinho (#143557) para títulos principais
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
+            <p style="color: #718096; font-size: 0.95rem;">
+                ✨ Identidade Visual 2025 - Clínica Singulare
+            </p>
+            <p style="color: #a0aec0; font-size: 0.85rem; margin-top: 5px;">
+                Todas as cores foram aplicadas no sistema de design
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+

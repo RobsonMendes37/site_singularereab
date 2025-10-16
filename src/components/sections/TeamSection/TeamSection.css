@@ -1,0 +1,52 @@
+/**
+ * TeamSection Styles
+ * Estilos para cards de equipe mais retangulares
+ */
+
+/* ========== Cards de Equipe ========== */
+.team-card-wrapper {
+  /* Removido max-width para ocupar toda a largura da coluna */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.team-card-inner .team-image {
+  height: 340px; /* Ajustado proporcionalmente */
+}
+
+/* ========== Responsivo ========== */
+@media (max-width: 1400px) {
+  .team-card-inner .team-image {
+    height: 330px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .team-card-inner .team-image {
+    height: 320px;
+  }
+}
+
+@media (max-width: 991px) {
+  .team-card-inner .team-image {
+    height: 310px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-card-inner .team-image {
+    height: 290px;
+  }
+}
+
+@media (max-width: 576px) {
+  .team-card-wrapper {
+    width: 100%;
+    margin-bottom: 15px; /* Pequena distância entre linhas */
+  }
+  
+  .team-card-inner .team-image {
+    height: 240px;
+  }
+}
+

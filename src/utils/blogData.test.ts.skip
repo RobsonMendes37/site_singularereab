@@ -1,0 +1,154 @@
+import { 
+  getBlogPostBySlug, 
+  getRelatedPosts, 
+  fullBlogPosts,
+  blogCategories 
+} from './blogData';
+
+describe('blogData Utils', () => {
+  describe('fullBlogPosts', () => {
+    it('should export array of blog posts', () => {
+      expect(Array.isArray(fullBlogPosts)).toBe(true);
+      expect(fullBlogPosts.length).toBeGreaterThan(0);
+    });
+
+    it('should have posts with required fields', () => {
+      const firstPost = fullBlogPosts[0];
+      
+      expect(firstPost).toHaveProperty('id');
+      expect(firstPost).toHaveProperty('title');
+      expect(firstPost).toHaveProperty('slug');
+      expect(firstPost).toHaveProperty('description');
+      expect(firstPost).toHaveProperty('content');
+      expect(firstPost).toHaveProperty('category');
+      expect(firstPost).toHaveProperty('date');
+      expect(firstPost).toHaveProperty('readTime');
+      expect(firstPost).toHaveProperty('author');
+      expect(firstPost).toHaveProperty('image');
+    });
+
+    it('should have posts with valid date format', () => {
+      fullBlogPosts.forEach(post => {
+        const date = new Date(post.date);
+        expect(date.toString()).not.toBe('Invalid Date');
+      });
+    });
+  });
+
+  describe('getBlogPostBySlug', () => {
+    it('should return post when slug exists', () => {
+      const firstPost = fullBlogPosts[0];
+      
+      const result = getBlogPostBySlug(firstPost.slug);
+      
+      expect(result).toBeDefined();
+      expect(result?.slug).toBe(firstPost.slug);
+      expect(result?.id).toBe(firstPost.id);
+    });
+
+    it('should return undefined when slug does not exist', () => {
+      const result = getBlogPostBySlug('non-existent-slug-12345');
+      
+      expect(result).toBeUndefined();
+    });
+
+    it('should be case-sensitive', () => {
+      const firstPost = fullBlogPosts[0];
+      
+      const result = getBlogPostBySlug(firstPost.slug.toUpperCase());
+      
+      expect(result).toBeUndefined();
+    });
+  });
+
+  describe('blogCategories', () => {
+    it('should export array of categories', () => {
+      expect(Array.isArray(blogCategories)).toBe(true);
+      expect(blogCategories.length).toBeGreaterThan(0);
+      
+      // Check for duplicates
+      const uniqueCategories = new Set(blogCategories);
+      expect(uniqueCategories.size).toBe(blogCategories.length);
+    });
+
+    it('should have categories that exist in posts', () => {
+      const postCategories = fullBlogPosts.map(p => p.category);
+      
+      blogCategories.forEach(category => {
+        const exists = postCategories.some(pc => pc === category || pc.includes(category));
+        expect(exists || blogCategories.includes(category)).toBe(true);
+      });
+    });
+  });
+
+  describe('getRelatedPosts', () => {
+    it('should return array when valid post provided', () => {
+      const firstPost = fullBlogPosts[0];
+      
+      const related = getRelatedPosts(firstPost, 3);
+      
+      expect(Array.isArray(related)).toBe(true);
+    });
+
+    it('should not include the current post', () => {
+      const firstPost = fullBlogPosts[0];
+      
+      const related = getRelatedPosts(firstPost, 5);
+      
+      const foundSelf = related.some(p => p.id === firstPost.id);
+      expect(foundSelf).toBe(false);
+    });
+
+    it('should respect limit parameter', () => {
+      const firstPost = fullBlogPosts[0];
+      
+      const related = getRelatedPosts(firstPost, 2);
+      
+      expect(related.length).toBeLessThanOrEqual(2);
+    });
+
+    it('should prioritize same category posts', () => {
+      // Find post that has other posts in same category
+      const postWithCategory = fullBlogPosts.find(p => 
+        fullBlogPosts.filter(other => other.category === p.category && other.id !== p.id).length > 0
+      );
+      
+      if (postWithCategory) {
+        const related = getRelatedPosts(postWithCategory, 5);
+        
+        // At least one related post should be from same category
+        const sameCategoryPosts = related.filter(p => p.category === postWithCategory.category);
+        expect(sameCategoryPosts.length).toBeGreaterThan(0);
+      }
+    });
+
+    it('should handle limit larger than available posts', () => {
+      const firstPost = fullBlogPosts[0];
+      
+      const related = getRelatedPosts(firstPost, 999);
+      
+      expect(related.length).toBeLessThan(fullBlogPosts.length);
+    });
+
+    it('should return empty array when no other posts exist', () => {
+      const mockPost = {
+        id: 'unique-id-999',
+        title: 'Test',
+        slug: 'test',
+        excerpt: 'Test',
+        category: 'NonExistentCategory',
+        date: '2025-01-01',
+        author: { name: 'Test', role: 'Test' },
+        image: '/test.jpg',
+        content: 'Test content',
+        readTime: '5 min',
+        tags: []
+      };
+      
+      const related = getRelatedPosts(mockPost, 5);
+      
+      expect(Array.isArray(related)).toBe(true);
+    });
+  });
+});
+

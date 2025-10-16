@@ -1,0 +1,229 @@
+import { renderHook, act } from '@testing-library/react';
+import { useCarousel } from './useCarousel';
+
+describe('useCarousel Hook', () => {
+  const mockItems = ['item1', 'item2', 'item3', 'item4', 'item5'];
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
+  });
+
+  it('should initialize with first item', () => {
+    const { result } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: false })
+    );
+
+    expect(result.current.currentIndex).toBe(0);
+    expect(result.current.currentItem).toBe('item1');
+  });
+
+  it('should move to next item', () => {
+    const { result } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: false })
+    );
+
+    act(() => {
+      result.current.next();
+    });
+
+    expect(result.current.currentIndex).toBe(1);
+    expect(result.current.currentItem).toBe('item2');
+  });
+
+  it('should move to previous item', () => {
+    const { result } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: false })
+    );
+
+    // First move to second item
+    act(() => {
+      result.current.next();
+    });
+
+    expect(result.current.currentIndex).toBe(1);
+
+    // Then go back
+    act(() => {
+      result.current.previous();
+    });
+
+    expect(result.current.currentIndex).toBe(0);
+  });
+
+  it('should loop to first item after last', () => {
+    const { result } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: false })
+    );
+
+    // Move to last item
+    for (let i = 0; i < mockItems.length; i++) {
+      act(() => {
+        result.current.next();
+      });
+    }
+
+    // Should loop back to first
+    expect(result.current.currentIndex).toBe(0);
+    expect(result.current.currentItem).toBe('item1');
+  });
+
+  it('should loop to last item when going back from first', () => {
+    const { result } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: false })
+    );
+
+    act(() => {
+      result.current.previous();
+    });
+
+    expect(result.current.currentIndex).toBe(mockItems.length - 1);
+    expect(result.current.currentItem).toBe('item5');
+  });
+
+  it('should go to specific index', () => {
+    const { result } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: false })
+    );
+
+    act(() => {
+      result.current.goTo(3);
+    });
+
+    expect(result.current.currentIndex).toBe(3);
+    expect(result.current.currentItem).toBe('item4');
+  });
+
+  it('should auto-play when enabled', () => {
+    const { result } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: true, interval: 1000 })
+    );
+
+    expect(result.current.currentIndex).toBe(0);
+
+    // Fast-forward time
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
+    expect(result.current.currentIndex).toBe(1);
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
+    expect(result.current.currentIndex).toBe(2);
+  });
+
+  it('should pause and resume auto-play', () => {
+    const { result } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: true, interval: 1000 })
+    );
+
+    expect(result.current.currentIndex).toBe(0);
+
+    // Pause
+    act(() => {
+      result.current.pause();
+    });
+
+    act(() => {
+      jest.advanceTimersByTime(2000);
+    });
+
+    // Should still be at first item (paused)
+    expect(result.current.currentIndex).toBe(0);
+
+    // Resume
+    act(() => {
+      result.current.play();
+    });
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
+    // Now should advance
+    expect(result.current.currentIndex).toBe(1);
+  });
+
+  it('should handle empty items array', () => {
+    const { result } = renderHook(() => 
+      useCarousel([], { autoPlay: false })
+    );
+
+    expect(result.current.currentIndex).toBe(0);
+    expect(result.current.currentItem).toBeUndefined();
+  });
+
+  it('should handle single item', () => {
+    const { result } = renderHook(() => 
+      useCarousel(['single'], { autoPlay: false })
+    );
+
+    act(() => {
+      result.current.next();
+    });
+
+    // Should stay at same item or loop to itself
+    expect(result.current.currentIndex).toBe(0);
+    expect(result.current.currentItem).toBe('single');
+  });
+
+  it('should update when items change', () => {
+    const { result, rerender } = renderHook(
+      ({ items }) => useCarousel(items, { autoPlay: false }),
+      { initialProps: { items: mockItems } }
+    );
+
+    expect(result.current.currentItem).toBe('item1');
+
+    // Change items
+    const newItems = ['newItem1', 'newItem2'];
+    rerender({ items: newItems });
+
+    expect(result.current.currentItem).toBe('newItem1');
+  });
+
+  it('should cleanup interval on unmount', () => {
+    const { unmount } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: true, interval: 1000 })
+    );
+
+    unmount();
+
+    // Should not throw error
+    jest.advanceTimersByTime(5000);
+  });
+
+  it('should handle going to invalid index', () => {
+    const { result } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: false })
+    );
+
+    act(() => {
+      result.current.goTo(999);
+    });
+
+    // Should clamp to last valid index or stay at current
+    expect(result.current.currentIndex).toBeLessThan(mockItems.length);
+  });
+
+  it('should handle negative index', () => {
+    const { result } = renderHook(() => 
+      useCarousel(mockItems, { autoPlay: false })
+    );
+
+    act(() => {
+      result.current.goTo(-1);
+    });
+
+    // Should clamp to 0 or handle gracefully
+    expect(result.current.currentIndex).toBeGreaterThanOrEqual(0);
+  });
+});
+

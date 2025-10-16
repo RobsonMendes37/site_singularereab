@@ -1,0 +1,39 @@
+/**
+ * ServicesSection Styles
+ * Estilos para imagem responsiva
+ */
+
+.services-main-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== Responsivo ========== */
+@media (max-width: 991px) {
+  .services-main-image {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-main-image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-main-image {
+    width: 100% !important; /* Ocupa toda a largura do container */
+    max-width: 100% !important;
+    aspect-ratio: 1 / 1 !important; /* Mantém proporção quadrada */
+    height: auto !important;
+    object-fit: cover !important;
+    border-radius: 15px;
+    display: block !important;
+  }
+}
+

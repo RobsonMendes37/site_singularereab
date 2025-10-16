@@ -1,0 +1,142 @@
+/* Footer Styles */
+
+/* Logo e descrição */
+.footer-description {
+  font-family: 'Nunito', sans-serif;
+  color: #5a6c7d;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Títulos das seções */
+.footer-section-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--bs-primary);
+  margin-bottom: 1rem;
+}
+
+/* Links */
+.footer-link {
+  color: #5a6c7d;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  font-family: 'Nunito', sans-serif;
+  transition: color 0.3s ease;
+  display: block;
+}
+
+.footer-link:hover {
+  color: var(--bs-primary);
+}
+
+/* Horário de atendimento */
+.footer-schedule-box {
+  border-radius: 50% 20% / 10% 40%;
+  border-color: var(--bs-primary);
+  color: #2d3748;
+}
+
+.footer-schedule-box p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-schedule-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Informações de contato */
+.footer-contact-item {
+  color: #5a6c7d;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer-contact-item a {
+  color: #5a6c7d;
+  text-decoration: none;
+}
+
+.footer-contact-icon {
+  color: var(--bs-primary);
+  margin-right: 0.5rem;
+}
+
+/* Ícones de redes sociais */
+.footer-social-icon {
+  background-color: var(--bs-primary);
+  width: 42px;
+  height: 42px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(20, 53, 87, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(20, 53, 87, 0.5);
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.footer-social-icon i {
+  font-size: 1.1rem;
+}
+
+/* Copyright */
+.copyright {
+  background-color: #1a1a1a;
+  padding: 1.5rem 0;
+}
+
+.copyright .text-light {
+  opacity: 0.9;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer-section-title {
+    font-size: 1.3rem;
+  }
+  
+  .footer-contact-item {
+    font-size: 0.9rem;
+  }
+  
+  .back-to-top {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+

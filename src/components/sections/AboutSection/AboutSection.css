@@ -1,0 +1,251 @@
+/**
+ * AboutSection Styles
+ * Estilos essenciais para o vídeo e botão
+ */
+
+/* ========== Container do Vídeo ========== */
+.about-video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-video-container:hover .about-video-thumbnail {
+  transform: scale(1.05);
+}
+
+/* Overlay escuro */
+.about-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  z-index: 2;
+}
+
+.about-video-container:hover .about-video-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Botão de Play */
+.about-play-button {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bs-primary);
+  font-size: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  padding-left: 5px; /* Ajuste visual do ícone de play */
+}
+
+.about-video-container:hover .about-play-button {
+  transform: scale(1.15);
+  background: var(--bs-primary);
+  color: white;
+  box-shadow: 0 12px 35px rgba(20, 53, 87, 0.4);
+}
+
+/* Gradiente decorativo */
+.about-video-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ========== Modal de Vídeo ========== */
+.about-video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.about-video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  background: black;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.about-video-modal-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.about-video-close-button {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bs-primary);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.about-video-close-button:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+/* ========== Botão História ========== */
+.about-history-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-secondary) 100%);
+  border: none;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(20, 53, 87, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.about-history-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.about-history-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(20, 53, 87, 0.4);
+  filter: brightness(1.05);
+  color: white;
+  text-decoration: none;
+}
+
+.about-history-button:hover::before {
+  left: 100%;
+}
+
+.about-history-button i {
+  font-size: 20px;
+  animation: rotateIcon 3s linear infinite;
+}
+
+@keyframes rotateIcon {
+  0%, 90% {
+    transform: rotate(0deg);
+  }
+  95% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========== Responsivo ========== */
+@media (max-width: 768px) {
+  .about-play-button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .about-video-close-button {
+    top: -45px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .about-history-button {
+    font-size: 16px;
+    padding: 14px 28px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-video-container {
+    border-radius: 15px;
+  }
+
+  .about-play-button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .about-video-modal-content {
+    width: 95%;
+    border-radius: 8px;
+  }
+
+  .about-history-button {
+    font-size: 15px;
+    padding: 12px 24px !important;
+  }
+}
+

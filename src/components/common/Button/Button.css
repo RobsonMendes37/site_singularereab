@@ -1,0 +1,204 @@
+/* Button Base Styles */
+.btn-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  font-family: inherit;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-custom:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}
+
+.btn-custom:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Button Sizes */
+.btn-custom--sm {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  min-height: 36px;
+}
+
+.btn-custom--md {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  min-height: 44px;
+}
+
+.btn-custom--lg {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: var(--font-size-lg);
+  min-height: 52px;
+}
+
+/* Button Variants */
+.btn-custom--primary {
+  background: var(--bg-gradient-primary);
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-custom--primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(74, 144, 226, 0.4);
+}
+
+.btn-custom--primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-custom--secondary {
+  background: var(--bg-gradient-purple);
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--shadow-secondary);
+}
+
+.btn-custom--secondary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(155, 89, 182, 0.4);
+}
+
+.btn-custom--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: none;
+}
+
+.btn-custom--outline:hover:not(:disabled) {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-custom--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.btn-custom--ghost:hover:not(:disabled) {
+  background: var(--bg-light);
+  color: var(--text-primary);
+}
+
+.btn-custom--danger {
+  background: linear-gradient(135deg, var(--color-danger) 0%, #C0392B 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+}
+
+.btn-custom--danger:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(231, 76, 60, 0.4);
+}
+
+/* Full Width */
+.btn-custom--full-width {
+  width: 100%;
+}
+
+/* Icon */
+.btn-custom__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+.btn-custom__icon--left {
+  margin-right: var(--spacing-xs);
+}
+
+.btn-custom__icon--right {
+  margin-left: var(--spacing-xs);
+}
+
+/* Loading State */
+.btn-custom--loading {
+  pointer-events: none;
+}
+
+.btn-custom__spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: var(--spacing-xs);
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.spinner-path {
+  stroke: currentColor;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* Ripple Effect (opcional) */
+.btn-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-custom:active:not(:disabled)::after {
+  width: 300px;
+  height: 300px;
+}
+

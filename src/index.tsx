@@ -1,15 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './styles/global.css';
+import './styles/fonts.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { AppProvider } from './contexts/AppContext';
+
+// Suprimir aviso do ResizeObserver (não afeta funcionalidade)
+const resizeObserverLoopErr = (e: ErrorEvent) => {
+  if (e.message === 'ResizeObserver loop completed with undelivered notifications.') {
+    e.stopImmediatePropagation();
+    return;
+  }
+};
+window.addEventListener('error', resizeObserverLoopErr);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <AppProvider>
+      <App />
+    </AppProvider>
   </React.StrictMode>
 );
 

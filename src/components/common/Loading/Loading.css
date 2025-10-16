@@ -1,0 +1,144 @@
+/* Loading Container */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+}
+
+.loading-container--fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: var(--z-index-modal);
+  backdrop-filter: blur(4px);
+}
+
+/* Loading Base */
+.loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sizes */
+.loading--sm {
+  width: 24px;
+  height: 24px;
+}
+
+.loading--md {
+  width: 40px;
+  height: 40px;
+}
+
+.loading--lg {
+  width: 64px;
+  height: 64px;
+}
+
+/* Loading Text */
+.loading__text {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-muted);
+}
+
+/* ========== SPINNER VARIANT ========== */
+.loading--spinner .loading__spinner {
+  width: 100%;
+  height: 100%;
+  animation: loading-rotate 2s linear infinite;
+}
+
+.loading__spinner-path {
+  stroke: currentColor;
+  stroke-linecap: round;
+  animation: loading-dash 1.5s ease-in-out infinite;
+}
+
+@keyframes loading-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* ========== DOTS VARIANT ========== */
+.loading--dots {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.loading__dot {
+  width: 25%;
+  height: 25%;
+  background: currentColor;
+  border-radius: 50%;
+  animation: loading-bounce 1.4s infinite ease-in-out both;
+}
+
+.loading__dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading__dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loading-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ========== PULSE VARIANT ========== */
+.loading--pulse .loading__pulse {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: currentColor;
+  animation: loading-pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes loading-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Default color */
+.loading {
+  color: var(--color-primary);
+}
+

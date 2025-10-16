@@ -1,0 +1,200 @@
+/**
+ * HeroSection Styles
+ * Seção Hero com Slider de Slides
+ */
+
+/* ========== Container Principal ========== */
+.hero-section {
+  min-height: 600px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-image 1s ease-in-out;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  z-index: 1;
+}
+
+.hero-section-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ========== Título e Subtítulo ========== */
+.hero-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 4.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== Setas de Navegação ========== */
+.hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bs-primary);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-nav:hover {
+  background: var(--bs-primary);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-nav-prev {
+  left: 10px; /* Mais perto da borda */
+}
+
+.hero-nav-next {
+  right: 10px; /* Mais perto da borda */
+}
+
+/* ========== Indicadores (Dots) ========== */
+.hero-indicators {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.hero-dot {
+  width: 5px; /* Reduzido de 15px para 10px */
+  height: 5px; /* Reduzido de 15px para 10px */
+  border-radius: 50%;
+  border: 2px solid white;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.hero-dot:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.hero-dot.active {
+  width: 30px; /* Reduzido de 45px para 30px */
+  border-radius: 8px; /* Ajustado de 10px */
+  background: white;
+}
+
+/* ========== Cores dos Slides ========== */
+.hero-slide-0 .hero-title {
+  color: var(--color-secondary) !important; /* Azul Turquesa */
+}
+
+.hero-slide-1 .hero-title {
+  color: var(--color-accent-pink-light) !important; /* Lilás Claro */
+}
+
+.hero-slide-2 .hero-title {
+  color: var(--color-secondary-light) !important; /* Azul Turquesa Claro */
+}
+
+/* ========== Responsividade ========== */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 500px !important;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-nav {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  
+  .hero-nav-prev {
+    left: 5px; /* Mais perto da borda no mobile */
+  }
+  
+  .hero-nav-next {
+    right: 5px; /* Mais perto da borda no mobile */
+  }
+  
+  .hero-indicators {
+    bottom: 20px;
+  }
+  
+  .hero-dot {
+    width: 8px; /* Reduzido de 12px para 8px */
+    height: 8px; /* Reduzido de 12px para 8px */
+  }
+  
+  .hero-dot.active {
+    width: 25px; /* Reduzido de 35px para 25px */
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    min-height: 60vh !important; /* Reduzido para 60vh - menos scroll */
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important; /* Sombra mais forte para legibilidade */
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
+    line-height: 1.7; /* Melhor legibilidade */
+  }
+
+  .hero-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  /* Otimizar padding do container */
+  .hero-section-container {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+

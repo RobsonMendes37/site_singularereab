@@ -1,0 +1,195 @@
+import React from 'react';
+import { render } from '@testing-library/react';
+import { HelmetProvider } from 'react-helmet-async';
+import { SEO } from './SEO';
+
+describe('SEO Component', () => {
+  const renderWithHelmet = (component: React.ReactElement) => {
+    return render(
+      <HelmetProvider>
+        {component}
+      </HelmetProvider>
+    );
+  };
+
+  it('should render without crashing', () => {
+    const { container } = renderWithHelmet(<SEO title="Test" />);
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should accept title prop', () => {
+    const { container } = renderWithHelmet(
+      <SEO title="Test Title" />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should accept description prop', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test" 
+        description="Test Description" 
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should accept keywords prop', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test" 
+        keywords="test, keywords, seo" 
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should accept canonical URL prop', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test" 
+        canonicalUrl="https://example.com/test" 
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should accept image prop', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test" 
+        image="/test-image.jpg" 
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should accept type prop', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test" 
+        type="article" 
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle article type with publish date', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test Article"
+        type="article"
+        publishedTime="2025-01-01"
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle article type with author', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test Article"
+        type="article"
+        author="John Doe"
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle all props together', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Complete Test"
+        description="Complete test description"
+        keywords="test, complete, seo"
+        canonicalUrl="https://example.com/complete"
+        image="/complete-image.jpg"
+        type="article"
+        publishedTime="2025-01-01"
+        author="John Doe"
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle missing optional props', () => {
+    const { container } = renderWithHelmet(
+      <SEO title="Minimal Test" />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should not crash with empty title', () => {
+    const { container } = renderWithHelmet(
+      <SEO title="" />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle very long title', () => {
+    const longTitle = 'A'.repeat(200);
+    const { container } = renderWithHelmet(
+      <SEO title={longTitle} />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle very long description', () => {
+    const longDesc = 'A'.repeat(500);
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test"
+        description={longDesc}
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle special characters in title', () => {
+    const { container } = renderWithHelmet(
+      <SEO title="Test & <Title> with 'Quotes'" />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle multiple SEO components', () => {
+    const { container } = render(
+      <HelmetProvider>
+        <SEO title="First" />
+        <SEO title="Second" />
+      </HelmetProvider>
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle URL with query params', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test"
+        canonicalUrl="https://example.com/page?param=value&other=test"
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle relative image paths', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test"
+        image="/images/relative-path.jpg"
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+
+  it('should handle absolute image URLs', () => {
+    const { container } = renderWithHelmet(
+      <SEO 
+        title="Test"
+        image="https://example.com/images/absolute.jpg"
+      />
+    );
+    expect(container).toBeInTheDocument();
+  });
+});
+

@@ -1,0 +1,67 @@
+/* Animações Suaves de Scroll */
+
+/* Scroll suave global */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove qualquer scroll jump */
+* {
+  scroll-margin-top: 100px; /* Offset para header fixo */
+}
+
+/* Animação de fade-in up (fallback para navegadores sem JS) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação de fade-in (fallback) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Transições suaves para todos os elementos interativos */
+a, button, .btn {
+  transition: all 0.3s ease;
+}
+
+/* Otimização de performance para animações */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change após animação para economizar recursos */
+.animated {
+  will-change: auto;
+}
+
+/* Reduzir movimento para usuários que preferem (acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Estilos para melhorar a performance das animações */
+.section-animate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+

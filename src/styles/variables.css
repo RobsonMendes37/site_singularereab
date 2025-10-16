@@ -1,0 +1,200 @@
+/**
+ * Design Tokens - Variáveis CSS Globais
+ * Sistema de design consistente para toda aplicação
+ */
+
+:root {
+  /* ========== CORES PRIMÁRIAS - IDENTIDADE VISUAL 2025 ========== */
+  --color-primary: #143557;        /* Azul marinho - Cor principal */
+  --color-primary-light: #1a4c7a;  /* Azul marinho claro */
+  --color-primary-dark: #0d2438;   /* Azul marinho escuro */
+  
+  --color-secondary: #12B2C9;      /* Azul turquesa */
+  --color-secondary-light: #4ec5d6; /* Azul turquesa claro */
+  --color-secondary-dark: #0e8fa3;  /* Azul turquesa escuro */
+
+  /* ========== CORES DE DESTAQUE ========== */
+  --color-accent-pink: #B577AF;    /* Rosa médio */
+  --color-accent-pink-light: #BEA7D1; /* Lilás claro */
+  --color-accent-yellow: #F39C12;
+  --color-accent-blue: #12B2C9;    /* Azul turquesa */
+
+  /* ========== CORES DE STATUS ========== */
+  --color-success: #1ABC9C;
+  --color-success-light: #48C9B0;
+  --color-warning: #F39C12;
+  --color-danger: #E74C3C;
+  --color-info: #3498DB;
+
+  /* ========== TONS DE CINZA ========== */
+  --color-gray-50: #F8F9FA;
+  --color-gray-100: #F0F4F8;
+  --color-gray-200: #E8F4F8;
+  --color-gray-300: #E0E8F0;
+  --color-gray-400: #cbd5e0;
+  --color-gray-500: #a0aec0;
+  --color-gray-600: #718096;
+  --color-gray-700: #5a6c7d;
+  --color-gray-800: #4a5568;
+  --color-gray-900: #2d3748;
+
+  /* ========== CORES DE TEXTO ========== */
+  --text-primary: #1a202c;
+  --text-secondary: #2d3748;
+  --text-tertiary: #4a5568;
+  --text-muted: #718096;
+  --text-disabled: #a0aec0;
+
+  /* ========== BACKGROUNDS ========== */
+  --bg-default: #FFFFFF;
+  --bg-paper: #F8F9FA;
+  --bg-light: #F0F4F8;
+  
+  /* Gradientes - Identidade Visual 2025 */
+  --bg-gradient-1: linear-gradient(135deg, #143557 0%, #12B2C9 100%); /* Azul marinho → Turquesa */
+  --bg-gradient-2: linear-gradient(135deg, #12B2C9 0%, #B577AF 100%); /* Turquesa → Rosa */
+  --bg-gradient-3: linear-gradient(135deg, #12B2C9 0%, #BEA7D1 100%); /* Turquesa → Lilás */
+  --bg-gradient-primary: linear-gradient(135deg, #143557 0%, #12B2C9 100%);
+  --bg-gradient-blue: linear-gradient(135deg, #F8F9FF 0%, #FFFFFF 50%, #e6f7fa 100%);
+  --bg-gradient-pink: linear-gradient(135deg, #B577AF 0%, #BEA7D1 100%);
+  --bg-gradient-purple: linear-gradient(135deg, #B577AF 0%, #BEA7D1 100%);
+
+  /* ========== BORDAS ========== */
+  --border-light: #f0f4f8;
+  --border-main: #e2e8f0;
+  --border-dark: #cbd5e0;
+
+  /* ========== ESPAÇAMENTO ========== */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 1rem;       /* 16px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-2xl: 2.5rem;    /* 40px */
+  --spacing-3xl: 3rem;      /* 48px */
+  --spacing-4xl: 4rem;      /* 64px */
+  --spacing-5xl: 5rem;      /* 80px */
+
+  /* ========== BORDER RADIUS ========== */
+  --radius-sm: 8px;
+  --radius-md: 15px;
+  --radius-lg: 20px;
+  --radius-xl: 25px;
+  --radius-2xl: 30px;
+  --radius-full: 9999px;
+
+  /* ========== SOMBRAS ========== */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.18);
+  --shadow-2xl: 0 25px 60px rgba(0, 0, 0, 0.20);
+
+  /* Sombras Coloridas */
+  --shadow-primary: 0 8px 20px rgba(20, 53, 87, 0.3);     /* Azul marinho */
+  --shadow-secondary: 0 8px 20px rgba(18, 178, 201, 0.3); /* Turquesa */
+  --shadow-pink: 0 8px 25px rgba(181, 119, 175, 0.4);     /* Rosa médio */
+
+  /* ========== TIPOGRAFIA ========== */
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+  --font-size-6xl: 3.75rem;   /* 60px */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.4;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
+  --line-height-loose: 2;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.05em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+
+  /* ========== TRANSIÇÕES ========== */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+  
+  /* Easing Functions */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ========== Z-INDEX ========== */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+
+  /* ========== BREAKPOINTS ========== */
+  --breakpoint-xs: 0px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+
+  /* ========== CONTAINER ========== */
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-xxl: 1320px;
+
+  /* ========== BOOTSTRAP OVERRIDES - IDENTIDADE VISUAL 2025 ========== */
+  --bs-primary: #143557;        /* Azul marinho */
+  --bs-primary-rgb: 20, 53, 87;
+  --bs-secondary: #12B2C9;      /* Azul turquesa */
+  --bs-secondary-rgb: 18, 178, 201;
+  --bs-light: #F8F9FA;
+  --bs-dark: #143557;
+  --bs-white: #FFFFFF;
+  --bs-gray: #718096;
+  --bs-gray-dark: #2d3748;
+  
+  /* Bootstrap color variants */
+  --bs-primary-bg-subtle: rgba(20, 53, 87, 0.1);
+  --bs-secondary-bg-subtle: rgba(18, 178, 201, 0.1);
+  --bs-link-color: #143557;
+  --bs-link-hover-color: #0d2438;
+}
+
+/* ========== DARK MODE (OPCIONAL) ========== */
+[data-theme="dark"] {
+  --bg-default: #1a202c;
+  --bg-paper: #2d3748;
+  --bg-light: #4a5568;
+  
+  --text-primary: #f7fafc;
+  --text-secondary: #e2e8f0;
+  --text-tertiary: #cbd5e0;
+  --text-muted: #a0aec0;
+  
+  --border-light: #4a5568;
+  --border-main: #2d3748;
+  --border-dark: #1a202c;
+}
+

@@ -1,0 +1,389 @@
+/**
+ * ════════════════════════════════════════════════════════════════════════════
+ * 📝 ARQUIVO DE CONTEÚDO DO SITE - FÁCIL DE EDITAR
+ * ════════════════════════════════════════════════════════════════════════════
+ * 
+ * 🎯 ATENÇÃO: Este arquivo contém TODO O CONTEÚDO editável do site!
+ * 
+ * ✅ PODE EDITAR:
+ *    - Textos
+ *    - Títulos
+ *    - Descrições
+ *    - Links de vídeos
+ *    - Nomes de profissionais
+ *    - Informações de tratamentos
+ *    - Posts do blog
+ * 
+ * ❌ NÃO MEXER:
+ *    - Palavras entre aspas especiais como "id:", "slug:", etc.
+ *    - Vírgulas e chaves { }
+ *    - Colchetes [ ]
+ * 
+ * 💡 COMO EDITAR:
+ *    1. Procure a seção que deseja alterar (ex: "VÍDEOS", "EQUIPE", etc)
+ *    2. Altere o texto entre aspas "assim"
+ *    3. Salve o arquivo (Ctrl+S)
+ *    4. Pronto! O site será atualizado automaticamente
+ * 
+ * ════════════════════════════════════════════════════════════════════════════
+ */
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 🎬 VÍDEOS DO SITE
+// ═══════════════════════════════════════════════════════════════════════════
+
+export const VIDEOS = {
+  // Vídeo da página "Nossa História" (seção Sobre)
+  sobreNossaHistoria: {
+    url: 'https://www.youtube.com/embed/VIDEO_ID_AQUI',
+    titulo: 'Nossa História - Clínica Singulare',
+    descricao: 'Conheça a história e missão da Clínica Singulare'
+  },
+
+  // Vídeo da página "Estrutura" (galeria/facilities)
+  estrutura: {
+    url: 'https://www.youtube.com/embed/VIDEO_ID_AQUI',
+    titulo: 'Conheça Nossa Estrutura',
+    descricao: 'Tour virtual pela nossa clínica e espaços terapêuticos'
+  },
+
+  // Vídeo adicional (se precisar)
+  institucional: {
+    url: 'https://www.youtube.com/embed/VIDEO_ID_AQUI',
+    titulo: 'Vídeo Institucional',
+    descricao: 'Apresentação da Clínica Singulare'
+  }
+};
+
+// 💡 COMO TROCAR O VÍDEO:
+// 1. Vá no YouTube e copie o link do vídeo (ex: https://www.youtube.com/watch?v=ABC123)
+// 2. Pegue apenas o código depois de "v=" (ex: ABC123)
+// 3. Cole no lugar de "VIDEO_ID_AQUI"
+// Exemplo: url: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 👥 EQUIPE
+// ═══════════════════════════════════════════════════════════════════════════
+
+export const EQUIPE = [
+  {
+    id: 1,
+    nome: 'Dra. Ana Carolina Silva',
+    cargo: 'Fisioterapeuta Pediátrica',
+    foto: 'team-1.jpg',  // Nome do arquivo da foto (coloque na pasta public/img/)
+    descricao: 'Especialista em Fisioterapia Pediátrica com mais de 10 anos de experiência em reabilitação infantil. Formada pela USP com especialização em Neurologia Pediátrica.',
+    especialidades: [
+      'Fisioterapia Neurológica',
+      'Desenvolvimento Motor',
+      'Paralisia Cerebral',
+      'Atrasos Motores'
+    ],
+    facebook: 'https://facebook.com/exemplo',
+    instagram: 'https://instagram.com/exemplo',
+    linkedin: 'https://linkedin.com/in/exemplo'
+  },
+  {
+    id: 2,
+    nome: 'Dr. Carlos Eduardo Santos',
+    cargo: 'Terapeuta Ocupacional',
+    foto: 'team-2.jpg',
+    descricao: 'Terapeuta Ocupacional especializado em Integração Sensorial e Autismo. Pós-graduado em Neuropsicologia e Reabilitação Cognitiva.',
+    especialidades: [
+      'Integração Sensorial',
+      'Transtorno do Espectro Autista',
+      'Atividades de Vida Diária',
+      'Coordenação Motora Fina'
+    ],
+    facebook: 'https://facebook.com/exemplo',
+    instagram: 'https://instagram.com/exemplo',
+    linkedin: 'https://linkedin.com/in/exemplo'
+  },
+  {
+    id: 3,
+    nome: 'Dra. Maria Fernanda Lima',
+    cargo: 'Fonoaudióloga',
+    foto: 'team-3.jpg',
+    descricao: 'Fonoaudióloga com expertise em Linguagem e Comunicação Infantil. Especialista em Motricidade Orofacial e Disfagia Pediátrica.',
+    especialidades: [
+      'Atrasos de Linguagem',
+      'Distúrbios de Fala',
+      'Dificuldades de Alimentação',
+      'Comunicação Alternativa'
+    ],
+    facebook: 'https://facebook.com/exemplo',
+    instagram: 'https://instagram.com/exemplo',
+    linkedin: 'https://linkedin.com/in/exemplo'
+  },
+  {
+    id: 4,
+    nome: 'Dra. Juliana Oliveira',
+    cargo: 'Psicóloga Infantil',
+    foto: 'team-4.jpg',
+    descricao: 'Psicóloga Clínica com foco em Desenvolvimento Infantil e Análise do Comportamento Aplicada (ABA). Especialista em intervenções comportamentais.',
+    especialidades: [
+      'Psicologia Infantil',
+      'Terapia ABA',
+      'Desenvolvimento Socioemocional',
+      'Orientação Parental'
+    ],
+    facebook: 'https://facebook.com/exemplo',
+    instagram: 'https://instagram.com/exemplo',
+    linkedin: 'https://linkedin.com/in/exemplo'
+  }
+];
+
+// 💡 COMO ADICIONAR NOVO MEMBRO DA EQUIPE:
+// Copie todo o bloco de { } acima, cole abaixo do último e altere as informações.
+// Não esqueça de adicionar uma vírgula depois do } anterior!
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 💊 TRATAMENTOS
+// ═══════════════════════════════════════════════════════════════════════════
+
+export const TRATAMENTOS = [
+  {
+    id: 1,
+    slug: 'fisioterapia-pediatrica',  // NÃO ALTERAR (usado na URL)
+    titulo: 'Fisioterapia Pediátrica',
+    icone: 'fas fa-child',  // Ícone (não mexer)
+    cor: '#4A90E2',  // Cor principal
+    descricaoCurta: 'Promovendo o desenvolvimento motor e funcional das crianças',
+    descricaoCompleta: 'A Fisioterapia Pediátrica é uma especialidade que atua na prevenção, avaliação e tratamento de alterações no desenvolvimento motor de bebês, crianças e adolescentes. Trabalhamos com técnicas específicas para cada faixa etária, respeitando as características individuais de cada criança e promovendo o máximo de independência funcional possível.',
+    comoFunciona: 'O tratamento fisioterapêutico é realizado através de atividades lúdicas e exercícios específicos que estimulam o desenvolvimento motor. Cada sessão é planejada individualmente, considerando as necessidades, objetivos e potencialidades da criança. Utilizamos recursos como bolas terapêuticas, rolos, espelhos, brinquedos e equipamentos especializados.',
+    etapas: [
+      'Avaliação: Análise completa do desenvolvimento motor e funcional',
+      'Planejamento: Definição de objetivos terapêuticos junto à família',
+      'Intervenção: Sessões individualizadas com atividades lúdicas',
+      'Reavaliação: Acompanhamento contínuo dos progressos',
+      'Orientação: Instruções para atividades em casa'
+    ],
+    beneficios: [
+      'Melhora do tônus muscular e força',
+      'Desenvolvimento do equilíbrio e coordenação',
+      'Ganho de independência nas atividades diárias',
+      'Prevenção de deformidades e contraturas',
+      'Melhora da postura e alinhamento corporal',
+      'Estimulação do desenvolvimento motor global'
+    ],
+    imagem: 'https://images.unsplash.com/photo-1551601651-bc60f254d532?w=800'
+  },
+  {
+    id: 2,
+    slug: 'terapia-ocupacional',
+    titulo: 'Terapia Ocupacional',
+    icone: 'fas fa-puzzle-piece',
+    cor: '#9B59B6',
+    descricaoCurta: 'Desenvolvendo habilidades para as atividades do dia a dia',
+    descricaoCompleta: 'A Terapia Ocupacional promove o desenvolvimento das habilidades necessárias para a realização das atividades cotidianas, escolares e de lazer. Trabalhamos aspectos como coordenação motora fina, integração sensorial, autonomia nas atividades de vida diária (alimentação, vestuário, higiene) e habilidades cognitivas.',
+    comoFunciona: 'As sessões são realizadas de forma lúdica e significativa para a criança, utilizando atividades e brincadeiras que estimulam as áreas que precisam ser desenvolvidas. Podem incluir jogos, atividades de artes, brincadeiras sensoriais, treino de atividades funcionais e uso de tecnologias assistivas quando necessário.',
+    etapas: [
+      'Avaliação: Análise das habilidades funcionais e sensoriais',
+      'Objetivos: Definição de metas terapêuticas personalizadas',
+      'Terapia: Intervenções através de atividades significativas',
+      'Adaptações: Orientações sobre recursos e adaptações',
+      'Acompanhamento: Monitoramento contínuo e ajustes'
+    ],
+    beneficios: [
+      'Melhora da coordenação motora fina',
+      'Desenvolvimento de habilidades de autocuidado',
+      'Melhor processamento sensorial',
+      'Aumento da atenção e concentração',
+      'Maior independência nas atividades escolares',
+      'Desenvolvimento de habilidades sociais'
+    ],
+    imagem: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800'
+  },
+  {
+    id: 3,
+    slug: 'fonoaudiologia',
+    titulo: 'Fonoaudiologia',
+    icone: 'fas fa-comments',
+    cor: '#FF6B9D',
+    descricaoCurta: 'Estimulando a comunicação e linguagem',
+    descricaoCompleta: 'A Fonoaudiologia atua na prevenção, avaliação, diagnóstico e tratamento dos distúrbios da comunicação humana. Trabalhamos com atrasos de linguagem, dificuldades de fala, gagueira, alterações de voz, dificuldades de alimentação e deglutição, além de estimulação precoce da linguagem em bebês e crianças pequenas.',
+    comoFunciona: 'O tratamento fonoaudiológico é realizado através de atividades lúdicas e exercícios específicos que estimulam a comunicação oral e escrita. Utilizamos jogos, brincadeiras, músicas, livros e recursos tecnológicos para tornar as sessões atrativas e eficazes. Também orientamos a família sobre como estimular a comunicação no dia a dia.',
+    etapas: [
+      'Triagem: Avaliação inicial da comunicação e linguagem',
+      'Diagnóstico: Identificação das dificuldades específicas',
+      'Planejamento: Elaboração do plano terapêutico',
+      'Intervenção: Sessões com atividades e exercícios direcionados',
+      'Orientação: Instruções para estimulação em casa'
+    ],
+    beneficios: [
+      'Melhora da articulação e clareza da fala',
+      'Ampliação do vocabulário',
+      'Desenvolvimento da linguagem receptiva e expressiva',
+      'Melhora das habilidades de leitura e escrita',
+      'Facilitação da comunicação e interação social',
+      'Tratamento de dificuldades alimentares'
+    ],
+    imagem: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=800'
+  },
+  {
+    id: 4,
+    slug: 'psicologia-infantil',
+    titulo: 'Psicologia Infantil',
+    icone: 'fas fa-heart',
+    cor: '#E74C3C',
+    descricaoCurta: 'Cuidando do desenvolvimento emocional e comportamental',
+    descricaoCompleta: 'A Psicologia Infantil foca no desenvolvimento emocional, social e comportamental da criança. Trabalhamos questões como ansiedade, medos, dificuldades de adaptação, problemas de comportamento, relacionamento familiar e escolar, além de orientação parental e apoio em situações de luto, separação dos pais e outras mudanças significativas.',
+    comoFunciona: 'O atendimento psicológico infantil é realizado principalmente através da ludoterapia, utilizando brincadeiras, desenhos, jogos e histórias como ferramentas terapêuticas. As sessões são adaptadas à idade e necessidades de cada criança, criando um ambiente seguro e acolhedor para a expressão de sentimentos e elaboração de conflitos.',
+    etapas: [
+      'Acolhimento: Primeiro contato com a criança e família',
+      'Avaliação: Compreensão da demanda e dinâmica familiar',
+      'Vínculo: Estabelecimento de relação terapêutica segura',
+      'Intervenção: Sessões lúdicas e orientação aos pais',
+      'Acompanhamento: Monitoramento da evolução emocional'
+    ],
+    beneficios: [
+      'Melhora da autoestima e autoconfiança',
+      'Desenvolvimento de habilidades socioemocionais',
+      'Redução de ansiedade e medos',
+      'Melhora no comportamento e autorregulação',
+      'Fortalecimento dos vínculos familiares',
+      'Maior adaptação escolar e social'
+    ],
+    imagem: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800'
+  }
+];
+
+// 💡 COMO ADICIONAR NOVO TRATAMENTO:
+// Copie todo o bloco { } de um tratamento, cole no final e altere as informações.
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 📝 POSTS DO BLOG (RESUMIDOS - para a lista)
+// ═══════════════════════════════════════════════════════════════════════════
+
+export const POSTS_BLOG = [
+  {
+    id: 1,
+    slug: 'sinais-atraso-desenvolvimento',  // NÃO ALTERAR (usado na URL)
+    titulo: 'Marcos do Desenvolvimento Infantil: Identificando Sinais de Alerta',
+    resumo: 'Conheça os principais marcos do desenvolvimento infantil por faixa etária e aprenda a identificar sinais que indicam a necessidade de avaliação profissional especializada.',
+    categoria: 'Desenvolvimento Infantil',
+    data: '15 Jan 2025',
+    tempoLeitura: 8,  // minutos
+    imagem: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800',
+    autor: {
+      nome: 'Dra. Ana Carolina Silva',
+      cargo: 'Fisioterapeuta Pediátrica',
+      foto: 'https://randomuser.me/api/portraits/women/1.jpg'
+    }
+  },
+  {
+    id: 2,
+    slug: 'importancia-terapia-ocupacional',
+    titulo: 'A Importância da Terapia Ocupacional no Desenvolvimento Infantil',
+    resumo: 'Entenda como a Terapia Ocupacional pode auxiliar crianças com dificuldades nas atividades do dia a dia, coordenação motora e integração sensorial.',
+    categoria: 'Tratamentos',
+    data: '20 Jan 2025',
+    tempoLeitura: 6,
+    imagem: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800',
+    autor: {
+      nome: 'Dr. Carlos Eduardo Santos',
+      cargo: 'Terapeuta Ocupacional',
+      foto: 'https://randomuser.me/api/portraits/men/2.jpg'
+    }
+  },
+  {
+    id: 3,
+    slug: 'dicas-estimulacao-linguagem',
+    titulo: '10 Dicas para Estimular a Linguagem do Seu Filho em Casa',
+    resumo: 'Aprenda estratégias práticas e eficazes para estimular o desenvolvimento da linguagem e comunicação das crianças no ambiente familiar.',
+    categoria: 'Dicas para Pais',
+    data: '25 Jan 2025',
+    tempoLeitura: 5,
+    imagem: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800',
+    autor: {
+      nome: 'Dra. Maria Fernanda Lima',
+      cargo: 'Fonoaudióloga',
+      foto: 'https://randomuser.me/api/portraits/women/3.jpg'
+    }
+  }
+];
+
+// 💡 COMO ADICIONAR NOVO POST:
+// Copie todo o bloco { } de um post, cole no final e altere as informações.
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 📝 CONTEÚDO COMPLETO DOS POSTS (para a página individual)
+// ═══════════════════════════════════════════════════════════════════════════
+// IMPORTANTE: O 'slug' aqui deve ser IGUAL ao 'slug' em POSTS_BLOG
+
+export const CONTEUDO_POSTS = {
+  'sinais-atraso-desenvolvimento': `
+# Marcos do Desenvolvimento Infantil: Identificando Sinais de Alerta
+
+O desenvolvimento infantil é um processo complexo que envolve aquisições motoras, cognitivas, linguísticas e socioemocionais. Embora cada criança tenha seu próprio ritmo de desenvolvimento, existem marcos esperados para cada faixa etária que servem como referência para identificar possíveis atrasos que necessitem de intervenção precoce.
+
+## 📊 Marcos do Desenvolvimento por Idade
+
+### 0 a 3 meses
+- **Motor:** Sustenta a cabeça quando segurado
+- **Social:** Sorri em resposta a estímulos
+- **Comunicação:** Emite sons e balbucia
+
+### 4 a 6 meses
+- **Motor:** Rola, senta com apoio
+- **Cognitivo:** Reconhece rostos familiares
+- **Comunicação:** Ri e vocaliza ativamente
+
+### 7 a 12 meses
+- **Motor:** Senta sem apoio, engatinha, pode dar os primeiros passos
+- **Social:** Brinca de esconde-esconde, acena "tchau"
+- **Comunicação:** Fala primeiras palavras ("mamá", "papá")
+
+## 🚨 Sinais de Alerta
+
+### Quando procurar ajuda IMEDIATA:
+
+1. **0-3 meses:**
+   - Não reage a sons altos
+   - Não acompanha objetos com os olhos
+   - Corpo muito rígido ou muito mole
+
+2. **4-6 meses:**
+   - Não sorri ou interage
+   - Não leva objetos à boca
+   - Não sustenta a cabeça
+
+3. **7-12 meses:**
+   - Não senta sem apoio aos 9 meses
+   - Não balbucia aos 12 meses
+   - Não demonstra interesse em brinquedos
+
+## 💡 Quando Buscar Ajuda
+
+Se você observar algum destes sinais, procure uma avaliação profissional. A intervenção precoce é fundamental para melhores resultados!
+
+**Agende uma avaliação:** Entre em contato conosco e nossa equipe multidisciplinar está pronta para ajudar.
+  `,
+
+  'importancia-terapia-ocupacional': `
+# A Importância da Terapia Ocupacional no Desenvolvimento Infantil
+
+A Terapia Ocupacional é fundamental para crianças que apresentam dificuldades nas atividades diárias...
+
+(AQUI VOCÊ ADICIONA TODO O CONTEÚDO DO POST EM MARKDOWN)
+  `,
+
+  'dicas-estimulacao-linguagem': `
+# 10 Dicas para Estimular a Linguagem do Seu Filho em Casa
+
+Estimular a linguagem em casa é fundamental para o desenvolvimento da comunicação...
+
+(AQUI VOCÊ ADICIONA TODO O CONTEÚDO DO POST EM MARKDOWN)
+  `
+};
+
+// 💡 COMO EDITAR O CONTEÚDO DE UM POST:
+// 1. Encontre o slug do post (ex: 'sinais-atraso-desenvolvimento')
+// 2. Edite o texto entre as ` ` (crases)
+// 3. Use ## para títulos, ### para subtítulos
+// 4. Use - para listas
+// 5. Use **texto** para negrito
+
+// ════════════════════════════════════════════════════════════════════════════
+// ✅ FIM DO ARQUIVO DE CONTEÚDO
+// ════════════════════════════════════════════════════════════════════════════
+

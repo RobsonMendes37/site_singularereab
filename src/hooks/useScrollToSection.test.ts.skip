@@ -1,0 +1,201 @@
+import { renderHook, act } from '@testing-library/react';
+import { useScrollToSection } from './useScrollToSection';
+
+describe('useScrollToSection Hook', () => {
+  // Mock scrollTo
+  const mockScrollTo = jest.fn();
+  
+  beforeEach(() => {
+    // Setup DOM
+    Object.defineProperty(window, 'scrollTo', {
+      writable: true,
+      value: mockScrollTo,
+    });
+
+    // Mock getBoundingClientRect
+    Element.prototype.getBoundingClientRect = jest.fn(() => ({
+      top: 500,
+      bottom: 1000,
+      left: 0,
+      right: 1000,
+      width: 1000,
+      height: 500,
+      x: 0,
+      y: 500,
+      toJSON: () => {}
+    }));
+
+    // Mock pageYOffset
+    Object.defineProperty(window, 'pageYOffset', {
+      writable: true,
+      value: 0
+    });
+
+    mockScrollTo.mockClear();
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should return scrollToSection function', () => {
+    const { result } = renderHook(() => useScrollToSection());
+
+    expect(typeof result.current).toBe('function');
+  });
+
+  it('should scroll to element when it exists', () => {
+    // Create a mock element
+    const mockElement = document.createElement('div');
+    mockElement.id = 'test-section';
+    document.body.appendChild(mockElement);
+
+    const { result } = renderHook(() => useScrollToSection());
+
+    act(() => {
+      result.current('test-section');
+    });
+
+    expect(mockScrollTo).toHaveBeenCalled();
+
+    // Cleanup
+    document.body.removeChild(mockElement);
+  });
+
+  it('should not scroll when element does not exist', () => {
+    const { result } = renderHook(() => useScrollToSection());
+
+    act(() => {
+      result.current('non-existent-section');
+    });
+
+    expect(mockScrollTo).not.toHaveBeenCalled();
+  });
+
+  it('should use smooth behavior', () => {
+    const mockElement = document.createElement('div');
+    mockElement.id = 'test-section';
+    document.body.appendChild(mockElement);
+
+    const { result } = renderHook(() => useScrollToSection());
+
+    act(() => {
+      result.current('test-section');
+    });
+
+    expect(mockScrollTo).toHaveBeenCalledWith(
+      expect.objectContaining({
+        behavior: 'smooth'
+      })
+    );
+
+    document.body.removeChild(mockElement);
+  });
+
+  it('should account for header offset', () => {
+    const mockElement = document.createElement('div');
+    mockElement.id = 'test-section';
+    document.body.appendChild(mockElement);
+
+    const { result } = renderHook(() => useScrollToSection(100));
+
+    act(() => {
+      result.current('test-section');
+    });
+
+    // Should have been called with offset subtracted
+    const callArgs = mockScrollTo.mock.calls[0][0];
+    expect(callArgs.top).toBeLessThan(500); // less than element top
+
+    document.body.removeChild(mockElement);
+  });
+
+  it('should handle multiple calls', () => {
+    const mockElement1 = document.createElement('div');
+    mockElement1.id = 'section-1';
+    const mockElement2 = document.createElement('div');
+    mockElement2.id = 'section-2';
+    
+    document.body.appendChild(mockElement1);
+    document.body.appendChild(mockElement2);
+
+    const { result } = renderHook(() => useScrollToSection());
+
+    act(() => {
+      result.current('section-1');
+    });
+
+    expect(mockScrollTo).toHaveBeenCalledTimes(1);
+
+    act(() => {
+      result.current('section-2');
+    });
+
+    expect(mockScrollTo).toHaveBeenCalledTimes(2);
+
+    document.body.removeChild(mockElement1);
+    document.body.removeChild(mockElement2);
+  });
+
+  it('should handle empty string', () => {
+    const { result } = renderHook(() => useScrollToSection());
+
+    act(() => {
+      result.current('');
+    });
+
+    expect(mockScrollTo).not.toHaveBeenCalled();
+  });
+
+  it('should handle special characters in ID', () => {
+    const mockElement = document.createElement('div');
+    mockElement.id = 'test-section:special';
+    document.body.appendChild(mockElement);
+
+    const { result } = renderHook(() => useScrollToSection());
+
+    act(() => {
+      result.current('test-section:special');
+    });
+
+    // Should handle gracefully
+    expect(mockScrollTo).toHaveBeenCalled();
+
+    document.body.removeChild(mockElement);
+  });
+
+  it('should work with default offset of 0', () => {
+    const mockElement = document.createElement('div');
+    mockElement.id = 'test-section';
+    document.body.appendChild(mockElement);
+
+    const { result } = renderHook(() => useScrollToSection());
+
+    act(() => {
+      result.current('test-section');
+    });
+
+    expect(mockScrollTo).toHaveBeenCalled();
+
+    document.body.removeChild(mockElement);
+  });
+
+  it('should handle rapid consecutive calls', () => {
+    const mockElement = document.createElement('div');
+    mockElement.id = 'test-section';
+    document.body.appendChild(mockElement);
+
+    const { result } = renderHook(() => useScrollToSection());
+
+    act(() => {
+      result.current('test-section');
+      result.current('test-section');
+      result.current('test-section');
+    });
+
+    expect(mockScrollTo).toHaveBeenCalledTimes(3);
+
+    document.body.removeChild(mockElement);
+  });
+});
+
