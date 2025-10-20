@@ -1,5 +1,5 @@
 # 🏥 Clínica Singulare - Site Institucional
-![Uploading image.png…]()
+<img width="1651" height="943" alt="image" src="https://github.com/user-attachments/assets/a77aec2f-c8d5-4e91-8151-42d3954c47d6" />
 
 > **Especializada em reabilitação e desenvolvimento infantil com equipe multidisciplinar qualificada**
 
