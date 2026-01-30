@@ -1,26 +1,28 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { teamData } from '../../../data';
+import { teamData, TeamMember } from '../../../data';
 import './TeamSection.css';
-
-interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  image: string;
-  specialty: string;
-}
 
 // 🎯 DADOS CENTRALIZADOS - Agora vem de data/team/teamData.ts
 
 const TeamSection: React.FC = () => {
-  // Sem carrossel - mostra todos os membros sempre
+  // Função auxiliar para carregar imagem dinamicamente
+  const getBackgroundImage = (imageName: string) => {
+    try {
+      // Importação dinâmica de imagens que estão em src/assets/images
+      // O Webpack empacota essas imagens automaticamente
+      return `url(${require(`../../../assets/images/${imageName}`)})`;
+    } catch (error) {
+      console.warn(`Imagem não encontrada: ${imageName}`);
+      return 'none'; // Fallback
+    }
+  };
 
   return (
     <div className="container-fluid team py-1 bg-light">
       <Container>
         <div className="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style={{ maxWidth: '700px' }}>
-          <h1 className="mb-5" style={{ 
+          <h1 className="mb-5" style={{
             fontFamily: "'Pacifico', cursive",
             fontSize: '3.5rem',
             fontWeight: '400',
@@ -34,10 +36,10 @@ const TeamSection: React.FC = () => {
 
         <div className="team-grid wow fadeIn" data-wow-delay="0.3s">
           <Row className="g-2 justify-content-center">
-            {teamData.map((member) => (
+            {teamData.map((member: TeamMember) => (
               <Col key={member.id} xs={6} sm={6} md={4} lg={3} xl={3}>
                 {/* Container externo com borda gradiente */}
-                <div 
+                <div
                   className="team-card-wrapper"
                   style={{
                     background: 'linear-gradient(135deg, var(--bs-primary), var(--bs-secondary))',
@@ -61,7 +63,7 @@ const TeamSection: React.FC = () => {
                   }}
                 >
                   {/* Card interno */}
-                  <div 
+                  <div
                     className="team-card-inner"
                     style={{
                       background: 'white',
@@ -72,12 +74,12 @@ const TeamSection: React.FC = () => {
                     }}
                   >
                     {/* Imagem do profissional */}
-                    <div 
+                    <div
                       className="team-image"
                       style={{
                         width: '100%',
                         height: '320px',
-                        backgroundImage: `url(${member.image})`,
+                        backgroundImage: getBackgroundImage(member.foto),
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         position: 'relative'
@@ -102,7 +104,7 @@ const TeamSection: React.FC = () => {
                         padding: '20px 15px',
                         zIndex: 2
                       }}>
-                        <h5 className="mb-1" style={{ 
+                        <h5 className="mb-1" style={{
                           fontFamily: "'Nunito', sans-serif",
                           fontWeight: '800',
                           fontSize: '17px',
@@ -110,20 +112,20 @@ const TeamSection: React.FC = () => {
                           lineHeight: '1.2',
                           textShadow: '2px 2px 8px rgba(0,0,0,0.5)'
                         }}>
-                          {member.name}
+                          {member.nome}
                         </h5>
-                        <p className="mb-1" style={{ 
+                        <p className="mb-1" style={{
                           fontFamily: "'Nunito', sans-serif",
-                          fontSize: '13px', 
+                          fontSize: '13px',
                           fontWeight: '700',
                           color: 'rgba(135, 206, 235, 1)',
                           letterSpacing: '0.3px',
                           textShadow: '1px 1px 4px rgba(0,0,0,0.5)',
                           textTransform: 'uppercase'
                         }}>
-                          {member.role}
+                          {member.cargo}
                         </p>
-                        <p className="mb-0" style={{ 
+                        <p className="mb-0" style={{
                           fontFamily: "'Nunito', sans-serif",
                           fontSize: '12px',
                           fontWeight: '500',
@@ -131,7 +133,7 @@ const TeamSection: React.FC = () => {
                           letterSpacing: '0.2px',
                           textShadow: '1px 1px 4px rgba(0,0,0,0.5)'
                         }}>
-                          {member.specialty}
+                          {member.especialidades && member.especialidades.length > 0 ? member.especialidades[0] : ''}
                         </p>
                       </div>
 
