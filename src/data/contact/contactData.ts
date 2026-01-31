@@ -22,11 +22,11 @@ export interface ContactInfo {
 }
 
 export const contactData: ContactInfo = {
-  endereco: "Rua das Flores, 123 - Vila Madalena, São Paulo - SP",
-  telefone: "(11) 3456-7890",
+  endereco: "Av. Dom Luís, 1233 - Meireles, Fortaleza - CE, 60160-230",
+  telefone: "(85) 9624-2225",
   email: "contato@clinicasingulare.com.br",
   horarios: "Segunda a Sexta: 8h às 18h | Sábado: 8h às 12h",
-  whatsapp: "(11) 99999-9999",
+  whatsapp: "(85) 9624-2225",
   instagram: "https://instagram.com/clinicasingulare",
   facebook: "https://facebook.com/clinicasingulare"
 };

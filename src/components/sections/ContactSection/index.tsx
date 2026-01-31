@@ -1,11 +1,13 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { contactData } from '../../../data';
+import { contactData, homeData, config } from '../../../data';
 import './ContactSection.css';
 
 const ContactSection: React.FC = () => {
-  // 🎯 DADOS CENTRALIZADOS - Agora vem de data/contact/contactData.ts
+  // 🎯 DADOS CENTRALIZADOS
   const { endereco, telefone, email, whatsapp } = contactData;
+  const { contact } = homeData.sections;
+  const { clinic } = config;
 
   return (
     <div className="container-fluid contact py-4">
@@ -20,7 +22,7 @@ const ContactSection: React.FC = () => {
             letterSpacing: '-0.02em',
             lineHeight: '1.2'
           }}>
-            Venha nos Visitar!
+            {contact.title}
           </h1>
         </div>
 
@@ -31,13 +33,13 @@ const ContactSection: React.FC = () => {
               {/* Google Maps Embed */}
               <div className="contact-map-container">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.2158791842847!2d-38.5015832!3d-3.7303982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c748890e76f9f1%3A0x8c0a6d7b9a8f9c8d!2sAv.%20Dom%20Lu%C3%ADs%2C%201233%20-%20Meireles%2C%20Fortaleza%20-%20CE%2C%2060160-230!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+                  src={clinic.address.embedUrl}
                   width="100%"
                   height="100%"
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localização da Clínica Singulare"
+                  title={`Localização da ${clinic.name}`}
                 ></iframe>
               </div>
 
@@ -52,7 +54,34 @@ const ContactSection: React.FC = () => {
                     {endereco}
                   </p>
                 </div>
-                
+                <div className="d-flex gap-2 mb-4">
+                  <button
+                    onClick={() => window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(endereco)}`, '_blank')}
+                    className="btn btn-outline-primary btn-sm rounded-pill px-3 fw-bold"
+                  >
+                    <i className="fas fa-directions me-2"></i>
+                    {contact.mapLabels?.routes || 'Rotas'}
+                  </button>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(endereco);
+                      const btn = document.getElementById('btn-copy-addr');
+                      if (btn) {
+                        const originalText = btn.innerHTML;
+                        btn.innerHTML = `<i class="fas fa-check me-2"></i>${contact.mapLabels?.copied || 'Copiado!'}`;
+                        setTimeout(() => {
+                          btn.innerHTML = originalText;
+                        }, 2000);
+                      }
+                    }}
+                    id="btn-copy-addr"
+                    className="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold"
+                  >
+                    <i className="fas fa-copy me-2"></i>
+                    {contact.mapLabels?.copy || 'Copiar'}
+                  </button>
+                </div>
+
                 <div className="d-flex align-items-center">
                   <div className="contact-rating-badge">
                     <span className="contact-rating-score">5.0</span>
@@ -67,12 +96,12 @@ const ContactSection: React.FC = () => {
                 </div>
 
                 <a
-                  href="https://maps.google.com"
+                  href={clinic.address.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-map-link"
                 >
-                  Ver mapa ampliado
+                  {contact.mapLabels?.viewLarger || 'Ver mapa ampliado'}
                 </a>
               </div>
             </div>
@@ -82,14 +111,15 @@ const ContactSection: React.FC = () => {
           <Col lg={4}>
             <div className="contact-info-card h-100 d-flex flex-column justify-content-center p-4">
               {/* Botão WhatsApp Destaque */}
+              {/* Botão WhatsApp Destaque */}
               <a
-                href={whatsapp ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}` : '#'}
+                href={whatsapp ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}?text=Olá! Vim através do site e gostaria de verificar os horários disponíveis para consulta.` : '#'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-whatsapp-main"
               >
                 <i className="fab fa-whatsapp icon"></i>
-                <span className="text">Agende via WhatsApp</span>
+                <span className="text">{contact.subtitle}</span>
               </a>
 
               {/* Linha Divisória Decorativa */}
@@ -97,15 +127,14 @@ const ContactSection: React.FC = () => {
 
               {/* Texto */}
               <p className="contact-call-to-action text-center text-white   ">
-                Ainda com dúvidas?
-                Entre em contato
+                {contact.cta}
               </p>
 
               {/* Botões de Contato */}
               <div className="contact-options">
                 {/* WhatsApp */}
                 <a
-                  href={whatsapp ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}` : '#'}
+                  href={whatsapp ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}?text=Olá! Vim através do site e gostaria de verificar os horários disponíveis para consulta.` : '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-button contact-button-whatsapp"

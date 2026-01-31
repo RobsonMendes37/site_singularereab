@@ -36,11 +36,11 @@ export const programsData: Program[] = [
     titulo: "Programa de Desenvolvimento Motor",
     descricao: "Focado no desenvolvimento das habilidades motoras grossas e finas através de atividades lúdicas e terapêuticas.",
     preco: "R$ 150,00",
-    imagem: "program-1.jpg",
+    imagem: "programs/program-1.jpg",
     professor: {
       nome: "Dr. Ana Silva",
       cargo: "Fisioterapeuta",
-      foto: "program-teacher.jpg"
+      foto: "programs/program-teacher.jpg"
     },
     detalhes: {
       vagas: 8,
@@ -53,11 +53,11 @@ export const programsData: Program[] = [
     titulo: "Terapia da Fala",
     descricao: "Programa especializado para desenvolvimento da comunicação e linguagem em crianças com atrasos no desenvolvimento.",
     preco: "R$ 120,00",
-    imagem: "program-2.jpg",
+    imagem: "programs/program-2.jpg",
     professor: {
       nome: "Dra. Maria Santos",
       cargo: "Fonoaudióloga",
-      foto: "program-teacher.jpg"
+      foto: "programs/program-teacher.jpg"
     },
     detalhes: {
       vagas: 6,
@@ -70,11 +70,11 @@ export const programsData: Program[] = [
     titulo: "Integração Sensorial",
     descricao: "Trabalho especializado para crianças com dificuldades de processamento sensorial e autismo.",
     preco: "R$ 180,00",
-    imagem: "program-3.jpg",
+    imagem: "programs/program-3.jpg",
     professor: {
       nome: "Dr. Carlos Lima",
       cargo: "Terapeuta Ocupacional",
-      foto: "program-teacher.jpg"
+      foto: "programs/program-teacher.jpg"
     },
     detalhes: {
       vagas: 4,

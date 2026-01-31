@@ -1,0 +1,36 @@
+
+export interface NavItem {
+    label: string;
+    path: string;
+    icon?: string;
+    isExternal?: boolean;
+}
+
+export interface NavDropdownItem extends NavItem {
+    items?: NavItem[];
+}
+
+export const mainNavigation: NavItem[] = [
+    { label: 'Início', path: 'home-top', icon: 'fas fa-home' },
+    { label: 'Sobre', path: 'about-section', icon: 'fas fa-info-circle' },
+    { label: 'Tratamentos', path: 'treatments-section', icon: 'fas fa-heartbeat' },
+    { label: 'Estrutura', path: 'gallery-section', icon: 'fas fa-images' },
+    { label: 'Equipe', path: 'team-section', icon: 'fas fa-user-friends' },
+    { label: 'Depoimentos', path: 'testimonials-section', icon: 'fas fa-comments' },
+    { label: 'Contato', path: 'contact-section', icon: 'fas fa-envelope' },
+];
+
+export const moreLinks: NavItem[] = [
+    { label: 'Blog', path: '/blog', icon: 'fas fa-newspaper' },
+    { label: 'Nossa História', path: '/sobre/historia', icon: 'fas fa-history' },
+    { label: 'Missão e Valores', path: '/sobre/historia#missao', icon: 'fas fa-bullseye' },
+];
+
+export const footerQuickLinks: NavItem[] = [
+    { label: 'Início', path: '/' },
+    { label: 'Sobre Nós', path: '/#about-section' },
+    { label: 'Tratamentos', path: '/#treatments-section' },
+    { label: 'Equipe', path: '/#team-section' },
+    { label: 'Blog', path: '/blog' },
+    { label: 'Contato', path: '/#contact-section' },
+];

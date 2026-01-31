@@ -127,11 +127,24 @@
   .footer-section-title {
     font-size: 1.3rem;
   }
-  
+
   .footer-contact-item {
     font-size: 0.9rem;
   }
-  
+
+  /* Ocultar links e descrição longa no mobile */
+  .footer-item .d-flex.flex-column {
+    display: none;
+  }
+
+  .footer-item {
+    margin-bottom: 30px;
+  }
+
+  .footer-links-col {
+    display: none !important;
+  }
+
   .back-to-top {
     width: 45px;
     height: 45px;
@@ -139,4 +152,3 @@
     right: 20px;
   }
 }
-

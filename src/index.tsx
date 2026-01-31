@@ -7,7 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AppProvider } from './contexts/AppContext';
 
-// Suprimir aviso do ResizeObserver (não afeta funcionalidade)
+// Suprimir erro do ResizeObserver (comum em dev)
 const resizeObserverLoopErr = (e: ErrorEvent) => {
   if (e.message === 'ResizeObserver loop completed with undelivered notifications.') {
     e.stopImmediatePropagation();

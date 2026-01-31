@@ -32,7 +32,7 @@ const TreatmentDetail: React.FC = () => {
   return (
     <div style={{ background: '#f8f9fa', minHeight: '100vh' }}>
       {/* Breadcrumb */}
-      <Breadcrumb 
+      <Breadcrumb
         items={[
           { label: 'Tratamentos', path: '/#treatments-section' },
           { label: treatment.titulo }
@@ -43,48 +43,51 @@ const TreatmentDetail: React.FC = () => {
       <ScrollReveal direction="fade">
         <div style={{
           background: `linear-gradient(135deg, ${treatment.cor}dd 0%, ${treatment.cor}aa 100%)`,
-          padding: '60px 0',
-          marginBottom: '60px',
+          padding: '40px 0',
+          marginBottom: '40px',
           position: 'relative',
           overflow: 'hidden'
         }}>
           <Container style={{ position: 'relative', zIndex: 2 }}>
             <Row className="align-items-center">
-              <Col lg={8}>
+              <Col lg={8} md={8} sm={8} xs={8}>
                 <div className="text-white">
-
                   <h1 style={{
-                    fontSize: '3.5rem',
+                    fontSize: 'clamp(2.2rem, 5vw, 4rem)', /* Aumentado */
                     fontWeight: '800',
-                    marginBottom: '20px',
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
+                    marginBottom: '15px',
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
+                    lineHeight: '1.2'
                   }}>
                     {treatment.titulo}
                   </h1>
                   <p style={{
-                    fontSize: '1.3rem',
-                    opacity: 0.95,
-                    maxWidth: '700px'
+                    fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)', /* Aumentado */
+                    color: 'white', /* Branco puro, sem opacity */
+                    opacity: 1,
+                    fontWeight: '600',
+                    maxWidth: '700px',
+                    marginBottom: 0
                   }}>
                     {treatment.descricaoCurta}
                   </p>
                 </div>
               </Col>
-              <Col lg={4} className="text-center">
+              <Col lg={4} md={4} sm={4} xs={4} className="text-end">
                 <div style={{
-                  width: '180px',
-                  height: '180px',
+                  width: 'clamp(70px, 18vw, 200px)', /* Levemente maior */
+                  height: 'clamp(70px, 18vw, 200px)',
                   background: 'rgba(255, 255, 255, 0.2)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  margin: '0 auto',
+                  margin: '0 0 0 auto',
                   backdropFilter: 'blur(10px)',
-                  border: '5px solid rgba(255, 255, 255, 0.3)',
-                  boxShadow: '0 20px 60px rgba(0,0,0,0.3)'
+                  border: '3px solid rgba(255, 255, 255, 0.3)',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
                 }}>
-                  <i className={treatment.icone} style={{ fontSize: '80px', color: 'white' }}></i>
+                  <i className={treatment.icone} style={{ fontSize: 'clamp(30px, 8vw, 90px)', color: 'white' }}></i>
                 </div>
               </Col>
             </Row>
@@ -116,7 +119,7 @@ const TreatmentDetail: React.FC = () => {
                 boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
               }}>
                 <h2 style={{
-                  fontSize: '2.5rem',
+                  fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', /* Maior */
                   fontWeight: '700',
                   color: treatment.cor,
                   marginBottom: '30px',
@@ -238,14 +241,14 @@ const TreatmentDetail: React.FC = () => {
                         transition: 'all 0.3s ease',
                         cursor: 'default'
                       }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = `${treatment.cor}20`;
-                        e.currentTarget.style.transform = 'translateY(-5px)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = `${treatment.cor}10`;
-                        e.currentTarget.style.transform = 'translateY(0)';
-                      }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = `${treatment.cor}20`;
+                          e.currentTarget.style.transform = 'translateY(-5px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = `${treatment.cor}10`;
+                          e.currentTarget.style.transform = 'translateY(0)';
+                        }}
                       >
                         <div style={{
                           display: 'flex',
@@ -310,9 +313,9 @@ const TreatmentDetail: React.FC = () => {
             }}>
               Nossa equipe está pronta para ajudar no desenvolvimento do seu filho
             </p>
-            <a 
-              href="https://wa.me/5585996442225" 
-              target="_blank" 
+            <a
+              href="https://wa.me/558596242225?text=Olá! Vim através do site e gostaria de verificar os horários disponíveis para consulta."
+              target="_blank"
               rel="noopener noreferrer"
               style={{
                 display: 'inline-flex',

@@ -1,24 +1,23 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { servicesData } from '../../../data';
+import { servicesData, homeData } from '../../../data';
 import './ServicesSection.css';
-import aboutImage from '../../../assets/images/about2.jpeg';
+import aboutImage from '../../../assets/images/site/about2.jpeg';
 
 const ServicesSection: React.FC = () => {
-  // 🎯 DADOS CENTRALIZADOS - Agora vem de data/services/servicesData.ts
-  const titulo = "Nossos Serviços Especializados";
-  const descricao = "Oferecemos uma abordagem multidisciplinar completa para o desenvolvimento e reabilitação infantil, com profissionais altamente qualificados e equipamentos de última geração.";
-  
+  const { title: titulo, description: descricao } = homeData.sections.services;
+
   // Mapear serviços para o formato usado no componente
   const benefits = servicesData.map(service => ({
-    icon: service.icone,
+    title: service.titulo,
     text: service.descricao,
+    icon: service.icone,
     color: service.cor
   }));
 
   return (
-    <div className="container-fluid service py-5" style={{ 
-      background: 'linear-gradient(135deg, #F0F4FF 0%, #FFFFFF 100%)' 
+    <div className="container-fluid service py-5" style={{
+      background: 'linear-gradient(135deg, #F0F4FF 0%, #FFFFFF 100%)'
     }}>
       <Container >
         <Row className="g-5 align-items-center">
@@ -53,20 +52,21 @@ const ServicesSection: React.FC = () => {
               {/* Grid de Benefícios */}
               <Row className="g-3 mb-4">
                 {benefits.map((benefit, index) => (
-                  <Col key={index} xs={6} sm={6} md={4}>
-                    <div 
+                  <Col key={index} xs={12} sm={6}>
+                    <div
                       className="benefit-item"
                       style={{
                         display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        padding: '12px 15px',
+                        alignItems: 'flex-start',
+                        gap: '15px',
+                        padding: '20px',
                         background: 'white',
                         borderRadius: '15px',
                         boxShadow: '0 4px 15px rgba(0,0,0,0.06)',
                         transition: 'all 0.3s ease',
                         cursor: 'pointer',
-                        border: '2px solid transparent'
+                        border: '2px solid transparent',
+                        height: '100%'
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.transform = 'translateY(-5px)';
@@ -79,22 +79,35 @@ const ServicesSection: React.FC = () => {
                         e.currentTarget.style.borderColor = 'transparent';
                       }}
                     >
-                      <i 
+                      <i
                         className={benefit.icon}
-                        style={{ 
-                          fontSize: '22px', 
-                          color: benefit.color
+                        style={{
+                          fontSize: '24px',
+                          color: benefit.color,
+                          marginTop: '3px' // Alinha com o título
                         }}
                       ></i>
-                      <span style={{
-                        fontFamily: "'Nunito', sans-serif",
-                        fontSize: '13px',
-                        fontWeight: '600',
-                        color: '#2c3e50',
-                        lineHeight: '1.3'
-                      }}>
-                        {benefit.text}
-                      </span>
+                      <div>
+                        <h5 style={{
+                          fontFamily: "'Nunito', sans-serif",
+                          fontSize: '16px',
+                          fontWeight: '700',
+                          color: '#2c3e50',
+                          marginBottom: '5px'
+                        }}>
+                          {benefit.title}
+                        </h5>
+                        <p style={{
+                          fontFamily: "'Nunito', sans-serif",
+                          fontSize: '13.5px',
+                          fontWeight: '400',
+                          color: '#6c757d',
+                          lineHeight: '1.5',
+                          margin: 0
+                        }}>
+                          {benefit.text}
+                        </p>
+                      </div>
                     </div>
                   </Col>
                 ))}
@@ -154,7 +167,7 @@ const ServicesSection: React.FC = () => {
                 border: '8px solid white',
                 background: '#f0f4ff'
               }}>
-                <img 
+                <img
                   src={aboutImage}
                   alt="Terapeuta com criança na Clínica Singulare"
                   className="services-main-image"

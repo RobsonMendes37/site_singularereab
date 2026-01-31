@@ -9,8 +9,8 @@ export const MESSAGES = {
     name: 'Clínica Singulare',
     tagline: 'Cuidado especializado para o desenvolvimento infantil',
     address: 'Av. Dom Luís, 1233 - Sala 1108/1109 - Meireles, Fortaleza - CE, 60160-230',
-    phone: '(85) 99644-2225',
-    phoneRaw: '5585996442225',
+    phone: '(85) 9624-2225',
+    phoneRaw: '558596242225',
     email: 'contato@clinicasingulare.com.br',
     hours: {
       weekdays: 'Segunda a Sexta: 08:00 - 18:00',
@@ -80,7 +80,7 @@ export const MESSAGES = {
   whatsapp: {
     appointmentRequest: 'Olá! Gostaria de agendar uma consulta na Clínica Singulare.',
     infoRequest: 'Olá! Gostaria de mais informações sobre os serviços da Clínica Singulare.',
-    treatmentInfo: (treatment: string) => 
+    treatmentInfo: (treatment: string) =>
       `Olá! Gostaria de informações sobre o tratamento de ${treatment}.`,
   },
 

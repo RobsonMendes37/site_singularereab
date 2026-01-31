@@ -13,9 +13,11 @@ import GallerySection from '../components/sections/GallerySection';
 import ContactSection from '../components/sections/ContactSection';
 import { ScrollReveal } from '../components/common/ScrollReveal';
 import { SEO } from '../components/common/SEO';
+import { homeData } from '../data';
 
 const Home: React.FC = () => {
   const location = useLocation();
+  const { seo } = homeData;
 
   useEffect(() => {
     // Se houver hash na URL, faz scroll até a seção
@@ -40,72 +42,60 @@ const Home: React.FC = () => {
   return (
     <>
       <SEO
-        title="Clínica Singulare - Reabilitação Infantil em Fortaleza | Fisioterapia e Terapia Ocupacional"
-        description="Centro especializado em reabilitação infantil em Fortaleza/CE. Fisioterapia pediátrica, Terapia Ocupacional, Fonoaudiologia e Psicologia Infantil. Atendimento humanizado e personalizado para crianças com necessidades especiais."
-        keywords={[
-          'clínica reabilitação infantil fortaleza',
-          'fisioterapia pediátrica fortaleza',
-          'terapia ocupacional infantil fortaleza',
-          'fonoaudiologia infantil fortaleza',
-          'psicologia infantil fortaleza',
-          'TEA autismo fortaleza',
-          'paralisia cerebral tratamento fortaleza',
-          'atraso desenvolvimento infantil',
-          'clínica crianças especiais fortaleza',
-          'fisioterapia bebês prematuros',
-          'estimulação precoce fortaleza'
-        ]}
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
         url="https://clinicasingulare.com.br"
         type="website"
       />
-      
+
       <HeroSection />
-      
+
       <ScrollReveal direction="up" delay={0.1}>
         <div id="about-section">
           <AboutSection />
         </div>
       </ScrollReveal>
-      
+
       <ScrollReveal direction="up" delay={0.1}>
         <div id="services-section">
           <ServicesSection />
         </div>
       </ScrollReveal>
-      
+
       <ScrollReveal direction="up" delay={0.1}>
         <div id="treatments-section">
           <TreatmentsSection />
         </div>
       </ScrollReveal>
-      
+
       {/* <ProgramsSection /> */}
       {/* <EventsSection /> */}
-      
+
       <ScrollReveal direction="up" delay={0.1}>
         <div id="gallery-section">
           <GallerySection />
         </div>
       </ScrollReveal>
-      
+
       <ScrollReveal direction="up" delay={0.1}>
         <div id="team-section">
           <TeamSection />
         </div>
       </ScrollReveal>
-      
+
       <ScrollReveal direction="up" delay={0.1}>
         <div id="testimonials-section">
           <TestimonialsSection />
         </div>
       </ScrollReveal>
-      
+
       <ScrollReveal direction="up" delay={0.1}>
         <div id="blog-section">
           <BlogSection />
         </div>
       </ScrollReveal>
-      
+
       <ScrollReveal direction="up" delay={0.1}>
         <div id="contact-section">
           <ContactSection />

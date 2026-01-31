@@ -24,13 +24,14 @@ const EventsSection: React.FC = () => {
               <div className="events-item bg-primary rounded">
                 <div className="events-inner position-relative">
                   <div className="events-img overflow-hidden rounded-circle position-relative">
-                    <img 
-                      src={`/src/assets/images/${event.imagem}`} 
-                      className="img-fluid w-100 rounded-circle" 
+                    <img
+                      src={require(`../../../assets/images/${event.imagem}`)}
+                      className="img-fluid w-100 rounded-circle"
                       alt={event.titulo}
                     />
                     <div className="event-overlay">
-                      <a href={`/src/assets/images/${event.imagem}`} data-lightbox={`event-${event.id}`}>
+                      {/* Lighbox removed/modified as it requires a specific library setup or updated href */}
+                      <a href="#" onClick={(e) => e.preventDefault()}>
                         <i className="fas fa-search-plus text-white fa-2x"></i>
                       </a>
                     </div>

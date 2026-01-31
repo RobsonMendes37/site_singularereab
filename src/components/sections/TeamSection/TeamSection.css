@@ -1,52 +1,115 @@
 /**
  * TeamSection Styles
- * Estilos para cards de equipe mais retangulares
+ * Estilos Premium para cards de equipe
  */
 
-/* ========== Cards de Equipe ========== */
+/* ========== Wrapper para controle de layout ========== */
 .team-card-wrapper {
-  /* Removido max-width para ocupar toda a largura da coluna */
   margin: 0 auto;
   width: 100%;
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.team-card-inner .team-image {
-  height: 340px; /* Ajustado proporcionalmente */
+/* ========== O Card em si ========== */
+.team-item {
+  border-radius: 20px !important;
+  /* Mais arredondado */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+  /* Sombra suave */
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  /* Borda sutil */
+  background: white;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  /* Garante que a imagem não saia dos cantos arredondados */
 }
 
-/* ========== Responsivo ========== */
-@media (max-width: 1400px) {
-  .team-card-inner .team-image {
-    height: 330px;
-  }
+/* Efeito de Hover no Card */
+.team-item:hover {
+  transform: translateY(-8px);
+  /* Levanta levemente */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
 }
 
-@media (max-width: 1200px) {
-  .team-card-inner .team-image {
-    height: 320px;
-  }
+/* ========== Imagem ========== */
+.team-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  /* Borda completa */
+  width: 100%;
+  height: 100%;
+  /* Restaurado para ocupar todo o card */
 }
 
-@media (max-width: 991px) {
-  .team-card-inner .team-image {
-    height: 310px;
-  }
+.team-card-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  /* Removed height: 100% to allow auto sizing if needed, or keep defined */
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-@media (max-width: 768px) {
-  .team-card-inner .team-image {
-    height: 290px;
-  }
+.team-img img {
+  transition: transform 0.8s ease;
+  width: 100%;
+  height: 450px;
+  /* Reduzido para 450px (Ainda Vertical, mas menos exagerado) */
+  /* Altura fixa maior para o card ficar estilo 'poster' */
+  object-fit: cover !important;
+  display: block;
+  margin-bottom: -1px;
 }
 
-@media (max-width: 576px) {
-  .team-card-wrapper {
-    width: 100%;
-    margin-bottom: 15px; /* Pequena distância entre linhas */
-  }
-  
-  .team-card-inner .team-image {
-    height: 240px;
-  }
+/* ... existing code ... */
+
+/* Ajuste da altura da imagem no mobile para 2 colunas */
+/* Ajuste da altura da imagem no mobile para 2 colunas */
+.team-img img {
+  height: 240px !important;
+  /* Reduzido de 280px para 240px no mobile */
+  /* Proporcional para col-6 */
 }
 
+.team-item .p-4 {
+  padding: 0.8rem !important;
+  /* Padding reduzido */
+}
+
+.team-item h5 {
+  font-size: 0.95rem;
+  /* Nome legível, mas compacto */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-item small {
+  font-size: 0.7rem;
+  display: block;
+  /* Garante que fique na linha de baixo */
+  line-height: 1.2;
+}
+
+/* Ajuste dos ícones sociais no mobile - MENORES */
+.team-social .btn {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  margin: 0 2px !important;
+}
+
+/* ========== Reveal on Hover (User Request) ========== */
+.team-overlay-text {
+  opacity: 0;
+  transform: translateY(20px);
+  /* Começa de baixo */
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.team-item:hover .team-overlay-text,
+.team-item:active .team-overlay-text,
+.team-item:focus-within .team-overlay-text {
+  opacity: 1;
+  transform: translateY(0);
+}

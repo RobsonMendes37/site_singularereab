@@ -3,17 +3,19 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { aboutData } from '../../../data';
 import './AboutSection.css';
-// Importar vídeo local
-import videoAbout from '../../../assets/videos/about.mp4';
+// Importar vídeo dinamicamente
+// import videoAbout from '../../../assets/videos/about.mp4'; // Removido import estático
 
 const AboutSection: React.FC = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  
+
   // 🎯 DADOS CENTRALIZADOS - Agora vem de data/about/aboutData.ts
-  const { titulo, texto, textoBotao, linkBotao } = aboutData;
-  
-  // 🎥 VÍDEO LOCAL - Usando vídeo em assets/videos/about.mp4
+  const { titulo, texto, textoBotao, linkBotao, videoArquivo } = aboutData;
+
+  // 🎥 VÍDEO DINÂMICO
+  const videoSource = require(`../../../assets/videos/${videoArquivo}`);
+
   const handlePlayVideo = () => {
     setIsVideoPlaying(true);
     if (videoRef.current) {
@@ -26,13 +28,13 @@ const AboutSection: React.FC = () => {
       <Container >
         <Row className="g-5 align-items-center">
           <Col lg={6} className="wow fadeIn order-2 order-lg-1" data-wow-delay="0.1s">
-            {/* Container do vídeo inline - USANDO VÍDEO LOCAL */}
+            {/* Container do vídeo inline */}
             <div className="about-video-container" style={{
               border: '5px solid white',
               background: 'white'
             }}>
               <div style={{ position: 'relative', paddingBottom: '177.78%', height: 0 }}>
-                {/* Vídeo Local HTML5 */}
+                {/* Vídeo HTML5 */}
                 <video
                   ref={videoRef}
                   style={{
@@ -46,10 +48,10 @@ const AboutSection: React.FC = () => {
                   controls={isVideoPlaying}
                   playsInline
                 >
-                  <source src={videoAbout} type="video/mp4" />
+                  <source src={videoSource} type="video/mp4" />
                   Seu navegador não suporta vídeos HTML5.
                 </video>
-                
+
                 {/* Overlay com botão play - aparece quando vídeo não está tocando */}
                 {!isVideoPlaying && (
                   <div style={{
@@ -65,9 +67,9 @@ const AboutSection: React.FC = () => {
                     cursor: 'pointer',
                     transition: 'all 0.3s ease'
                   }}
-                  onClick={handlePlayVideo}
-                  onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.5)'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.3)'}
+                    onClick={handlePlayVideo}
+                    onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.5)'}
+                    onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.3)'}
                   >
                     <div style={{
                       width: '80px',
@@ -80,8 +82,8 @@ const AboutSection: React.FC = () => {
                       boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
                       transition: 'all 0.3s ease'
                     }}>
-                      <i className="fas fa-play" style={{ 
-                        fontSize: '30px', 
+                      <i className="fas fa-play" style={{
+                        fontSize: '30px',
                         color: 'white',
                         marginLeft: '5px'
                       }}></i>
@@ -106,8 +108,8 @@ const AboutSection: React.FC = () => {
             <p className="about-description">
               {texto}
             </p>
-            
-            <Link 
+
+            <Link
               to={linkBotao}
               className="btn text-white px-5 py-3 btn-border-radius about-history-button"
             >

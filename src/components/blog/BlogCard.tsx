@@ -16,7 +16,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) =>
   const formattedDate = format(new Date(post.date), "dd 'de' MMMM, yyyy", { locale: ptBR });
 
   return (
-    <div 
+    <div
       className="blog-card"
       style={{
         background: 'white',
@@ -39,13 +39,13 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) =>
     >
       {/* Imagem */}
       <Link to={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
-        <div style={{ 
-          height: featured ? '350px' : '250px', 
-          overflow: 'hidden', 
-          position: 'relative' 
+        <div style={{
+          height: featured ? '350px' : '250px',
+          overflow: 'hidden',
+          position: 'relative'
         }}>
-          <img 
-            src={post.image}
+          <img
+            src={post.image.startsWith('http') ? post.image : require(`../../assets/images/${post.image}`)}
             alt={post.title}
             loading="lazy"
             style={{
@@ -61,7 +61,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) =>
               e.currentTarget.style.transform = 'scale(1)';
             }}
           />
-          
+
           {/* Overlay */}
           <div style={{
             position: 'absolute',
@@ -93,125 +93,124 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) =>
       </Link>
 
       {/* Conteúdo */}
-      <div style={{ 
-        padding: featured ? '30px' : '22px', /* Reduzido de 35px/25px para 30px/22px */
-        display: 'flex', 
+      <div style={{
+        padding: featured ? '30px' : '15px', /* Mais compacto (era 22px) */
+        display: 'flex',
         flexDirection: 'column',
         flex: 1
       }}>
         {/* Autor e Data */}
-        <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          marginBottom: '16px', /* Reduzido de 20px para 16px */
-          gap: '15px'
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          marginBottom: '10px', /* Reduzido de 16px */
+          gap: '10px'
         }}>
-          <img 
+          <img
             src={post.author.image || `https://ui-avatars.com/api/?name=${post.author.name}&background=4A90E2&color=fff`}
             alt={post.author.name}
             style={{
-              width: '50px',
-              height: '50px',
+              width: '40px', /* Menor (era 50px) */
+              height: '40px',
               borderRadius: '50%',
               objectFit: 'cover',
-              border: '3px solid #f0f4f8'
+              border: '2px solid #f0f4f8'
             }}
           />
           <div>
-            <div style={{ 
-              fontSize: '15px', 
-              fontWeight: '700', 
+            <div style={{
+              fontSize: '14px',
+              fontWeight: '700',
               color: 'var(--text-primary)',
-              marginBottom: '4px'
+              marginBottom: '2px'
             }}>
               {post.author.name}
             </div>
-            <div style={{ 
-              fontSize: '13px', 
+            <div style={{
+              fontSize: '12px',
               color: 'var(--text-muted)',
               display: 'flex',
               alignItems: 'center',
-              gap: '10px'
+              gap: '8px'
             }}>
               <span><i className="far fa-calendar-alt me-1"></i>{formattedDate}</span>
-              <span>·</span>
-              <span><i className="far fa-clock me-1"></i>{post.readTime} min</span>
             </div>
           </div>
         </div>
 
         {/* Título */}
-        <Link 
+        <Link
           to={`/blog/${post.slug}`}
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
-          <h3 style={{ 
-            fontSize: featured ? '26px' : '20px', 
+          <h3 style={{
+            fontSize: featured ? '24px' : '18px', /* Menor */
             fontWeight: '700',
             color: 'var(--text-primary)',
-            marginBottom: '12px', /* Reduzido de 15px para 12px */
-            lineHeight: '1.4',
-            minHeight: featured ? 'auto' : '70px',
+            marginBottom: '8px',
+            lineHeight: '1.3',
+            minHeight: featured ? 'auto' : 'auto', /* Remove min-height fixo que gera buracos */
             transition: 'color 0.3s ease'
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = 'var(--color-primary)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = 'var(--text-primary)';
-          }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'var(--color-primary)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'var(--text-primary)';
+            }}
           >
             {post.title}
           </h3>
         </Link>
 
         {/* Descrição */}
-        <p style={{ 
-          fontSize: '15px',
-          lineHeight: '1.7',
+        <p style={{
+          fontSize: '14px',
+          lineHeight: '1.5',
           color: 'var(--text-secondary)',
-          marginBottom: '15px', /* Reduzido de 20px para 15px */
-          flex: 1
+          marginBottom: '12px',
+          flex: 1,
+          display: '-webkit-box',
+          WebkitLineClamp: '3', /* Limita a 3 linhas */
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden'
         }}>
           {post.description}
         </p>
 
         {/* Footer */}
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'flex-end', 
+        <div style={{
+          display: 'flex',
+          justifyContent: 'flex-start', /* Alinhado a esquerda para fluir melhor */
           alignItems: 'center',
-          paddingTop: '15px', /* Reduzido de 20px para 15px */
-          borderTop: '2px solid #f0f4f8',
           marginTop: 'auto'
         }}>
-          <Link 
+          <Link
             to={`/blog/${post.slug}`}
             style={{
-              background: 'var(--bg-gradient-primary)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '25px',
-              padding: '10px 25px',
-              fontSize: '14px',
-              fontWeight: '600',
+              background: 'transparent', /* Botão "ghost" mais limpo */
+              color: 'var(--color-primary)',
+              border: '2px solid var(--color-primary)',
+              borderRadius: '20px',
+              padding: '6px 20px', /* Menor padding */
+              fontSize: '13px',
+              fontWeight: '700',
               textDecoration: 'none',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
-              boxShadow: 'var(--shadow-primary)',
+              gap: '6px',
               transition: 'all 0.3s ease'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 6px 15px rgba(74, 144, 226, 0.4)';
+              e.currentTarget.style.background = 'var(--color-primary)';
+              e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'var(--shadow-primary)';
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = 'var(--color-primary)';
             }}
           >
-            Ler Mais <i className="fas fa-arrow-right"></i>
+            Ler Artigo <i className="fas fa-arrow-right"></i>
           </Link>
         </div>
       </div>

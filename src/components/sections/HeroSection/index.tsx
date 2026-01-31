@@ -33,7 +33,7 @@ const HeroSection: React.FC = () => {
 
       timerRef.current = setInterval(() => {
         const timeSinceLastManualChange = Date.now() - lastManualChange;
-        
+
         // Só troca automaticamente se passaram 10 segundos desde o último clique manual
         if (timeSinceLastManualChange >= 10000 || lastManualChange === 0) {
           setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -70,11 +70,37 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <div 
+    <div
       className={`container-fluid hero-section hero-slide-${currentSlide} position-relative wow fadeIn`}
       data-wow-delay="0.1s"
       style={{
         backgroundImage: `url(${require(`../../../assets/images/${slides[currentSlide].backgroundImage}`)})`,
+      }}
+      onTouchStart={(e) => {
+        const touchDown = e.touches[0].clientX;
+        // set touch start
+        (e.currentTarget as any).touchStart = touchDown;
+      }}
+      onTouchMove={(e) => {
+        const touchDown = (e.currentTarget as any).touchStart;
+        if (touchDown === null) return;
+        const currentTouch = e.touches[0].clientX;
+        const diff = touchDown - currentTouch;
+        if (diff > 5) {
+          (e.currentTarget as any).touchDiff = diff;
+        } else if (diff < -5) {
+          (e.currentTarget as any).touchDiff = diff;
+        }
+      }}
+      onTouchEnd={(e) => {
+        const diff = (e.currentTarget as any).touchDiff;
+        if (diff > 50) {
+          goToNext();
+        } else if (diff < -50) {
+          goToPrevious();
+        }
+        (e.currentTarget as any).touchStart = null;
+        (e.currentTarget as any).touchDiff = null;
       }}
     >
       <Container className=" hero-section-container">

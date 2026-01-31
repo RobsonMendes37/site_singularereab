@@ -5,7 +5,8 @@
 
 .whatsapp-float {
   position: fixed;
-  bottom: 80px; /* Aumentado de 20px para 80px - mais para cima */
+  bottom: 80px;
+  /* Aumentado de 20px para 80px - mais para cima */
   right: 20px;
   width: 60px;
   height: 60px;
@@ -19,7 +20,7 @@
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
-  animation: pulse-whatsapp 2s infinite;
+  animation: pulse-whatsapp 1.5s infinite;
 }
 
 .whatsapp-float i {
@@ -37,13 +38,19 @@
 
 /* Pulse animation */
 @keyframes pulse-whatsapp {
-  0%, 100% { 
-    transform: scale(1); 
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.8);
+    transform: scale(1);
   }
-  50% { 
-    transform: scale(1.05); 
-    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7);
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    transform: scale(1.1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    transform: scale(1);
   }
 }
 
@@ -55,7 +62,8 @@
 /* Responsivo - ajustar para mobile */
 @media (max-width: 576px) {
   .whatsapp-float {
-    bottom: 90px; /* Aumentado para dar mais espaço ao botão de voltar */
+    bottom: 90px;
+    /* Aumentado para dar mais espaço ao botão de voltar */
     right: 15px;
     width: 56px;
     height: 56px;
@@ -69,7 +77,8 @@
 /* Tablet */
 @media (min-width: 577px) and (max-width: 991px) {
   .whatsapp-float {
-    bottom: 75px; /* Aumentado para tablet também */
+    bottom: 75px;
+    /* Aumentado para tablet também */
     right: 18px;
     width: 58px;
     height: 58px;
@@ -86,4 +95,3 @@
   outline: 3px solid #20BA5A;
   outline-offset: 4px;
 }
-

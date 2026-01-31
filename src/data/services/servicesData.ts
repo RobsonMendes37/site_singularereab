@@ -23,30 +23,30 @@ export interface Service {
 export const servicesData: Service[] = [
   {
     id: 1,
-    titulo: "Equipe Qualificada",
-    descricao: "Profissionais especializados e experientes em reabilitação infantil",
-    icone: "fas fa-user-md",
+    titulo: "Especialistas que Acolhem",
+    descricao: "Unimos conhecimento técnico de ponta com o carinho que seu filho merece. Aqui, ele é tratado pelo nome e com afeto.",
+    icone: "fas fa-smile-beam", // Rosto sorrindo (simbolizando acolhimento)
     cor: "#007bff"
   },
   {
     id: 2,
-    titulo: "Atendimento Personalizado",
-    descricao: "Cada criança recebe um plano de tratamento individualizado",
-    icone: "fas fa-heart",
+    titulo: "Respeito ao Ritmo",
+    descricao: "Não existe \"receita de bolo\". Criamos um plano único para o seu filho, respeitando o tempo e a individualidade dele.",
+    icone: "fas fa-heart", // Coração (Mantido conforme pedido)
     cor: "#dc3545"
   },
   {
     id: 3,
-    titulo: "Resultados Comprovados",
-    descricao: "Metodologias baseadas em evidências científicas",
-    icone: "fas fa-trophy",
-    cor: "#28a745"
+    titulo: "Conquistas Reais",
+    descricao: "Usamos a ciência para gerar autonomia. O objetivo não é apenas a terapia, mas ver seu filho evoluindo no dia a dia.",
+    icone: "fas fa-star", // Estrela (Simbolizando conquista/evolução)
+    cor: "#ffc107" // Amarelo para estrela
   },
   {
     id: 4,
-    titulo: "Estrutura Moderna",
-    descricao: "Ambientes equipados com tecnologia de ponta",
-    icone: "fas fa-building",
+    titulo: "Aprender Brincando",
+    descricao: "Um espaço seguro e divertido. Transformamos exercícios terapêuticos em brincadeira para que a criança ame vir pra cá.",
+    icone: "fas fa-shapes", // Formas geométricas/Cubos (Simbolizando brinquedos)
     cor: "#17a2b8"
   }
 ];

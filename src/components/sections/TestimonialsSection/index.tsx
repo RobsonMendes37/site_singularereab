@@ -20,7 +20,7 @@ const TestimonialsSection: React.FC = () => {
     date: new Date().toISOString(), // Data atual como placeholder
     verified: true // Todos são verificados
   }));
-  
+
   // Detecta o tamanho da tela para ajustar itens por página
   const { isMobile } = useBreakpoints();
   const itemsPerPage = isMobile ? 1 : 3; // Desktop: 3 depoimentos, Mobile: 1
@@ -32,7 +32,7 @@ const TestimonialsSection: React.FC = () => {
   });
 
   const visibleTestimonials = testimonials.slice(visibleRange.start, visibleRange.end);
-  
+
   // Auto-rotate a cada 5 segundos
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const lastManualChangeRef = useRef<number>(Date.now());
@@ -82,23 +82,23 @@ const TestimonialsSection: React.FC = () => {
     }}>
       <Container className="py-1">
         <div className="mx-auto text-center wow fadeIn mb-5" data-wow-delay="0.1s" style={{ maxWidth: '800px' }}>
-        <h1 className="display-4 fw-normal" style={{ 
+          <h1 className="display-4 fw-normal" style={{
             fontFamily: "'Pacifico', cursive",
             color: 'var(--bs-primary)',
             letterSpacing: '-0.02em',
             lineHeight: '1.2'
           }}>
             Depoimentos
-        </h1>
+          </h1>
         </div>
-        
+
         <div className="testimonial-carousel wow fadeIn" data-wow-delay="0.3s">
           <div className="position-relative">
             {/* Carrossel Container */}
             <Row className="g-4 justify-content-center">
               {visibleTestimonials.map((testimonial, _index) => (
                 <Col key={testimonial.id} lg={4} md={6} xs={12}>
-                  <div 
+                  <div
                     className="testimonial-card bg-white position-relative"
                     style={{
                       transition: 'all 0.3s ease',
@@ -123,9 +123,9 @@ const TestimonialsSection: React.FC = () => {
                     }}
                   >
                     {/* Aspas decorativas */}
-                    <i 
-                      className="fa fa-quote-left" 
-                      style={{ 
+                    <i
+                      className="fa fa-quote-left"
+                      style={{
                         position: 'absolute',
                         top: '20px',
                         left: '20px',
@@ -138,7 +138,7 @@ const TestimonialsSection: React.FC = () => {
                     <div className="d-flex flex-column h-100" style={{ position: 'relative', zIndex: 2 }}>
                       {/* Header com nome e estrelas */}
                       <div className="mb-4 mt-2">
-                        <h4 className="mb-2 fs-5 fw-bold" style={{ 
+                        <h4 className="mb-2 fs-5 fw-bold" style={{
                           fontFamily: "'Nunito', sans-serif",
                           color: COLORS.text.primary
                         }}>
@@ -147,12 +147,12 @@ const TestimonialsSection: React.FC = () => {
                         <p className="mb-2 text-muted" style={{ fontSize: '0.9rem' }}>
                           {testimonial.author.role}
                         </p>
-                        
+
                         {/* Estrelas */}
                         <div className="d-flex align-items-center mb-2">
                           {[...Array(testimonial.rating)].map((_, i) => (
-                            <i key={i} className="fas fa-star me-1" style={{ 
-                              fontSize: '16px', 
+                            <i key={i} className="fas fa-star me-1" style={{
+                              fontSize: '16px',
                               color: COLORS.childish.star
                             }}></i>
                           ))}
@@ -165,13 +165,13 @@ const TestimonialsSection: React.FC = () => {
                             fontWeight: '500'
                           }}>
                             <i className="far fa-calendar-alt me-2"></i>
-                            {new Date(testimonial.date).toLocaleDateString('pt-BR', { 
-                              year: 'numeric', 
+                            {new Date(testimonial.date).toLocaleDateString('pt-BR', {
+                              year: 'numeric',
                               month: 'long',
                               day: 'numeric'
                             })}
                           </div>
-                          
+
                           {testimonial.verified && (
                             <span className="d-inline-flex align-items-center gap-1 px-2 py-1 rounded-pill text-white fw-semibold" style={{
                               background: COLORS.secondary.main,
@@ -183,12 +183,12 @@ const TestimonialsSection: React.FC = () => {
                           )}
                         </div>
                       </div>
-                      
+
                       {/* Conteúdo do depoimento */}
                       <div className="flex-grow-1">
-                        <p 
-                          className="mb-0 fs-6 fst-italic text-start fw-normal" 
-                          style={{ 
+                        <p
+                          className="mb-0 fs-6 fst-italic text-start fw-normal"
+                          style={{
                             fontFamily: "'Nunito', sans-serif",
                             lineHeight: '1.8',
                             color: COLORS.text.secondary
@@ -206,7 +206,7 @@ const TestimonialsSection: React.FC = () => {
             {/* Navigation Arrows - Mostrar sempre que houver mais de 1 página */}
             {totalPages > 1 && (
               <>
-                <button 
+                <button
                   className="testimonial-nav testimonial-nav-prev position-absolute top-50 translate-middle-y d-flex align-items-center justify-content-center rounded-circle border-0 text-white shadow"
                   onClick={handlePrevious}
                   aria-label="Depoimentos anteriores"
@@ -234,8 +234,8 @@ const TestimonialsSection: React.FC = () => {
                 >
                   <i className="fas fa-chevron-left"></i>
                 </button>
-                
-                <button 
+
+                <button
                   className="testimonial-nav testimonial-nav-next position-absolute top-50 translate-middle-y d-flex align-items-center justify-content-center rounded-circle border-0 text-white shadow"
                   onClick={handleNext}
                   aria-label="Próximos depoimentos"

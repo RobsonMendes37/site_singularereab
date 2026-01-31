@@ -1,17 +1,16 @@
 import React, { useState, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import './GallerySection.css';
+import { homeData } from '../../../data';
 // Importar vídeo local
 import videoEstrutura from '../../../assets/videos/estrutura.mp4';
+import MiniGallery from './MiniGallery';
 
 const GallerySection: React.FC = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  
-  // 🎯 DADOS CENTRALIZADOS - Agora vem de data/about/aboutData.ts
-  const titulo = "Conheça Nossa Estrutura";
-  const descricao = "Ambientes cuidadosamente planejados e equipamentos de última geração para proporcionar o melhor tratamento e desenvolvimento para cada criança";
-  
+
+  const { title: titulo, description: descricao } = homeData.sections.gallery;
+
   // 🎥 VÍDEO LOCAL - Usando vídeo em assets/videos/estrutura.mp4
   const handlePlayVideo = () => {
     setIsVideoPlaying(true);
@@ -220,8 +219,8 @@ const GallerySection: React.FC = () => {
                                 e.currentTarget.style.boxShadow = '0 15px 40px rgba(0,0,0,0.3)';
                               }}
                             >
-                              <i className="fas fa-play" style={{ 
-                                fontSize: '32px', 
+                              <i className="fas fa-play" style={{
+                                fontSize: '32px',
                                 color: '#4A90E2',
                                 marginLeft: '6px'
                               }}></i>
@@ -251,12 +250,17 @@ const GallerySection: React.FC = () => {
                       whiteSpace: 'nowrap'
                     }}>
                       <i className="fas fa-building"></i>
-                      NOSSA ESTRUTURA
+                      {homeData.sections.gallery.badge}
                     </div>
                   </div>
                 </div>
               </Col>
             </Row>
+          </div>
+
+          {/* Mini Galeria de Estrutura */}
+          <div className="wow fadeIn" data-wow-delay="0.3s">
+            <MiniGallery />
           </div>
         </Container>
       </div>

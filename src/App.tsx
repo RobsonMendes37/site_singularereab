@@ -16,6 +16,7 @@ const OurStory = lazy(() => import('./pages/OurStory'));
 const BlogList = lazy(() => import('./pages/BlogList'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const TreatmentDetail = lazy(() => import('./pages/TreatmentDetail'));
+const Gallery = lazy(() => import('./pages/Gallery'));
 
 // Componente de loading
 const LoadingFallback = () => (
@@ -47,6 +48,7 @@ function App() {
               <Route path="/tratamento/:slug" element={<TreatmentDetail />} />
               <Route path="/blog" element={<BlogList />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/galeria" element={<Gallery />} />
             </Routes>
           </Suspense>
           <Footer />

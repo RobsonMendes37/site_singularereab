@@ -25,9 +25,9 @@ const ProgramsSection: React.FC = () => {
               <div className="program-item rounded">
                 <div className="program-img position-relative">
                   <div className="overflow-hidden img-border-radius">
-                    <img 
-                      src={`/src/assets/images/${program.imagem}`} 
-                      className="img-fluid w-100" 
+                    <img
+                      src={require(`../../../assets/images/${program.imagem}`)}
+                      className="img-fluid w-100"
                       alt={program.titulo}
                     />
                   </div>
@@ -42,9 +42,9 @@ const ProgramsSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="program-teacher d-flex align-items-center border-top border-primary bg-white px-4 py-3">
-                  <img 
-                    src={`/src/assets/images/${program.professor.foto}`} 
-                    className="img-fluid rounded-circle p-2 border border-primary bg-white" 
+                  <img
+                    src={require(`../../../assets/images/${program.professor.foto}`)}
+                    className="img-fluid rounded-circle p-2 border border-primary bg-white"
                     alt={program.professor.nome}
                     style={{ width: '70px', height: '70px' }}
                   />

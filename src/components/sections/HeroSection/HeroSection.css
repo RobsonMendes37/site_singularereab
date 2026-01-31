@@ -29,20 +29,27 @@
 }
 
 /* ========== Título e Subtítulo ========== */
+/* ========== Título e Subtítulo ========== */
 .hero-title {
-  font-family: 'Pacifico', cursive;
-  font-size: 4.5rem;
-  font-weight: 400;
+  font-family: 'Fredoka', cursive;
+  font-size: 3.5rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF !important;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px !important;
+  /* Adiciona respiro entre título e subtítulo */
 }
 
 .hero-subtitle {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-family: 'Fredoka', cursive;
+  font-size: 1.25rem;
+  /* Reduzido de 1.5rem */
+  font-weight: 400;
+  /* Reduzido de 500 para Regular */
   line-height: 1.6;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF !important;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* ========== Setas de Navegação ========== */
@@ -74,11 +81,13 @@
 }
 
 .hero-nav-prev {
-  left: 10px; /* Mais perto da borda */
+  left: 10px;
+  /* Mais perto da borda */
 }
 
 .hero-nav-next {
-  right: 10px; /* Mais perto da borda */
+  right: 10px;
+  /* Mais perto da borda */
 }
 
 /* ========== Indicadores (Dots) ========== */
@@ -93,8 +102,10 @@
 }
 
 .hero-dot {
-  width: 5px; /* Reduzido de 15px para 10px */
-  height: 5px; /* Reduzido de 15px para 10px */
+  width: 5px;
+  /* Reduzido de 15px para 10px */
+  height: 5px;
+  /* Reduzido de 15px para 10px */
   border-radius: 50%;
   border: 2px solid white;
   background: transparent;
@@ -109,23 +120,21 @@
 }
 
 .hero-dot.active {
-  width: 30px; /* Reduzido de 45px para 30px */
-  border-radius: 8px; /* Ajustado de 10px */
+  width: 30px;
+  /* Reduzido de 45px para 30px */
+  border-radius: 8px;
+  /* Ajustado de 10px */
   background: white;
 }
 
-/* ========== Cores dos Slides ========== */
-.hero-slide-0 .hero-title {
-  color: var(--color-secondary) !important; /* Azul Turquesa */
-}
-
-.hero-slide-1 .hero-title {
-  color: var(--color-accent-pink-light) !important; /* Lilás Claro */
-}
-
+/* ========== Cores dos Slides (REMOVIDO pois agora é tudo branco) ========== */
+/* 
+.hero-slide-0 .hero-title,
+.hero-slide-1 .hero-title,
 .hero-slide-2 .hero-title {
-  color: var(--color-secondary-light) !important; /* Azul Turquesa Claro */
-}
+  color: #FFFFFF !important;
+} 
+*/
 
 /* ========== Responsividade ========== */
 @media (max-width: 768px) {
@@ -146,49 +155,56 @@
     height: 45px;
     font-size: 18px;
   }
-  
+
   .hero-nav-prev {
-    left: 5px; /* Mais perto da borda no mobile */
+    left: 5px;
+    /* Mais perto da borda no mobile */
   }
-  
+
   .hero-nav-next {
-    right: 5px; /* Mais perto da borda no mobile */
+    right: 5px;
+    /* Mais perto da borda no mobile */
   }
-  
+
   .hero-indicators {
     bottom: 20px;
   }
-  
+
   .hero-dot {
-    width: 8px; /* Reduzido de 12px para 8px */
-    height: 8px; /* Reduzido de 12px para 8px */
+    width: 8px;
+    /* Reduzido de 12px para 8px */
+    height: 8px;
+    /* Reduzido de 12px para 8px */
   }
-  
+
   .hero-dot.active {
-    width: 25px; /* Reduzido de 35px para 25px */
+    width: 25px;
+    /* Reduzido de 35px para 25px */
   }
 }
 
 @media (max-width: 576px) {
   .hero-section {
-    min-height: 60vh !important; /* Reduzido para 60vh - menos scroll */
+    min-height: 40vh !important;
+    /* Reduzido para 40vh */
   }
 
   .hero-title {
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important; /* Sombra mais forte para legibilidade */
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 700 !important;
   }
 
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
-    line-height: 1.7; /* Melhor legibilidade */
+    line-height: 1.5;
+    font-weight: 600 !important;
   }
 
   .hero-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    display: none !important;
+    /* Esconde setas no mobile */
   }
 
   /* Otimizar padding do container */
@@ -197,4 +213,3 @@
     padding-bottom: 2rem !important;
   }
 }
-

@@ -24,26 +24,26 @@ export interface HeroSlide {
 export const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    titulo: "Seu Filho Merece o Melhor Cuidado",
-    subtitulo: "Tratamentos Especializados que Transformam o Desenvolvimento das Crianças",
-    imagemFundo: "hero-img.jpg",
-    botaoTexto: "Conheça Nossos Tratamentos",
-    botaoLink: "/tratamentos"
-  },
-  {
-    id: 2,
-    titulo: "Cada Conquista é uma Vitória",
-    subtitulo: "Acompanhamos Cada Passo do Crescimento do Seu Filho com Dedicação e Amor",
-    imagemFundo: "hero2.jpeg",
-    botaoTexto: "Nossa História",
+    titulo: "Reabilitação Infantil",
+    subtitulo: "Cuidado e Amor para o Desenvolvimento do Seu Filho",
+    imagemFundo: "site/hero2.jpeg",
+    botaoTexto: "Saiba Mais",
     botaoLink: "/sobre/historia"
   },
   {
+    id: 2,
+    titulo: "Amor que Transforma Vidas",
+    subtitulo: "Terapias que Acolhem e Desenvolvem Potenciais",
+    imagemFundo: "site/familia.jpg",
+    botaoTexto: "Nossos Tratamentos",
+    botaoLink: "/tratamentos"
+  },
+  {
     id: 3,
-    titulo: "Construindo um Futuro Brilhante",
-    subtitulo: "Equipe Multidisciplinar Comprometida com o Desenvolvimento Integral do Seu Filho",
-    imagemFundo: "hero-img.jpg",
-    botaoTexto: "Agende uma Consulta",
+    titulo: "Autonomia e Superação",
+    subtitulo: "Uma Equipe Dedicada ao Futuro da Sua Criança",
+    imagemFundo: "site/hero-img.jpg", /* Note: Keeping same image as placeholder, user can change */
+    botaoTexto: "Fale Conosco",
     botaoLink: "/contato"
   }
 ];

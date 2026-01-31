@@ -31,7 +31,7 @@ export const eventsData: Event[] = [
     data: "15 Dez",
     horario: "14:00 - 16:00",
     local: "São Paulo",
-    imagem: "event-1.jpg",
+    imagem: "events/event-1.jpg",
     link: "/eventos/workshop-desenvolvimento"
   },
   {
@@ -41,7 +41,7 @@ export const eventsData: Event[] = [
     data: "22 Dez",
     horario: "19:00 - 21:00",
     local: "São Paulo",
-    imagem: "event-2.jpg",
+    imagem: "events/event-2.jpg",
     link: "/eventos/palestra-autismo"
   },
   {
@@ -51,7 +51,7 @@ export const eventsData: Event[] = [
     data: "29 Dez",
     horario: "09:00 - 17:00",
     local: "São Paulo",
-    imagem: "event-3.jpg",
+    imagem: "events/event-3.jpg",
     link: "/eventos/feira-saude"
   }
 ];

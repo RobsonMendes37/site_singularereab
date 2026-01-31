@@ -248,10 +248,13 @@
   /* Links no mobile - mais finos e alinhados à esquerda */
   .header-nav-link {
     margin: 0.4rem 0 !important;
-    text-align: left !important; /* Alinhado à esquerda ao invés de centralizado */
+    text-align: left !important;
+    /* Alinhado à esquerda ao invés de centralizado */
     padding: 0.5rem 1rem !important;
-    font-size: 0.95rem !important; /* Fonte um pouco menor */
-    font-weight: 600 !important; /* Reduzido de 850 para 600 */
+    font-size: 0.95rem !important;
+    /* Fonte um pouco menor */
+    font-weight: 600 !important;
+    /* Reduzido de 850 para 600 */
     border-radius: 10px;
   }
 
@@ -261,10 +264,12 @@
 
   /* Dropdown no mobile */
   .header-dropdown .dropdown-toggle {
-    text-align: left !important; /* Alinhado à esquerda */
+    text-align: left !important;
+    /* Alinhado à esquerda */
     margin: 0.4rem 0;
     padding: 0.5rem 1rem !important;
-    font-weight: 600 !important; /* Reduzido de 900 para 600 */
+    font-weight: 600 !important;
+    /* Reduzido de 900 para 600 */
   }
 
   .header-dropdown .dropdown-menu {
@@ -272,7 +277,8 @@
     box-shadow: none;
     background: rgba(18, 178, 201, 0.05);
     margin-top: 0.25rem;
-    margin-left: 1rem; /* Indent para submenu */
+    margin-left: 1rem;
+    /* Indent para submenu */
   }
 
   .header-dropdown .dropdown-item {
@@ -292,29 +298,242 @@
 
 @media (max-width: 576px) {
   .header-logo-img {
-    height: 30px;
+    height: 60px;
+    /* Logo maior no mobile (era 30px) */
   }
 
+  /* ... */
+}
+
+/* ========== Social Icons Vertical ========== */
+.header-social-icon-sm {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgba(18, 178, 201, 0.1);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.header-social-icon-sm:hover {
+  background: var(--color-secondary);
+  color: white;
+}
+
+
+/* ========== Menu Flutuante Mobile (Novo Design) ========== */
+@media (max-width: 1199px) {
+
+  /* Toggle Button sempre visível acima do menu */
+  .header-navbar-toggler {
+    z-index: 1052 !important;
+    position: relative;
+    border: none;
+    padding: 0.5rem;
+  }
+
+  /* Removemos o comportamento de fixed sidebar (drawer) da classe .mobile-drawer e .navbar-collapse */
+  /* Resetando comportamentos anteriores se existirem */
+  .mobile-drawer {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    box-shadow: none;
+    display: block;
+    visibility: visible;
+  }
+
+  /* Novo Estilo Flutuante */
+  .navbar-collapse {
+    position: absolute;
+    top: 90px;
+    /* Logo abaixo do header */
+    right: 15px;
+    /* Espaçamento da lateral */
+    width: 250px;
+    /* Largura fixa compacta */
+    background: var(--bs-primary);
+    /* Fundo Azul */
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 10px 40px rgba(0, 50, 100, 0.3);
+    z-index: 1050;
+    overflow: hidden;
+
+    /* Transições */
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Important overrides para o Bootstrap */
+    display: block !important;
+    height: auto !important;
+    max-height: 0;
+  }
+
+  /* Estado Aberto */
+  .navbar-collapse.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+    max-height: 800px;
+    /* Altura máxima segura */
+    padding-top: 15px;
+    /* Reset padding-top */
+    animation: none;
+    /* Remove slideDown antigo */
+  }
+
+  /* Estado Fechando (Animation) */
+  .navbar-collapse.collapsing {
+    position: absolute;
+    top: 90px;
+    right: 15px;
+    width: 250px;
+    background: var(--bs-primary);
+    border-radius: 20px;
+    z-index: 1050;
+    height: auto !important;
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+    transition: all 0.3s ease;
+    display: block !important;
+    max-height: 0;
+    padding: 0 15px;
+    /* Colapsa padding */
+    overflow: hidden;
+  }
+
+  /* Items do Menu */
+  .mobile-nav-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* Remove gap completely, control via margin */
+    width: 100%;
+  }
+
+  /* Links do Menu */
+  .header-nav-link {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 700 !important;
+    font-size: 1.15rem !important;
+    padding: 8px 12px !important;
+    border-radius: 8px;
+    background: transparent;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin: 0 0 4px 0 !important;
+    /* Margem de 4px */
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    line-height: 1.2;
+    min-height: auto;
+  }
+
+  .header-nav-link i {
+    width: 25px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+  }
+
+  /* Link Ativo ou Hover */
+  .header-nav-link:hover,
+  .header-nav-link:focus,
+  .header-nav-link.active {
+    background: white;
+    color: var(--bs-primary) !important;
+    transform: translateX(3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Ícone no Hover muda de cor também */
+  .header-nav-link:hover i,
+  .header-nav-link:focus i,
+  .header-nav-link.active i {
+    color: var(--color-secondary);
+  }
+
+  /* Dropdown Toggle */
+  .header-dropdown .dropdown-toggle {
+    color: rgba(255, 255, 255, 0.95) !important;
+    padding: 8px 12px !important;
+    background: transparent;
+    border-radius: 8px;
+    width: 100%;
+    margin: 0 0 4px 0;
+    /* Margem de 4px */
+    text-align: left !important;
+    font-weight: 700 !important;
+    font-size: 1.15rem !important;
+  }
+
+  /* Estado do Toggle quando Aberto (show) ou Hover */
+  .header-dropdown .dropdown-toggle.show,
+  .header-dropdown .dropdown-toggle:hover,
+  .header-dropdown .dropdown-toggle:focus {
+    background: white;
+    color: var(--bs-primary) !important;
+  }
+
+  /* Dropdown Menu - CORREÇÃO DE VISIBILIDADE */
+  .header-dropdown .dropdown-menu {
+    background: rgba(0, 0, 0, 0.15) !important;
+    margin: 0 0 5px 0 !important;
+    padding: 4px !important;
+    position: static !important;
+    box-shadow: none !important;
+    border-radius: 10px;
+    border: none;
+  }
+
+  /* Itens do Dropdown */
+  .header-dropdown .dropdown-item {
+    color: white !important;
+    /* SEMPRE branco por padrão */
+    font-size: 1rem !important;
+    padding: 10px 12px;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    background: transparent !important;
+    /* Fundo transparente padrão */
+  }
+
+  /* Hover/Focus APENAS no Item do Dropdown */
+  .header-dropdown .dropdown-item:hover,
+  .header-dropdown .dropdown-item:focus {
+    background: rgba(255, 255, 255, 0.9) !important;
+    /* Fundo branco no item */
+    color: var(--bs-primary) !important;
+    /* Texto azul no item */
+    transform: translateX(5px);
+  }
+
+  /* Ícone no Item do Dropdown */
+  .header-dropdown .dropdown-item:hover i {
+    color: var(--color-secondary) !important;
+  }
+}
+
+@media (max-width: 576px) {
   .header-navbar {
     padding: 0;
   }
 
-  /* Links ainda mais finos em telas pequenas */
-  .header-nav-link {
-    font-size: 0.9rem !important;
-    padding: 0.45rem 0.85rem !important;
-    font-weight: 600 !important;
-  }
-
-  .header-dropdown .dropdown-toggle {
-    font-size: 0.9rem !important;
-    padding: 0.45rem 0.85rem !important;
-  }
-
-  .header-dropdown .dropdown-item {
-    font-size: 0.85rem;
-    padding: 0.6rem 0.85rem;
-  }
+  /* Mantemos o logo ajustado */
 }
 
 /* ========== Animações ========== */
@@ -323,6 +542,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -345,4 +565,3 @@
 .navbar-nav .nav-link:hover {
   color: var(--color-secondary) !important;
 }
-

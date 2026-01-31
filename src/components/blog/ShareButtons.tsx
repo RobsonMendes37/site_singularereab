@@ -25,6 +25,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title }) => {
     justifyContent: 'center',
     width: '45px',
     height: '45px',
+    flexShrink: 0, // Impede que o botão seja espremido
     borderRadius: '50%',
     background: color,
     color: 'white',
@@ -36,91 +37,95 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title }) => {
   });
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      alignItems: 'center', 
-      gap: '15px',
-      padding: '30px 0',
-      borderTop: '2px solid #f0f4f8',
-      borderBottom: '2px solid #f0f4f8',
-      margin: '30px 0'
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column', // Empilha verticalmente
+      alignItems: 'center',    // Centraliza tudo
+      gap: '20px',
+      padding: '40px 0',
+      borderTop: '1px solid #eef2f6',
+      borderBottom: '1px solid #eef2f6',
+      margin: '40px 0'
     }}>
-      <span style={{ 
-        fontSize: '16px', 
-        fontWeight: '600', 
+      <span style={{
+        fontSize: '14px',
+        fontWeight: '700',
         color: 'var(--text-secondary)',
-        marginRight: '10px'
+        textTransform: 'uppercase',
+        letterSpacing: '1px'
       }}>
-        Compartilhar:
+        Compartilhe este artigo
       </span>
-      
-      <a
-        href={shareLinks.facebook}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={buttonStyle('#1877F2')}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-3px)';
-          e.currentTarget.style.boxShadow = '0 6px 15px rgba(24, 119, 242, 0.4)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
-        }}
-      >
-        <i className="fab fa-facebook-f"></i>
-      </a>
 
-      <a
-        href={shareLinks.twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={buttonStyle('#1DA1F2')}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-3px)';
-          e.currentTarget.style.boxShadow = '0 6px 15px rgba(29, 161, 242, 0.4)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
-        }}
-      >
-        <i className="fab fa-twitter"></i>
-      </a>
+      <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <a
+          href={shareLinks.facebook}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={buttonStyle('#1877F2')}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-3px)';
+            e.currentTarget.style.boxShadow = '0 6px 15px rgba(24, 119, 242, 0.4)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+          }}
+        >
+          <i className="fab fa-facebook-f"></i>
+        </a>
 
-      <a
-        href={shareLinks.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={buttonStyle('#0A66C2')}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-3px)';
-          e.currentTarget.style.boxShadow = '0 6px 15px rgba(10, 102, 194, 0.4)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
-        }}
-      >
-        <i className="fab fa-linkedin-in"></i>
-      </a>
+        <a
+          href={shareLinks.twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={buttonStyle('#1DA1F2')}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-3px)';
+            e.currentTarget.style.boxShadow = '0 6px 15px rgba(29, 161, 242, 0.4)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+          }}
+        >
+          <i className="fab fa-twitter"></i>
+        </a>
 
-      <a
-        href={shareLinks.whatsapp}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={buttonStyle('#25D366')}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-3px)';
-          e.currentTarget.style.boxShadow = '0 6px 15px rgba(37, 211, 102, 0.4)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
-        }}
-      >
-        <i className="fab fa-whatsapp"></i>
-      </a>
+        <a
+          href={shareLinks.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={buttonStyle('#0A66C2')}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-3px)';
+            e.currentTarget.style.boxShadow = '0 6px 15px rgba(10, 102, 194, 0.4)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+          }}
+        >
+          <i className="fab fa-linkedin-in"></i>
+        </a>
+
+        <a
+          href={shareLinks.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={buttonStyle('#25D366')}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-3px)';
+            e.currentTarget.style.boxShadow = '0 6px 15px rgba(37, 211, 102, 0.4)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+          }}
+        >
+          <i className="fab fa-whatsapp"></i>
+        </a>
+      </div>
     </div>
   );
 };

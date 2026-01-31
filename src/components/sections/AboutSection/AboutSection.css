@@ -8,8 +8,10 @@
   position: relative;
   height: 100%;
   width: 100%;
-  max-width: 300px; /* Limita a largura para vídeos verticais */
-  margin: 0 auto; /* Centraliza o container */
+  max-width: 300px;
+  /* Limita a largura para vídeos verticais */
+  margin: 0 auto;
+  /* Centraliza o container */
   overflow: hidden;
   border-radius: 20px;
   cursor: pointer;
@@ -62,7 +64,8 @@
   font-size: 30px;
   transition: all 0.3s ease;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  padding-left: 5px; /* Ajuste visual do ícone de play */
+  padding-left: 5px;
+  /* Ajuste visual do ícone de play */
 }
 
 .about-video-container:hover .about-play-button {
@@ -102,8 +105,10 @@
 .about-video-modal-content {
   position: relative;
   width: 90%;
-  max-width: 300px; /* Ajustado para vídeos verticais */
-  aspect-ratio: 9 / 16; /* Formato vertical */
+  max-width: 300px;
+  /* Ajustado para vídeos verticais */
+  aspect-ratio: 9 / 16;
+  /* Formato vertical */
   background: black;
   border-radius: 12px;
   overflow: hidden;
@@ -189,31 +194,39 @@
 /* ========== Responsividade para Vídeos Verticais ========== */
 @media (max-width: 768px) {
   .about-video-container {
-    max-width: 400px; /* Tamanho original em mobile */
+    max-width: 400px;
+    /* Tamanho original em mobile */
   }
-  
+
   .about-video-modal-content {
-    max-width: 400px; /* Tamanho original em mobile */
+    max-width: 400px;
+    /* Tamanho original em mobile */
   }
 }
 
 @media (max-width: 576px) {
   .about-video-container {
-    max-width: 350px; /* Tamanho grande em telas pequenas */
+    max-width: 250px;
+    /* Reduzido para diminuir a altura vertical */
   }
-  
+
   .about-video-modal-content {
-    max-width: 350px; /* Tamanho grande em telas pequenas */
+    max-width: 350px;
+    /* Tamanho grande em telas pequenas */
   }
 }
 
 @keyframes rotateIcon {
-  0%, 90% {
+
+  0%,
+  90% {
     transform: rotate(0deg);
   }
+
   95% {
     transform: rotate(360deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -223,6 +236,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -270,4 +284,3 @@
     padding: 12px 24px !important;
   }
 }
-

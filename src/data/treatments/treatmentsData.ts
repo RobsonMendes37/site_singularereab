@@ -53,7 +53,7 @@ export const treatmentsData: Treatment[] = [
       "Melhora da postura e alinhamento corporal",
       "Estimulação do desenvolvimento motor global"
     ],
-    imagem: "fisioterapia-pediatrica.jpg"
+    imagem: "treatments/fisioterapia-pediatrica.jpg"
   },
   {
     id: 2,
@@ -79,7 +79,7 @@ export const treatmentsData: Treatment[] = [
       "Maior independência nas atividades escolares",
       "Desenvolvimento de habilidades sociais"
     ],
-    imagem: "terapia-ocupacional.jpg"
+    imagem: "treatments/terapia-ocupacional.jpg"
   },
   {
     id: 3,
@@ -105,7 +105,7 @@ export const treatmentsData: Treatment[] = [
       "Facilitação da comunicação e interação social",
       "Tratamento de dificuldades alimentares"
     ],
-    imagem: "fonoaudiologia.jpg"
+    imagem: "treatments/fonoaudiologia.jpg"
   },
   {
     id: 4,
@@ -131,7 +131,7 @@ export const treatmentsData: Treatment[] = [
       "Fortalecimento dos vínculos familiares",
       "Maior adaptação escolar e social"
     ],
-    imagem: "psicologia-infantil.jpg"
+    imagem: "treatments/psicologia-infantil.jpg"
   },
   {
     id: 5,
@@ -157,7 +157,7 @@ export const treatmentsData: Treatment[] = [
       "Melhora da autoestima acadêmica",
       "Desenvolvimento do raciocínio lógico"
     ],
-    imagem: "Psicopedagogia.jpg"
+    imagem: "treatments/Psicopedagogia.jpg"
   },
   {
     id: 6,
@@ -183,7 +183,7 @@ export const treatmentsData: Treatment[] = [
       "Desenvolvimento de repertório acadêmico",
       "Generalização das habilidades aprendidas"
     ],
-    imagem: "foto-Método-ABA.jpg"
+    imagem: "treatments/foto-Método-ABA.jpg"
   }
 ];
 

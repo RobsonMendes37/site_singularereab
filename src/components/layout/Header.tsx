@@ -1,233 +1,177 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import { config } from '../../config';
+import { config, mainNavigation, moreLinks } from '../../data';
 import './Header.css';
 
 const Header: React.FC = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
   const [scrolled, setScrolled] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const menuRef = React.useRef<HTMLDivElement>(null);
 
-  // Detectar scroll para adicionar efeito
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  /**
-   * Função para fazer scroll suave até uma seção
-   */
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node) && expanded) {
+        setExpanded(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [expanded]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerOffset = 100; // Altura do header fixo
+      const headerOffset = 100;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      setExpanded(false);
     }
   };
 
-  /**
-   * Handler para navegação - scroll se estiver na home, navega se não estiver
-   */
   const handleNavClick = (e: React.MouseEvent, sectionId: string, _fallbackRoute: string) => {
     e.preventDefault();
-    
+    setExpanded(false);
     if (isHomePage) {
-      // Se já estiver na home, apenas faz scroll
       scrollToSection(sectionId);
     } else {
-      // Se não estiver na home, navega para home com hash
       window.location.href = `/#${sectionId}`;
     }
   };
 
   return (
-    <>
-      <div className={`header-container ${scrolled ? 'scrolled' : ''}`}>
-        <Container>
-          <Navbar expand="xl" className="header-navbar navbar-light">
-            {/* Logo Horizontal */}
-            <Navbar.Brand 
-              as={Link} 
-              to="/"
-              className="header-logo-link"
-              onClick={(e: React.MouseEvent) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                if (!isHomePage) {
-                  window.location.href = '/';
-                }
-              }}
-            >
-              <img 
-                src={`${process.env.PUBLIC_URL}/LOGO HORIZONTAL copia.png`}
-                alt="Clínica Singulare"
-                className="header-logo-img"
-              />
-            </Navbar.Brand>
-            
-            <Navbar.Toggle aria-controls="navbarCollapse" className="header-navbar-toggler" />
-            
-            <Navbar.Collapse id="navbarCollapse">
-              {/* Links das Páginas - À Esquerda */}
-              <Nav className="me-auto">
-                <Nav.Link 
-                  href="#home"
+    <div className={`header-container ${scrolled ? 'scrolled' : ''}`}>
+      <Container>
+        <Navbar
+          expand="xl"
+          className="header-navbar navbar-light"
+          expanded={expanded}
+          onToggle={(expanded) => setExpanded(!!expanded)}
+        >
+          <Navbar.Brand
+            as={Link}
+            to="/"
+            className="header-logo-link"
+            onClick={(e: React.MouseEvent) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              if (!isHomePage) window.location.href = '/';
+              setExpanded(false);
+            }}
+          >
+            <img
+              src={`${process.env.PUBLIC_URL}/LOGO HORIZONTAL copia.png`}
+              alt="Clínica Singulare"
+              className="header-logo-img"
+            />
+          </Navbar.Brand>
+
+          <div className="d-flex align-items-center">
+            <div className="header-social-vertical d-flex flex-column me-3 d-xl-none gap-1">
+              <a href={config.social.facebook.url} target="_blank" rel="noopener noreferrer" className="header-social-icon-sm" aria-label="Facebook">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href={config.social.instagram.url} target="_blank" rel="noopener noreferrer" className="header-social-icon-sm" aria-label="Instagram">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href={config.social.linkedin.url} target="_blank" rel="noopener noreferrer" className="header-social-icon-sm" aria-label="LinkedIn">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+            <Navbar.Toggle aria-controls="navbarCollapse" className="header-navbar-toggler" onClick={() => setExpanded(!expanded)} />
+          </div>
+
+          <Navbar.Collapse id="navbarCollapse" className="mobile-drawer" ref={menuRef}>
+            <Nav className="me-auto mobile-nav-content">
+              {mainNavigation.map((item) => (
+                <Nav.Link
+                  key={item.path}
+                  href={`#${item.path}`}
                   className="header-nav-link"
                   onClick={(e: React.MouseEvent) => {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    if (!isHomePage) {
-                      window.location.href = '/';
+                    if (item.path === 'home-top') {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      setExpanded(false);
+                      if (!isHomePage) window.location.href = '/';
+                    } else {
+                      handleNavClick(e, item.path, `/${item.path.replace('-section', '')}`);
                     }
                   }}
                 >
-                  Início
+                  <i className={`${item.icon} me-2 d-xl-none`}></i>
+                  {item.label}
                 </Nav.Link>
+              ))}
 
-                <Nav.Link 
-                  href="#about"
-                  className="header-nav-link"
-                  onClick={(e: React.MouseEvent) => handleNavClick(e, 'about-section', '/about')}
-                >
-                  Sobre
-                </Nav.Link>
+              <NavDropdown title="Ver Mais" id="nav-dropdown" className="header-dropdown">
+                {moreLinks.map((item) => {
+                  const isExternal = item.path.startsWith('http');
+                  const isHash = item.path.includes('#');
 
-                <Nav.Link 
-                  href="#treatments"
-                  className="header-nav-link"
-                  onClick={(e: React.MouseEvent) => handleNavClick(e, 'treatments-section', '/treatments')}
-                >
-                  Tratamentos
-                </Nav.Link>
+                  if (isExternal || isHash) {
+                    return (
+                      <NavDropdown.Item
+                        key={item.path}
+                        href={item.path}
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                        onClick={() => setExpanded(false)}
+                      >
+                        <i className={`${item.icon} me-2`}></i>
+                        {item.label}
+                      </NavDropdown.Item>
+                    );
+                  }
 
-                <Nav.Link 
-                  href="#gallery"
-                  className="header-nav-link"
-                  onClick={(e: React.MouseEvent) => handleNavClick(e, 'gallery-section', '/gallery')}
-                >
-                  Estrutura
-                </Nav.Link>
+                  return (
+                    <NavDropdown.Item
+                      key={item.path}
+                      as={Link}
+                      to={item.path}
+                      onClick={() => setExpanded(false)}
+                    >
+                      <i className={`${item.icon} me-2`}></i>
+                      {item.label}
+                    </NavDropdown.Item>
+                  );
+                })}
+              </NavDropdown>
 
-                <Nav.Link 
-                  href="#team"
-                  className="header-nav-link"
-                  onClick={(e: React.MouseEvent) => handleNavClick(e, 'team-section', '/team')}
-                >
-                  Equipe
-                </Nav.Link>
+              <Nav.Link
+                href="#contact"
+                className="header-nav-link"
+                onClick={(e: React.MouseEvent) => handleNavClick(e, 'contact-section', '/contact')}
+              >
+                <i className="fas fa-envelope me-2 d-xl-none"></i>
+                Contato
+              </Nav.Link>
+            </Nav>
 
-                <Nav.Link 
-                  href="#testimonials"
-                  className="header-nav-link"
-                  onClick={(e: React.MouseEvent) => handleNavClick(e, 'testimonials-section', '/testimonials')}
-                >
-                  Depoimentos
-                </Nav.Link>
-
-                <NavDropdown title="Ver Mais" id="nav-dropdown" className="header-dropdown">
-                  <NavDropdown.Item as={Link} to="/blog">
-                    <i className="fas fa-newspaper me-2"></i>
-                    Blog
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/sobre/historia">
-                    <i className="fas fa-history me-2"></i>
-                    Nossa História
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#missao" onClick={(e) => {
-                    e.preventDefault();
-                    window.location.href = '/sobre/historia#missao';
-                  }}>
-                    <i className="fas fa-bullseye me-2"></i>
-                    Missão e Valores
-                  </NavDropdown.Item>
-                </NavDropdown>
-
-                <Nav.Link 
-                  href="#contact"
-                  className="header-nav-link"
-                  onClick={(e: React.MouseEvent) => handleNavClick(e, 'contact-section', '/contact')}
-                >
-                  Contato
-                </Nav.Link>
-              </Nav>
-
-              {/* Redes Sociais - À Direita (Desktop) */}
-              <div className="header-social-desktop d-none d-xl-flex">
-                <a 
-                  href={config.social.facebook.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="header-social-icon"
-                  aria-label="Facebook"
-                >
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a 
-                  href={config.social.instagram.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="header-social-icon"
-                  aria-label="Instagram"
-                >
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a 
-                  href={config.social.linkedin.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="header-social-icon"
-                  aria-label="LinkedIn"
-                >
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-              </div>
-
-              {/* Redes Sociais - Mobile */}
-              <div className="header-social-mobile d-flex d-xl-none">
-                <a 
-                  href={config.social.facebook.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="header-social-icon"
-                  aria-label="Facebook"
-                >
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a 
-                  href={config.social.instagram.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="header-social-icon"
-                  aria-label="Instagram"
-                >
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a 
-                  href={config.social.linkedin.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="header-social-icon"
-                  aria-label="LinkedIn"
-                >
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-              </div>
-            </Navbar.Collapse>
-          </Navbar>
-        </Container>
-      </div>
-    </>
+            <div className="header-social-desktop d-none d-xl-flex">
+              <a href={config.social.facebook.url} target="_blank" rel="noopener noreferrer" className="header-social-icon" aria-label="Facebook">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href={config.social.instagram.url} target="_blank" rel="noopener noreferrer" className="header-social-icon" aria-label="Instagram">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href={config.social.linkedin.url} target="_blank" rel="noopener noreferrer" className="header-social-icon" aria-label="LinkedIn">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </Navbar.Collapse>
+        </Navbar>
+      </Container>
+    </div>
   );
 };
 

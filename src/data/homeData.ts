@@ -1,0 +1,68 @@
+
+export const homeData = {
+    seo: {
+        title: "Clínica Singulare - Reabilitação Infantil em Fortaleza | Fisioterapia e Terapia Ocupacional",
+        description: "Centro especializado em reabilitação infantil em Fortaleza/CE. Fisioterapia pediátrica, Terapia Ocupacional, Fonoaudiologia e Psicologia Infantil. Atendimento humanizado e personalizado para crianças com necessidades especiais.",
+        keywords: [
+            'clínica reabilitação infantil fortaleza',
+            'fisioterapia pediátrica fortaleza',
+            'terapia ocupacional infantil fortaleza',
+            'fonoaudiologia infantil fortaleza',
+            'psicologia infantil fortaleza',
+            'TEA autismo fortaleza',
+            'paralisia cerebral tratamento fortaleza',
+            'atraso desenvolvimento infantil',
+            'clínica crianças especiais fortaleza',
+            'fisioterapia bebês prematuros',
+            'estimulação precoce fortaleza'
+        ]
+    },
+    sections: {
+        hero: {
+            id: "home-top"
+        },
+        about: {
+            title: "Sobre Nós"
+        },
+        services: {
+            title: "Nossos Serviços",
+            description: "Oferecemos uma abordagem multidisciplinar completa para o desenvolvimento e reabilitação infantil, com profissionais altamente qualificados e equipamentos de última geração."
+        },
+        treatments: {
+            title: "Tratamentos"
+        },
+        gallery: {
+            title: "Conheça Nossa Estrutura",
+            description: "Ambientes cuidadosamente planejados e equipamentos de última geração para proporcionar o melhor tratamento e desenvolvimento para cada criança",
+            badge: "NOSSA ESTRUTURA"
+        },
+        team: {
+            title: "Nossa Equipe"
+        },
+        testimonials: {
+            title: "Depoimentos"
+        },
+        blog: {
+            title: "Blog & Notícias",
+            description: "Artigos e informações especializadas sobre desenvolvimento e reabilitação infantil",
+            cta: "Ver Todos os Artigos"
+        },
+        contact: {
+            title: "Venha nos Visitar!",
+            cta: "Ainda com dúvidas? Entre em contato",
+            subtitle: "Agende via WhatsApp",
+            mapLabels: {
+                routes: "Rotas",
+                copy: "Copiar",
+                copied: "Copiado!",
+                viewLarger: "Ver mapa ampliado"
+            }
+        },
+        footer: {
+            scheduleTitle: "Horário de Atendimento",
+            locationTitle: "Localização",
+            copySuffix: ", Todos os direitos reservados.",
+            devNote: "Desenvolvido com ❤️ para ajudar crianças especiais"
+        }
+    }
+};

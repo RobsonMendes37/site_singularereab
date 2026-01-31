@@ -10,6 +10,8 @@
  * import { heroSlides, teamData, treatmentsData } from '../data';
  */
 
+export { config } from '../config';
+
 // Hero Section
 export { heroSlides } from './hero/heroData';
 export type { HeroSlide } from './hero/heroData';
@@ -49,3 +51,8 @@ export type { Program } from './programs/programsData';
 // Contact
 export { contactData } from './contact/contactData';
 export type { ContactInfo } from './contact/contactData';
+
+// Home & Navigation
+export { homeData } from './homeData';
+export { mainNavigation, moreLinks, footerQuickLinks } from './navigationData';
+export type { NavItem } from './navigationData';
