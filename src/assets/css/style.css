@@ -16,27 +16,6 @@
 
 
 /*** Common CSS Start ***/
-.back-to-top {
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
-    display: flex;
-    width: 45px;
-    height: 45px;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s;
-    z-index: 99;
-}
-
-/* Ajustar posição no mobile */
-@media (max-width: 576px) {
-    .back-to-top {
-        right: 20px;
-        bottom: 30px;
-    }
-}
-
 h1,
 h2,
 h3,

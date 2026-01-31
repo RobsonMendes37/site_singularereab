@@ -44,7 +44,7 @@
   }
 
   70% {
-    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
     transform: scale(1.1);
   }
 
