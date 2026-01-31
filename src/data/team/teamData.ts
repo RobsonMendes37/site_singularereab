@@ -27,8 +27,8 @@ export interface TeamMember {
 export const teamData: TeamMember[] = [
   {
     id: 1,
-    nome: "Dra. Ana Carolina Silva",
-    cargo: "Fisioterapeuta Pediátrica",
+    nome: "",
+    cargo: "",
     foto: "team/_RFM8531.jpg",
     descricao: "Especialista em Fisioterapia Pediátrica com mais de 10 anos de experiência em reabilitação infantil. Formada pela USP com especialização em Neurologia Pediátrica.",
     especialidades: [
@@ -43,8 +43,8 @@ export const teamData: TeamMember[] = [
   },
   {
     id: 2,
-    nome: "Dr. Carlos Eduardo Santos",
-    cargo: "Terapeuta Ocupacional",
+    nome: "",
+    cargo: "",
     foto: "team/_RFM8537.jpg",
     descricao: "Terapeuta Ocupacional especializado em Integração Sensorial e Autismo. Pós-graduado em Neuropsicologia e Reabilitação Cognitiva.",
     especialidades: [
@@ -59,8 +59,8 @@ export const teamData: TeamMember[] = [
   },
   {
     id: 3,
-    nome: "Dra. Maria Fernanda Lima",
-    cargo: "Fonoaudióloga",
+    nome: "",
+    cargo: "",
     foto: "team/_RFM8543.jpg",
     descricao: "Fonoaudióloga com expertise em Linguagem e Comunicação Infantil. Especialista em Motricidade Orofacial e Disfagia Pediátrica.",
     especialidades: [
@@ -75,8 +75,8 @@ export const teamData: TeamMember[] = [
   },
   {
     id: 4,
-    nome: "Dra. Juliana Oliveira",
-    cargo: "Psicóloga Infantil",
+    nome: "",
+    cargo: " ",
     foto: "team/_RFM8554.jpg",
     descricao: "Psicóloga Clínica com foco em Desenvolvimento Infantil e Análise do Comportamento Aplicada (ABA). Especialista em intervenções comportamentais.",
     especialidades: [
@@ -91,8 +91,8 @@ export const teamData: TeamMember[] = [
   },
   {
     id: 5,
-    nome: "Novo Especialista 1",
-    cargo: "Especialidade",
+    nome: "",
+    cargo: "",
     foto: "team/_RFM8557.jpg",
     descricao: "Breve descrição do profissional.",
     especialidades: ["Especialidade 1", "Especialidade 2"],
@@ -102,8 +102,8 @@ export const teamData: TeamMember[] = [
   },
   {
     id: 6,
-    nome: "Andréa Moraes",
-    cargo: "Fonoaudióloga",
+    nome: "",
+    cargo: "",
     foto: "team/_RFM8564.jpg",
     descricao: "Breve descrição do profissional.",
     especialidades: ["Especialidade 1", "Especialidade 2"],
@@ -113,8 +113,8 @@ export const teamData: TeamMember[] = [
   },
   {
     id: 7,
-    nome: "Novo Especialista 3",
-    cargo: "Especialidade",
+    nome: "",
+    cargo: "",
     foto: "team/_RFM8576.jpg",
     descricao: "Breve descrição do profissional.",
     especialidades: ["Especialidade 1", "Especialidade 2"],
