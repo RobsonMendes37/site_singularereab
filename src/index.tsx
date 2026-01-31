@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AppProvider } from './contexts/AppContext';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Suprimir erro do ResizeObserver (comum em dev)
 const resizeObserverLoopErr = (e: ErrorEvent) => {
@@ -23,6 +24,7 @@ root.render(
   <React.StrictMode>
     <AppProvider>
       <App />
+      <SpeedInsights />
     </AppProvider>
   </React.StrictMode>
 );

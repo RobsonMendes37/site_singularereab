@@ -1,9 +1,6 @@
 
 import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-import WhatsAppFloat from '../components/common/WhatsAppFloat';
 import { ScrollReveal } from '../components/common/ScrollReveal';
 import { galleryData } from '../data/gallery/galleryData';
 import { Link } from 'react-router-dom';
