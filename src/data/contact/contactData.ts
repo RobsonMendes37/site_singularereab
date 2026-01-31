@@ -21,7 +21,16 @@ export interface ContactInfo {
   facebook?: string; // Opcional
 }
 
-export const contactData: ContactInfo = {
+// Carregamento dinâmico via JSON (CMS)
+let dynamicContact: ContactInfo | null = null;
+try {
+  dynamicContact = require('./contact.json');
+} catch (e) {
+  console.warn('Erro ao carregar dados de contato dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticContact: ContactInfo = {
   endereco: "Av. Dom Luís, 1233 - Meireles, Fortaleza - CE, 60160-230",
   telefone: "(85) 9624-2225",
   email: "contato@clinicasingulare.com.br",
@@ -30,6 +39,8 @@ export const contactData: ContactInfo = {
   instagram: "https://instagram.com/clinicasingulare",
   facebook: "https://facebook.com/clinicasingulare"
 };
+
+export const contactData: ContactInfo = dynamicContact || staticContact;
 
 // 💡 DICAS:
 // - Para alterar endereço: modifique o texto em "endereco"

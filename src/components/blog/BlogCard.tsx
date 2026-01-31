@@ -45,7 +45,11 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) =>
           position: 'relative'
         }}>
           <img
-            src={post.image.startsWith('http') ? post.image : require(`../../assets/images/${post.image}`)}
+            src={post.image.startsWith('/') || post.image.startsWith('http')
+              ? post.image
+              : `/assets/images/${post.image.includes('/')
+                ? post.image
+                : 'blog/' + post.image}`}
             alt={post.title}
             loading="lazy"
             style={{

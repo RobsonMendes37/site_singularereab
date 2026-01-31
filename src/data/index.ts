@@ -21,7 +21,7 @@ export { aboutData } from './about/aboutData';
 export type { AboutData } from './about/aboutData';
 
 // Services Section
-export { servicesData } from './services/servicesData';
+export { servicesData, servicesSectionData } from './services/servicesData';
 export type { Service } from './services/servicesData';
 
 // Treatments

@@ -1,0 +1,40 @@
+{
+  "textoBotao": "Ver Galeria Completa",
+  "linkBotao": "/galeria",
+  "images": [
+    {
+      "id": 1,
+      "src": "gallery/espaco1.png",
+      "alt": "Estrutura Clínica Singulare 1"
+    },
+    {
+      "id": 2,
+      "src": "gallery/espaco2.png",
+      "alt": "Estrutura Clínica Singulare 2"
+    },
+    {
+      "id": 3,
+      "src": "gallery/espaco3.png",
+      "alt": "Estrutura Clínica Singulare 3"
+    },
+    {
+      "id": 4,
+      "src": "gallery/espaco4.png",
+      "alt": "Estrutura Clínica Singulare 4"
+    },
+    {
+      "id": 5,
+      "src": "gallery/espaco5.png",
+      "alt": "Estrutura Clínica Singulare 5"
+    },
+    {
+      "id": 6,
+      "src": "gallery/espaco6.png",
+      "alt": "Estrutura Clínica Singulare 6"
+    },
+    {
+      "src": "/assets/images/ crianças Método ABA.jpg",
+      "alt": "tes"
+    }
+  ]
+}

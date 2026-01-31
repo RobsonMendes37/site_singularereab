@@ -25,7 +25,9 @@ const EventsSection: React.FC = () => {
                 <div className="events-inner position-relative">
                   <div className="events-img overflow-hidden rounded-circle position-relative">
                     <img
-                      src={require(`../../../assets/images/${event.imagem}`)}
+                      src={event.imagem.startsWith('/') || event.imagem.startsWith('http')
+                        ? event.imagem
+                        : `/assets/images/${event.imagem.includes('/') ? event.imagem : 'events/' + event.imagem}`}
                       className="img-fluid w-100 rounded-circle"
                       alt={event.titulo}
                     />

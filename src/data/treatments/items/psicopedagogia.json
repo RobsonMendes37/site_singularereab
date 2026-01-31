@@ -1,0 +1,25 @@
+{
+    "slug": "psicopedagogia",
+    "titulo": "Psicopedagogia",
+    "icone": "fas fa-book-reader",
+    "cor": "#F39C12",
+    "descricaoCurta": "Auxiliando no processo de aprendizagem",
+    "descricaoCompleta": "A Psicopedagogia atua na prevenção e intervenção das dificuldades de aprendizagem. Trabalhamos com crianças que apresentam desafios no processo de alfabetização, leitura, escrita, matemática e outras áreas do conhecimento. Também atuamos com distúrbios como dislexia, discalculia e TDAH no contexto escolar.",
+    "comoFunciona": "O trabalho psicopedagógico envolve uma avaliação detalhada do processo de aprendizagem da criança, identificando suas potencialidades e dificuldades. A intervenção é feita através de atividades e estratégias específicas que facilitam a aprendizagem, sempre respeitando o ritmo e o estilo de aprender de cada criança.",
+    "etapas": [
+        "Avaliação: Análise do processo de aprendizagem",
+        "Diagnóstico: Identificação das dificuldades específicas",
+        "Intervenção: Atividades focadas nas áreas defasadas",
+        "Orientação Escolar: Parceria com a escola da criança",
+        "Acompanhamento: Monitoramento do progresso acadêmico"
+    ],
+    "beneficios": [
+        "Melhora no desempenho escolar",
+        "Desenvolvimento de estratégias de estudo",
+        "Aumento da motivação para aprender",
+        "Fortalecimento da atenção e concentração",
+        "Melhora da autoestima acadêmica",
+        "Desenvolvimento do raciocínio lógico"
+    ],
+    "imagem": "treatments/Psicopedagogia.jpg"
+}

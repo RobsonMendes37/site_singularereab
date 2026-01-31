@@ -1,0 +1,17 @@
+{
+  "nome": " ",
+  "cargo": " ",
+  "foto": "team/_RFM8554.jpg",
+  "descricao": "Psicóloga Clínica com foco em Desenvolvimento Infantil e Análise do Comportamento Aplicada (ABA). Especialista em intervenções comportamentais.",
+  "especialidades": [
+    "Psicologia Infantil",
+    "Terapia ABA",
+    "Desenvolvimento Socioemocional",
+    "Orientação Parental"
+  ],
+  "social": {
+    "facebook": "https://facebook.com/exemplo",
+    "instagram": "https://instagram.com/exemplo",
+    "linkedin": "https://linkedin.com/in/exemplo"
+  }
+}

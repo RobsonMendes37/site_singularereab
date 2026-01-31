@@ -1,0 +1,17 @@
+{
+  "nome": "   ",
+  "cargo": "   ",
+  "foto": "team/_RFM8537.jpg",
+  "descricao": "Terapeuta Ocupacional especializado em Integração Sensorial e Autismo. Pós-graduado em Neuropsicologia e Reabilitação Cognitiva.",
+  "especialidades": [
+    "Integração Sensorial",
+    "Transtorno do Espectro Autista",
+    "Atividades de Vida Diária",
+    "Coordenação Motora Fina"
+  ],
+  "social": {
+    "facebook": "https://facebook.com/exemplo",
+    "instagram": "https://instagram.com/exemplo",
+    "linkedin": "https://linkedin.com/in/exemplo"
+  }
+}

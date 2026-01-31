@@ -1,0 +1,25 @@
+{
+    "slug": "psicologia-infantil",
+    "titulo": "Psicologia Infantil",
+    "icone": "fas fa-heart",
+    "cor": "#E74C3C",
+    "descricaoCurta": "Cuidando do desenvolvimento emocional e comportamental",
+    "descricaoCompleta": "A Psicologia Infantil foca no desenvolvimento emocional, social e comportamental da criança. Trabalhamos questões como ansiedade, medos, dificuldades de adaptação, problemas de comportamento, relacionamento familiar e escolar, além de orientação parental e apoio em situações de luto, separação dos pais e outras mudanças significativas.",
+    "comoFunciona": "O atendimento psicológico infantil é realizado principalmente através da ludoterapia, utilizando brincadeiras, desenhos, jogos e histórias como ferramentas terapêuticas. As sessões são adaptadas à idade e necessidades de cada criança, criando um ambiente seguro e acolhedor para a expressão de sentimentos e elaboração de conflitos.",
+    "etapas": [
+        "Acolhimento: Primeiro contato com a criança e família",
+        "Avaliação: Compreensão da dinâmica e demanda familiar",
+        "Vínculo: Estabelecimento de relação terapêutica segura",
+        "Intervenção: Sessões lúdicas e orientação aos pais",
+        "Acompanhamento: Monitoramento da evolução emocional"
+    ],
+    "beneficios": [
+        "Melhora da autoestima e autoconfiança",
+        "Desenvolvimento de habilidades socioemocionais",
+        "Redução de ansiedade e medos",
+        "Melhora no comportamento e autorregulação",
+        "Fortalecimento dos vínculos familiares",
+        "Maior adaptação escolar e social"
+    ],
+    "imagem": "treatments/psicologia-infantil.jpg"
+}

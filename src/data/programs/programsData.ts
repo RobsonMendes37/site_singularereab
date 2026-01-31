@@ -30,7 +30,16 @@ export interface Program {
   };
 }
 
-export const programsData: Program[] = [
+// Carregamento dinâmico via JSON (CMS)
+let dynamicPrograms: any = null;
+try {
+  dynamicPrograms = require('./programs.json');
+} catch (e) {
+  console.warn('Erro ao carregar dados de Programas dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticPrograms: Program[] = [
   {
     id: 1,
     titulo: "Programa de Desenvolvimento Motor",
@@ -83,6 +92,8 @@ export const programsData: Program[] = [
     }
   }
 ];
+
+export const programsData: Program[] = dynamicPrograms || staticPrograms;
 
 // 💡 DICAS:
 // - Para adicionar novo programa: copie um bloco { } e altere as informações

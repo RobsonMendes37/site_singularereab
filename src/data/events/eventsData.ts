@@ -23,7 +23,16 @@ export interface Event {
   link?: string; // Opcional - link para mais informações
 }
 
-export const eventsData: Event[] = [
+// Carregamento dinâmico via JSON (CMS)
+let dynamicEvents: any = null;
+try {
+  dynamicEvents = require('./events.json');
+} catch (e) {
+  console.warn('Erro ao carregar dados de Eventos dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticEvents: Event[] = [
   {
     id: 1,
     titulo: "Workshop de Desenvolvimento Infantil",
@@ -55,6 +64,8 @@ export const eventsData: Event[] = [
     link: "/eventos/feira-saude"
   }
 ];
+
+export const eventsData: Event[] = dynamicEvents || staticEvents;
 
 // 💡 DICAS:
 // - Para adicionar novo evento: copie um bloco { } e altere as informações

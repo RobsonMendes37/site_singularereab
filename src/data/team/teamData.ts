@@ -12,6 +12,8 @@
  * ⚠️ IMPORTANTE: Não altere as chaves como "id:", "nome:", etc.
  */
 
+import { loadCollection } from '../../utils/cmsLoader';
+
 export interface TeamMember {
   id: number;
   nome: string;
@@ -19,12 +21,28 @@ export interface TeamMember {
   foto: string; // Nome do arquivo na pasta src/assets/images/
   descricao: string;
   especialidades: string[];
-  facebook?: string; // Opcional
-  instagram?: string; // Opcional
-  linkedin?: string; // Opcional
+  social?: {
+    facebook?: string;
+    instagram?: string;
+    linkedin?: string;
+  };
+  // Campos legados para compatibilidade com dados antigos
+  facebook?: string;
+  instagram?: string;
+  linkedin?: string;
 }
 
-export const teamData: TeamMember[] = [
+// Carregamento dinâmico via JSON (CMS)
+let dynamicTeam: TeamMember[] = [];
+try {
+  const context = (require as any).context('./members', false, /\.json$/);
+  dynamicTeam = loadCollection<TeamMember>(context);
+} catch (e) {
+  console.warn('Erro ao carregar equipe dinâmica:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticTeam: TeamMember[] = [
   {
     id: 1,
     nome: "",
@@ -123,6 +141,10 @@ export const teamData: TeamMember[] = [
     linkedin: ""
   }
 ];
+
+// Exporta a equipe dinâmica se houver dados (CMS), caso contrário usa os estáticos
+export const teamData: TeamMember[] = dynamicTeam.length > 0 ? dynamicTeam : staticTeam;
+
 
 // 💡 DICAS:
 // - Para adicionar novo membro: copie um bloco { } e altere as informações

@@ -26,7 +26,11 @@ const MiniGallery: React.FC = () => {
                                 className="hover-scale"
                             >
                                 <img
-                                    src={require(`../../../assets/images/gallery/${img.src}`)}
+                                    src={img.src.startsWith('/') || img.src.startsWith('http')
+                                        ? img.src
+                                        : `/assets/images/${img.src.includes('/')
+                                            ? img.src
+                                            : 'gallery/' + img.src}`}
                                     alt={img.alt}
                                     style={{
                                         width: '100%',

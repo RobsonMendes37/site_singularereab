@@ -12,7 +12,16 @@ export interface GalleryData {
     allImages: GalleryImage[];
 }
 
-export const galleryData: GalleryData = {
+// Carregamento dinâmico via JSON (CMS)
+let dynamicGallery: any = null;
+try {
+    dynamicGallery = require('./gallery.json');
+} catch (e) {
+    console.warn('Erro ao carregar dados da Galeria dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticGallery: GalleryData = {
     textoBotao: "Ver Galeria Completa",
     linkBotao: "/galeria",
     previewImages: [
@@ -30,3 +39,19 @@ export const galleryData: GalleryData = {
         { id: 6, src: "espaco6.png", alt: "Estrutura Clínica Singulare 6" }
     ]
 };
+
+// Processamento dos dados dinâmicos
+const processedGallery: GalleryData | null = dynamicGallery ? {
+    textoBotao: dynamicGallery.textoBotao || staticGallery.textoBotao,
+    linkBotao: dynamicGallery.linkBotao || staticGallery.linkBotao,
+    previewImages: (dynamicGallery.images || []).slice(0, 4).map((img: any, idx: number) => ({
+        ...img,
+        id: img.id || idx + 1
+    })),
+    allImages: (dynamicGallery.images || []).map((img: any, idx: number) => ({
+        ...img,
+        id: img.id || idx + 1
+    }))
+} : null;
+
+export const galleryData: GalleryData = processedGallery || staticGallery;

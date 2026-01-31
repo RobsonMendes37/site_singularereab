@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "titulo": "Workshop de Desenvolvimento Infantil",
+        "descricao": "Evento educativo para pais e cuidadores sobre técnicas de estimulação precoce e desenvolvimento infantil.",
+        "data": "15 Dez",
+        "horario": "14:00 - 16:00",
+        "local": "São Paulo",
+        "imagem": "events/event-1.jpg",
+        "link": "/eventos/workshop-desenvolvimento"
+    },
+    {
+        "id": 2,
+        "titulo": "Palestra sobre Autismo",
+        "descricao": "Palestra informativa sobre sinais precoces do autismo e estratégias de intervenção precoce.",
+        "data": "22 Dez",
+        "horario": "19:00 - 21:00",
+        "local": "São Paulo",
+        "imagem": "events/event-2.jpg",
+        "link": "/eventos/palestra-autismo"
+    },
+    {
+        "id": 3,
+        "titulo": "Feira de Saúde Infantil",
+        "descricao": "Evento com stands informativos sobre saúde infantil, desenvolvimento e terapias disponíveis.",
+        "data": "29 Dez",
+        "horario": "09:00 - 17:00",
+        "local": "São Paulo",
+        "imagem": "events/event-3.jpg",
+        "link": "/eventos/feira-saude"
+    }
+]

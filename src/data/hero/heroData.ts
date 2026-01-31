@@ -21,7 +21,16 @@ export interface HeroSlide {
   botaoLink?: string;  // Opcional
 }
 
-export const heroSlides: HeroSlide[] = [
+// Carregamento dinâmico via JSON (CMS)
+let dynamicHero: any = null;
+try {
+  dynamicHero = require('./hero.json');
+} catch (e) {
+  console.warn('Erro ao carregar dados do Hero dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticHeroSlides: HeroSlide[] = [
   {
     id: 1,
     titulo: "Reabilitação Infantil",
@@ -47,6 +56,8 @@ export const heroSlides: HeroSlide[] = [
     botaoLink: "/contato"
   }
 ];
+
+export const heroSlides: HeroSlide[] = (dynamicHero && dynamicHero.slides) || staticHeroSlides;
 
 // 💡 DICAS:
 // - Para adicionar novo slide: copie um bloco { } e altere as informações

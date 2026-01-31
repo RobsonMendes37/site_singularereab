@@ -1,0 +1,25 @@
+{
+    "slug": "terapia-ocupacional",
+    "titulo": "Terapia Ocupacional",
+    "icone": "fas fa-puzzle-piece",
+    "cor": "#9B59B6",
+    "descricaoCurta": "Desenvolvendo habilidades para as atividades do dia a dia",
+    "descricaoCompleta": "A Terapia Ocupacional promove o desenvolvimento das habilidades necessárias para a realização das atividades cotidianas, escolares e de lazer. Trabalhamos aspectos como coordenação motora fina, integração sensorial, autonomia nas atividades de vida diária (alimentação, vestuário, higiene) e habilidades cognitivas.",
+    "comoFunciona": "As sessões são realizadas de forma lúdica e significativa para a criança, utilizando atividades e brincadeiras que estimulam as áreas que precisam ser desenvolvidas. Podem incluir jogos, atividades de artes, brincadeiras sensoriais, treino de atividades funcionais e uso de tecnologias assistivas quando necessário.",
+    "etapas": [
+        "Avaliação: Análise das habilidades funcionais e sensoriais",
+        "Objetivos: Definição de metas terapêuticas personalizadas",
+        "Terapia: Intervenções através de atividades significativas",
+        "Adaptações: Orientações sobre recursos e adaptações",
+        "Acompanhamento: Monitoramento contínuo e ajustes"
+    ],
+    "beneficios": [
+        "Melhora da coordenação motora fina",
+        "Desenvolvimento de habilidades de autocuidado",
+        "Melhor processamento sensorial",
+        "Aumento da atenção e concentração",
+        "Maior independência nas atividades escolares",
+        "Desenvolvimento de habilidades sociais"
+    ],
+    "imagem": "treatments/terapia-ocupacional.jpg"
+}

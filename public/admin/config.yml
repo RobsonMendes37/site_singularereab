@@ -1,0 +1,324 @@
+backend:
+  name: git-gateway
+local_backend: true
+
+media_folder: "public/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "equipe"
+    label: "Equipe"
+    label_singular: "Membro da Equipe"
+    folder: "src/data/team/members"
+    create: true
+    slug: "{{nome}}"
+    extension: "json"
+    format: "json"
+    identifier_field: "nome"
+    fields:
+      - { label: "Nome", name: "nome", widget: "string" }
+      - { label: "Cargo", name: "cargo", widget: "string" }
+      - { label: "Foto", name: "foto", widget: "image" }
+      - { label: "Bio/Descrição", name: "descricao", widget: "text" }
+      - { label: "Especialidades", name: "especialidades", widget: "list" }
+      - { label: "Redes Sociais", name: "social", widget: "object", fields: [
+          { label: "Instagram", name: "instagram", widget: "string", required: false },
+          { label: "Facebook", name: "facebook", widget: "string", required: false },
+          { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+        ]}
+
+  - name: "blog"
+    label: "Blog"
+    label_singular: "Post do Blog"
+    folder: "src/data/blog/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    identifier_field: "title"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Slug (URL)", name: "slug", widget: "string", hint: "Apenas letras minúsculas e hífens. Ex: sinais-de-alerta" }
+      - { label: "Descrição Curta", name: "description", widget: "text" }
+      - { label: "Conteúdo do Post", name: "content", widget: "markdown" }
+      - { label: "Categoria", name: "category", widget: "select", options: ["Desenvolvimento Infantil", "Tratamentos", "Dicas para Pais", "Casos de Sucesso", "Notícias"] }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Tempo de Leitura (min)", name: "readTime", widget: "number" }
+      - { label: "Imagem de Capa", name: "image", widget: "image" }
+      - { label: "Autor", name: "author", widget: "object", fields: [
+          { label: "Nome", name: "name", widget: "string" },
+          { label: "Cargo", name: "role", widget: "string" }
+        ]}
+      - { label: "Destaque?", name: "featured", widget: "boolean", default: false }
+
+  - name: "tratamentos"
+    label: "Tratamentos"
+    label_singular: "Tratamento"
+    folder: "src/data/treatments/items"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    identifier_field: "titulo"
+    fields:
+      - { label: "Título", name: "titulo", widget: "string" }
+      - { label: "Slug (URL)", name: "slug", widget: "string" }
+      - { label: "Ícone (FontAwesome)", name: "icone", widget: "string" }
+      - { label: "Cor (Hex)", name: "cor", widget: "string" }
+      - { label: "Descrição Curta", name: "descricaoCurta", widget: "string" }
+      - { label: "Descrição Completa", name: "descricaoCompleta", widget: "text" }
+      - { label: "Como Funciona", name: "comoFunciona", widget: "text" }
+      - { label: "Etapas", name: "etapas", widget: "list" }
+      - { label: "Benefícios", name: "beneficios", widget: "list" }
+      - { label: "Imagem de Destaque", name: "imagem", widget: "image" }
+
+  - name: "paginas"
+    label: "Conteúdo das Páginas"
+    delete: false
+    files:
+      - name: "about_home"
+        label: "Sobre Nós (Resumo Home)"
+        file: "src/data/about/about.json"
+        fields:
+          - { label: "Título", name: "titulo", widget: "string" }
+          - { label: "Texto Principal", name: "texto", widget: "text" }
+          - { label: "Texto do Botão", name: "textoBotao", widget: "string" }
+          - { label: "Link do Botão", name: "linkBotao", widget: "string" }
+          - { label: "Vídeo (Arquivo)", name: "videoArquivo", widget: "string", hint: "Nome do arquivo em src/assets/videos/" }
+
+      - name: "our_story"
+        label: "Nossa História (Completa)"
+        file: "src/data/about/ourStory.json"
+        fields:
+          - label: "Hero (Topo)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Subtítulo", name: "subtitulo", widget: "string" }
+          - label: "História Principal"
+            name: "historia"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Parágrafo 1", name: "paragrafo1", widget: "markdown" }
+              - { label: "Parágrafo 2", name: "paragrafo2", widget: "markdown" }
+              - { label: "Parágrafo 3", name: "paragrafo3", widget: "markdown" }
+              - { label: "Imagem Lateral", name: "imagem", widget: "image" }
+              - { label: "Ano de Fundação", name: "anoFundacao", widget: "string" }
+          - label: "Missão"
+            name: "missao"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Texto", name: "texto", widget: "text" }
+          - label: "Visão"
+            name: "visao"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Texto", name: "texto", widget: "text" }
+          - label: "Valores"
+            name: "valores"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Lista de Valores", name: "lista", widget: "list", field: { label: "Valor", name: "item", widget: "markdown" } }
+
+      - name: "services_page"
+        label: "Nossos Serviços (Seção Home)"
+        file: "src/data/services/services.json"
+        fields:
+          - { label: "Título da Seção", name: "titulo", widget: "string" }
+          - { label: "Descrição Curta", name: "descricao", widget: "text" }
+          - { label: "Imagem de Destaque", name: "imagem", widget: "image" }
+          - label: "Cards de Serviços"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "number" }
+              - { label: "Título do Card", name: "titulo", widget: "string" }
+              - { label: "Descrição", name: "descricao", widget: "text" }
+              - { label: "Ícone (FontAwesome)", name: "icone", widget: "string" }
+              - { label: "Cor (Hex)", name: "cor", widget: "string" }
+
+  - name: "configuracoes"
+    label: "Configurações Globais"
+    delete: false
+    files:
+      - name: "home"
+        label: "Página Inicial (SEO e Títulos)"
+        file: "src/data/home.json"
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Título da Aba", name: "title", widget: "string" }
+              - { label: "Descrição (Google)", name: "description", widget: "text" }
+              - { label: "Palavras-chave", name: "keywords", widget: "list" }
+          - label: "Seções (Títulos e Textos)"
+            name: "sections"
+            widget: "object"
+            fields:
+              - name: "treatments"
+                label: "Tratamentos"
+                widget: "object"
+                fields: [{ label: "Título", name: "title", widget: "string" }]
+              - name: "gallery"
+                label: "Galeria"
+                widget: "object"
+                fields:
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
+                  - { label: "Badge", name: "badge", widget: "string" }
+              - name: "team"
+                label: "Equipe"
+                widget: "object"
+                fields: [{ label: "Título", name: "title", widget: "string" }]
+              - name: "testimonials"
+                label: "Depoimentos"
+                widget: "object"
+                fields: [{ label: "Título", name: "title", widget: "string" }]
+              - name: "blog"
+                label: "Blog"
+                widget: "object"
+                fields:
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
+                  - { label: "Texto do Botão", name: "cta", widget: "string" }
+              - name: "footer"
+                label: "Rodapé"
+                widget: "object"
+                fields: [{ label: "Nota de Desenvolvimento", name: "devNote", widget: "string" }]
+
+      - name: "contato"
+        label: "Informações de Contato"
+        file: "src/data/contact/contact.json"
+        fields:
+          - { label: "Endereço Completo", name: "endereco", widget: "string" }
+          - { label: "Telefone Principal", name: "telefone", widget: "string" }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "E-mail", name: "email", widget: "string" }
+          - { label: "Horários de Funcionamento", name: "horarios", widget: "string" }
+          - { label: "Link Instagram", name: "instagram", widget: "string" }
+
+  - name: "midia"
+    label: "Multimídia e Galeria"
+    files:
+      - name: "hero_home"
+        label: "Destaque (Hero) - Home"
+        file: "src/data/hero/hero.json"
+        fields:
+          - label: "Slides do Carrossel"
+            name: "slides"
+            widget: "list"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Subtítulo", name: "subtitulo", widget: "string" }
+              - { label: "Imagem de Fundo", name: "imagemFundo", widget: "image" }
+              - { label: "Texto do Botão", name: "botaoTexto", widget: "string", required: false }
+              - { label: "Link do Botão", name: "botaoLink", widget: "string", required: false }
+
+      - name: "galeria_fotos"
+        label: "Galeria de Fotos"
+        file: "src/data/gallery/gallery.json"
+        fields:
+          - { label: "Texto do Botão", name: "textoBotao", widget: "string" }
+          - label: "Fotos"
+            name: "images"
+            widget: "list"
+            fields:
+              - { label: "Imagem", name: "src", widget: "image" }
+              - { label: "Nome Alt (Acessibilidade)", name: "alt", widget: "string" }
+
+      - name: "eventos"
+        label: "Eventos Próximos"
+        file: "src/data/events/events.json"
+        fields:
+          - label: "Eventos"
+            name: "eventos"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "number" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Descrição", name: "descricao", widget: "text" }
+              - { label: "Data (Ex: 15 Dez)", name: "data", widget: "string" }
+              - { label: "Horário (Ex: 14:00 - 16:00)", name: "horario", widget: "string" }
+              - { label: "Local", name: "local", widget: "string" }
+              - { label: "Imagem", name: "imagem", widget: "image" }
+              - { label: "Link/Página", name: "link", widget: "string", required: false }
+
+      - name: "programas"
+        label: "Programas e Cursos"
+        file: "src/data/programs/programs.json"
+        fields:
+          - label: "Programas"
+            name: "programas"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "number" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Descrição", name: "descricao", widget: "text" }
+              - { label: "Preço (Ex: R$ 150,00)", name: "preco", widget: "string" }
+              - { label: "Imagem", name: "imagem", widget: "image" }
+              - label: "Professor"
+                name: "professor"
+                widget: "object"
+                fields:
+                  - { label: "Nome", name: "nome", widget: "string" }
+                  - { label: "Cargo", name: "cargo", widget: "string" }
+                  - { label: "Foto", name: "foto", widget: "image" }
+              - label: "Detalhes"
+                name: "detalhes"
+                widget: "object"
+                fields:
+                  - { label: "Vagas", name: "vagas", widget: "number" }
+                  - { label: "Aulas", name: "aulas", widget: "number" }
+                  - { label: "Horas", name: "horas", widget: "number" }
+
+  - name: "navegacao"
+    label: "Menus e Links"
+    delete: false
+    files:
+      - name: "main_nav"
+        label: "Menu Principal (Topo)"
+        file: "src/data/navigation.json"
+        fields:
+          - label: "Navegação Principal"
+            name: "mainNavigation"
+            widget: "list"
+            fields:
+              - { label: "Rótulo (Texto)", name: "label", widget: "string" }
+              - { label: "Link/ID (#secao)", name: "path", widget: "string" }
+              - { label: "Ícone (FontAwesome)", name: "icon", widget: "string" }
+          - label: "Mais Links (Dropdown)"
+            name: "moreLinks"
+            widget: "list"
+            fields:
+              - { label: "Rótulo", name: "label", widget: "string" }
+              - { label: "Link", name: "path", widget: "string" }
+              - { label: "Ícone", name: "icon", widget: "string" }
+          - label: "Links do Rodapé (Quick Links)"
+            name: "footerQuickLinks"
+            widget: "list"
+            fields:
+              - { label: "Rótulo", name: "label", widget: "string" }
+              - { label: "Link", name: "path", widget: "string" }
+
+  - name: "depoimentos"
+    label: "Depoimentos"
+    files:
+      - label: "Lista de Depoimentos"
+        name: "depoimentos_list"
+        file: "src/data/testimonials/items/testimonials.json"
+        fields:
+          - label: "Depoimentos"
+            name: "depoimentos"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Cargo/Parentesco", name: "profissao", widget: "string" }
+              - { label: "Depoimento", name: "depoimento", widget: "text" }
+              - { label: "Avaliação (1-5)", name: "avaliacao", widget: "number", min: 1, max: 5 }
+              - { label: "Foto", name: "foto", widget: "image" }

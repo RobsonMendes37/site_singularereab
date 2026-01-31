@@ -1,0 +1,17 @@
+{
+  "nome": "   ",
+  "cargo": "  ",
+  "foto": "team/_RFM8531.jpg",
+  "descricao": "Especialista em Fisioterapia Pediátrica com mais de 10 anos de experiência em reabilitação infantil. Formada pela USP com especialização em Neurologia Pediátrica.",
+  "especialidades": [
+    "Fisioterapia Neurológica",
+    "Desenvolvimento Motor",
+    "Paralisia Cerebral",
+    "Atrasos Motores"
+  ],
+  "social": {
+    "facebook": "https://facebook.com/exemplo",
+    "instagram": "https://instagram.com/exemplo",
+    "linkedin": "https://linkedin.com/in/exemplo"
+  }
+}

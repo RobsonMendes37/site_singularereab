@@ -1,0 +1,25 @@
+{
+    "slug": "fonoaudiologia",
+    "titulo": "Fonoaudiologia",
+    "icone": "fas fa-comments",
+    "cor": "#FF6B9D",
+    "descricaoCurta": "Estimulando a comunicação e linguagem",
+    "descricaoCompleta": "A Fonoaudiologia atua na prevenção, avaliação, diagnóstico e tratamento dos distúrbios da comunicação humana. Trabalhamos com atrasos de linguagem, dificuldades de fala, gagueira, alterações de voz, dificuldades de alimentação e deglutição, além de estimulação precoce da linguagem em bebês e crianças pequenas.",
+    "comoFunciona": "O tratamento fonoaudiológico é realizado através de atividades lúdicas e exercícios específicos que estimulam a comunicação oral e escrita. Utilizamos jogos, brincadeiras, músicas, livros e recursos tecnológicos para tornar as sessões atrativas e eficazes. Também orientamos a família sobre como estimular a comunicação no dia a dia.",
+    "etapas": [
+        "Triagem: Avaliação inicial da comunicação e linguagem",
+        "Diagnóstico: Identificação das dificuldades específicas",
+        "Planejamento: Elaboração do plano terapêutico",
+        "Intervenção: Sessões com atividades e exercícios direcionados",
+        "Orientação: Instruções para estimulação em casa"
+    ],
+    "beneficios": [
+        "Melhora da articulação e clareza da fala",
+        "Ampliação do vocabulário",
+        "Desenvolvimento da linguagem receptiva e expressiva",
+        "Melhora das habilidades de leitura e escrita",
+        "Facilitação da comunicação e interação social",
+        "Tratamento de dificuldades alimentares"
+    ],
+    "imagem": "treatments/fonoaudiologia.jpg"
+}

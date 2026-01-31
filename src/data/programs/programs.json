@@ -1,0 +1,53 @@
+[
+    {
+        "id": 1,
+        "titulo": "Programa de Desenvolvimento Motor",
+        "descricao": "Focado no desenvolvimento das habilidades motoras grossas e finas através de atividades lúdicas e terapêuticas.",
+        "preco": "R$ 150,00",
+        "imagem": "programs/program-1.jpg",
+        "professor": {
+            "nome": "Dr. Ana Silva",
+            "cargo": "Fisioterapeuta",
+            "foto": "programs/program-teacher.jpg"
+        },
+        "detalhes": {
+            "vagas": 8,
+            "aulas": 12,
+            "horas": 24
+        }
+    },
+    {
+        "id": 2,
+        "titulo": "Terapia da Fala",
+        "descricao": "Programa especializado para desenvolvimento da comunicação e linguagem em crianças com atrasos no desenvolvimento.",
+        "preco": "R$ 120,00",
+        "imagem": "programs/program-2.jpg",
+        "professor": {
+            "nome": "Dra. Maria Santos",
+            "cargo": "Fonoaudióloga",
+            "foto": "programs/program-teacher.jpg"
+        },
+        "detalhes": {
+            "vagas": 6,
+            "aulas": 15,
+            "horas": 30
+        }
+    },
+    {
+        "id": 3,
+        "titulo": "Integração Sensorial",
+        "descricao": "Trabalho especializado para crianças com dificuldades de processamento sensorial e autismo.",
+        "preco": "R$ 180,00",
+        "imagem": "programs/program-3.jpg",
+        "professor": {
+            "nome": "Dr. Carlos Lima",
+            "cargo": "Terapeuta Ocupacional",
+            "foto": "programs/program-teacher.jpg"
+        },
+        "detalhes": {
+            "vagas": 4,
+            "aulas": 20,
+            "horas": 40
+        }
+    }
+]

@@ -26,7 +26,9 @@ const ProgramsSection: React.FC = () => {
                 <div className="program-img position-relative">
                   <div className="overflow-hidden img-border-radius">
                     <img
-                      src={require(`../../../assets/images/${program.imagem}`)}
+                      src={program.imagem.startsWith('/') || program.imagem.startsWith('http')
+                        ? program.imagem
+                        : `/assets/images/${program.imagem.includes('/') ? program.imagem : 'programs/' + program.imagem}`}
                       className="img-fluid w-100"
                       alt={program.titulo}
                     />
@@ -43,7 +45,9 @@ const ProgramsSection: React.FC = () => {
                 </div>
                 <div className="program-teacher d-flex align-items-center border-top border-primary bg-white px-4 py-3">
                   <img
-                    src={require(`../../../assets/images/${program.professor.foto}`)}
+                    src={program.professor.foto.startsWith('/') || program.professor.foto.startsWith('http')
+                      ? program.professor.foto
+                      : `/assets/images/${program.professor.foto.includes('/') ? program.professor.foto : 'programs/' + program.professor.foto}`}
                     className="img-fluid rounded-circle p-2 border border-primary bg-white"
                     alt={program.professor.nome}
                     style={{ width: '70px', height: '70px' }}

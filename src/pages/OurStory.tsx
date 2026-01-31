@@ -25,7 +25,7 @@ const OurStory: React.FC = () => {
         type="website"
       />
 
-      <div style={{ background: '#f8f9fa' }}>
+      <div>
         {/* Breadcrumb */}
         <Breadcrumb
           items={[
@@ -34,27 +34,28 @@ const OurStory: React.FC = () => {
           ]}
         />
 
-        {/* Hero Section (Redesenhado - Minimalista) */}
+        {/* Hero Section */}
         <ScrollReveal direction="fade">
           <div style={{
-            padding: '20px 0 40px', /* Espaçamento mais limpo */
-            textAlign: 'center'
+            padding: '20px 0 20px 0', /* Reduzido conforme solicitado */
+            textAlign: 'center',
+            position: 'relative',
+            color: 'var(--color-primary)'
           }}>
             <Container>
               <div>
                 <h1 style={{
                   fontSize: '3.5rem',
-                  fontWeight: '700',
-                  marginBottom: '15px',
-                  color: 'var(--color-primary)', /* Azul Principal */
+                  fontWeight: '800',
+                  color: 'var(--color-primary-dark)',
                   letterSpacing: '-1px'
                 }}>
                   {hero.titulo}
                 </h1>
                 <p style={{
-                  fontSize: '1.25rem',
-                  color: 'var(--text-secondary)', /* Cinza escuro */
-                  maxWidth: '600px',
+                  fontSize: '1.2rem',
+                  color: '#5a6c7d',
+                  maxWidth: '700px',
                   margin: '0 auto',
                   lineHeight: '1.6'
                 }}>
@@ -120,7 +121,11 @@ const OurStory: React.FC = () => {
                   height: '300px'
                 }}>
                   <img
-                    src={require(`../assets/images/${historia.imagem}`)}
+                    src={historia.imagem.startsWith('/') || historia.imagem.startsWith('http')
+                      ? historia.imagem
+                      : `/assets/images/${historia.imagem.includes('/')
+                        ? historia.imagem
+                        : 'site/' + historia.imagem}`}
                     alt="História da Clínica Singulare"
                     style={{
                       width: '100%',

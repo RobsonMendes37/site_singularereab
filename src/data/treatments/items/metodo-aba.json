@@ -1,0 +1,25 @@
+{
+  "descricaoCurta": "Análise do Comportamento Aplicada ao Autismo",
+  "cor": "#8E44AD",
+  "beneficios": [
+    "Desenvolvimento de habilidades de comunicação",
+    "Redução de comportamentos desafiadores",
+    "Aumento da autonomia e independência",
+    "Melhora das habilidades sociais",
+    "Desenvolvimento de repertório acadêmico",
+    "Generalização das habilidades aprendidas"
+  ],
+  "slug": "metodo-aba",
+  "comoFunciona": "O tratamento ABA é intensivo e individualizado. Através de tentativas discretas, reforço positivo e análise de dados, ensinamos habilidades acadêmicas, sociais, de comunicação e autocuidado. Cada comportamento é analisado e trabalhado sistematicamente, com metas específicas e mensuráveis.",
+  "icone": "fas fa-clipboard-check",
+  "etapas": [
+    "Avaliação: Análise funcional do comportamento",
+    "Programa: Elaboração de plano de ensino individualizado",
+    "Intervenção: Sessões estruturadas com técnicas ABA",
+    "Registro: Coleta de dados sobre os progressos",
+    "Supervisão: Acompanhamento por analista do comportamento"
+  ],
+  "imagem": "treatments/foto-Método-ABA.jpg",
+  "titulo": "Método ABA",
+  "descricaoCompleta": "O Método ABA (Applied Behavior Analysis) é uma abordagem científica que utiliza princípios da análise do comportamento para ensinar novas habilidades e reduzir comportamentos inadequados. É reconhecido mundialmente como o tratamento mais eficaz para crianças com Transtorno do Espectro Autista (TEA)."
+}

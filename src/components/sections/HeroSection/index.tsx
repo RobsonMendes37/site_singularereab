@@ -74,7 +74,12 @@ const HeroSection: React.FC = () => {
       className={`container-fluid hero-section hero-slide-${currentSlide} position-relative wow fadeIn`}
       data-wow-delay="0.1s"
       style={{
-        backgroundImage: `url(${require(`../../../assets/images/${slides[currentSlide].backgroundImage}`)})`,
+        backgroundImage: `url(${slides[currentSlide].backgroundImage.startsWith('/') || slides[currentSlide].backgroundImage.startsWith('http')
+            ? slides[currentSlide].backgroundImage
+            : `/assets/images/${slides[currentSlide].backgroundImage.includes('/')
+              ? slides[currentSlide].backgroundImage
+              : 'site/' + slides[currentSlide].backgroundImage}`
+          })`,
       }}
       onTouchStart={(e) => {
         const touchDown = e.touches[0].clientX;

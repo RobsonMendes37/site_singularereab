@@ -13,7 +13,11 @@ const TestimonialsSection: React.FC = () => {
     author: {
       name: dep.nome,
       role: dep.profissao,
-      image: require(`../../../assets/images/${dep.foto}`)
+      image: dep.foto.startsWith('/') || dep.foto.startsWith('http')
+        ? dep.foto
+        : `/assets/images/${dep.foto.includes('/')
+          ? dep.foto
+          : 'testimonials/' + dep.foto}`
     },
     text: dep.depoimento,
     rating: dep.avaliacao,

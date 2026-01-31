@@ -14,6 +14,8 @@
  * - NÃO altere as chaves como "id:", "titulo:", etc.
  */
 
+import { loadCollection } from '../../utils/cmsLoader';
+
 export interface Treatment {
   id: number;
   slug: string; // NÃO ALTERAR - usado na URL
@@ -28,7 +30,17 @@ export interface Treatment {
   imagem: string; // Nome do arquivo na pasta src/assets/images/
 }
 
-export const treatmentsData: Treatment[] = [
+// Carregamento dinâmico via JSON (CMS)
+let dynamicTreatments: Treatment[] = [];
+try {
+  const context = (require as any).context('./items', false, /\.json$/);
+  dynamicTreatments = loadCollection<Treatment>(context);
+} catch (e) {
+  console.warn('Erro ao carregar tratamentos dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticTreatments: Treatment[] = [
   {
     id: 1,
     slug: "fisioterapia-pediatrica", // NÃO ALTERAR
@@ -186,6 +198,10 @@ export const treatmentsData: Treatment[] = [
     imagem: "treatments/foto-Método-ABA.jpg"
   }
 ];
+
+// Exporta os tratamentos dinâmicos se houver dados (CMS), caso contrário usa os estáticos
+export const treatmentsData: Treatment[] = dynamicTreatments.length > 0 ? dynamicTreatments : staticTreatments;
+
 
 // 💡 DICAS:
 // - Para adicionar novo tratamento: copie um bloco { } e altere as informações

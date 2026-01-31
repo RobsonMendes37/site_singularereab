@@ -21,7 +21,17 @@ export interface Testimonial {
   foto: string; // Nome do arquivo na pasta src/assets/images/
 }
 
-export const testimonialsData: Testimonial[] = [
+// Carregamento dinâmico via JSON (CMS)
+let dynamicTestimonials: Testimonial[] = [];
+try {
+  const json = require('./items/testimonials.json');
+  dynamicTestimonials = json.depoimentos || [];
+} catch (e) {
+  console.warn('Erro ao carregar depoimentos dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticTestimonials: Testimonial[] = [
   {
     id: 1,
     nome: "Mariana Oliveira",
@@ -63,6 +73,8 @@ export const testimonialsData: Testimonial[] = [
     foto: "testimonials/testimonial-2.jpg"
   }
 ];
+
+export const testimonialsData: Testimonial[] = dynamicTestimonials.length > 0 ? dynamicTestimonials : staticTestimonials;
 
 // 💡 DICAS:
 // - Para adicionar novo depoimento: copie um bloco { } e altere as informações

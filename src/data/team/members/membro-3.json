@@ -1,0 +1,17 @@
+{
+  "nome": "   ",
+  "cargo": "   ",
+  "foto": "team/_RFM8543.jpg",
+  "descricao": "Fonoaudióloga com expertise em Linguagem e Comunicação Infantil. Especialista em Motricidade Orofacial e Disfagia Pediátrica.",
+  "especialidades": [
+    "Atrasos de Linguagem",
+    "Distúrbios de Fala",
+    "Dificuldades de Alimentação",
+    "Comunicação Alternativa"
+  ],
+  "social": {
+    "facebook": "https://facebook.com/exemplo",
+    "instagram": "https://instagram.com/exemplo",
+    "linkedin": "https://linkedin.com/in/exemplo"
+  }
+}

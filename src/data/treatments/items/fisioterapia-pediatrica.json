@@ -1,0 +1,25 @@
+{
+    "slug": "fisioterapia-pediatrica",
+    "titulo": "Fisioterapia Pediátrica",
+    "icone": "fas fa-child",
+    "cor": "#4A90E2",
+    "descricaoCurta": "Promovendo o desenvolvimento motor e funcional das crianças",
+    "descricaoCompleta": "A Fisioterapia Pediátrica é uma especialidade que atua na prevenção, avaliação e tratamento de alterações no desenvolvimento motor de bebês, crianças e adolescentes. Trabalhamos com técnicas específicas para cada faixa etária, respeitando as características individuais de cada criança e promovendo o máximo de independência funcional possível.",
+    "comoFunciona": "O tratamento fisioterapêutico é realizado através de atividades lúdicas e exercícios específicos que estimulam o desenvolvimento motor. Cada sessão é planejada individualmente, considerando as necessidades, objetivos e potencialidades da criança. Utilizamos recursos como bolas terapêuticas, rolos, espelhos, brinquedos e equipamentos especializados.",
+    "etapas": [
+        "Avaliação: Análise completa do desenvolvimento motor e funcional",
+        "Planejamento: Definição de objetivos terapêuticos junto à família",
+        "Intervenção: Sessões individualizadas com atividades lúdicas",
+        "Reavaliação: Acompanhamento contínuo dos progressos",
+        "Orientação: Instruções para atividades em casa"
+    ],
+    "beneficios": [
+        "Melhora do tônus muscular e força",
+        "Desenvolvimento do equilíbrio e coordenação",
+        "Ganho de independência nas atividades diárias",
+        "Prevenção de deformidades e contraturas",
+        "Melhora da postura e alinhamento corporal",
+        "Estimulação do desenvolvimento motor global"
+    ],
+    "imagem": "treatments/fisioterapia-pediatrica.jpg"
+}

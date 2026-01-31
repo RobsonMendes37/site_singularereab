@@ -29,7 +29,11 @@ const TeamSection: React.FC = () => {
                                 <div className="team-img position-relative overflow-hidden">
                                     <img
                                         className="img-fluid w-100"
-                                        src={require(`../../../assets/images/${member.foto}`)}
+                                        src={member.foto.startsWith('/') || member.foto.startsWith('http')
+                                            ? member.foto
+                                            : `/assets/images/${member.foto.includes('/')
+                                                ? member.foto
+                                                : 'team/' + member.foto}`}
                                         alt={member.nome}
                                     />
                                     {/* Overlay Gradient & Text */}

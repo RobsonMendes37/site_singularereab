@@ -1,0 +1,55 @@
+/* CMS Aesthetic Improvements */
+body {
+    background-color: #f4f7f6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* Sidebar styling */
+.css-1f9f2sk-SidebarContainer {
+    background-color: #ffffff !important;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Collection list items */
+.css-1shl4v4-CollectionCard-Card {
+    border-radius: 8px !important;
+    border: 1px solid #e1e8e5 !important;
+    transition: all 0.2s ease;
+}
+
+.css-1shl4v4-CollectionCard-Card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    border-color: #4A90E2 !important;
+}
+
+/* Primary Button */
+.css-12on59h-Button-button-default-primary {
+    background-color: #4A90E2 !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+}
+
+/* Editor layout */
+.css-1scv7p3-ControlPaneContainer {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 30px !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+.css-1f9f2sk-FieldLabel {
+    color: #2c3e50 !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 8px !important;
+}
+
+/* Custom indicator for the app */
+.css-1shl4v4-AppHeader-container:before {
+    content: 'Clínica Singulare';
+    color: #4A90E2;
+    font-weight: 800;
+    margin-right: 20px;
+    font-size: 1.2rem;
+}

@@ -12,7 +12,6 @@ export interface OurStoryData {
     hero: {
         titulo: string;
         subtitulo: string;
-        imagemFundo: string;
     };
     historia: {
         titulo: string;
@@ -36,17 +35,25 @@ export interface OurStoryData {
     };
 }
 
-export const ourStoryData: OurStoryData = {
+// Carregamento dinâmico via JSON (CMS)
+let dynamicOurStory: any = null;
+try {
+    dynamicOurStory = require('./ourStory.json');
+} catch (e) {
+    console.warn('Erro ao carregar dados da História dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticOurStoryData: OurStoryData = {
     hero: {
         titulo: "Nossa História",
-        subtitulo: "Uma trajetória de amor e dedicação à vida",
-        imagemFundo: "site/familia.jpg"
+        subtitulo: "Uma trajetória de amor e dedicação à vida"
     },
     historia: {
         titulo: "Nossa Trajetória",
         paragrafo1: `<strong>Vancleida e Victor</strong> enfrentaram uma jornada árdua, testemunhando a triste realidade dos tratamentos para crianças neuroatípicas, como o seu amado filho <strong>Ezequiel</strong>. Foi desse desafio que nasceu o sonho do <strong>Centro de Reabilitação Infantil Singulare</strong>.`,
         paragrafo2: `Nossa equipe multidisciplinar é formada por profissionais altamente qualificados nas áreas de <strong>Fisioterapia, Terapia Ocupacional, Fonoaudiologia, Psicologia e Medicina</strong>.`,
-        paragrafo3: `Hoje, orgulhosamente atendemos centenas de famílias, transformando vidas e construindo histórias de superação e desenvolvimento. Cada criança que passa por nossa clínica é única, e é por isso que nosso nome carrega o significado de <strong>"singular"</strong> - porque cada paciente merece um cuidado especial e personalizado.`,
+        paragrafo3: `Hoje, orgulhosamente atendemos centenas de famílias, transformando vidas e construindo histórias de superação e desenvolvimento. Cada criança que passa por nossa clínica é única, e é por isso que nosso nome carrega o significado de <strong>"singulare"</strong> - porque cada paciente merece um cuidado especial e personalizado.`,
         imagem: "site/vacleida_victor-sobrenos.jpg",
         anoFundacao: "2025"
     },
@@ -67,3 +74,5 @@ export const ourStoryData: OurStoryData = {
         ]
     }
 };
+
+export const ourStoryData: OurStoryData = dynamicOurStory || staticOurStoryData;

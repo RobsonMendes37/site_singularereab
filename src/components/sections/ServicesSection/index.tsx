@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { servicesData, homeData } from '../../../data';
+import { servicesData, servicesSectionData } from '../../../data';
 import './ServicesSection.css';
 import aboutImage from '../../../assets/images/site/about2.jpeg';
 
 const ServicesSection: React.FC = () => {
-  const { title: titulo, description: descricao } = homeData.sections.services;
+  const { titulo, descricao, imagem: mainImage } = servicesSectionData;
 
   // Mapear serviços para o formato usado no componente
   const benefits = servicesData.map(service => ({
@@ -168,7 +168,9 @@ const ServicesSection: React.FC = () => {
                 background: '#f0f4ff'
               }}>
                 <img
-                  src={aboutImage}
+                  src={mainImage.startsWith('/') || mainImage.startsWith('http')
+                    ? mainImage
+                    : `/assets/images/${mainImage.includes('/') ? mainImage : 'site/' + mainImage}`}
                   alt="Terapeuta com criança na Clínica Singulare"
                   className="services-main-image"
                   style={{

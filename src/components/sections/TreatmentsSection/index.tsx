@@ -27,9 +27,11 @@ const TreatmentsSection: React.FC = () => {
         <Row className="justify-content-center">
           {treatmentsData.map((treatment, index) => {
             // Importa imagem local dinamicamente
-            const imageSrc = treatment.imagem.startsWith('http')
+            const imageSrc = treatment.imagem.startsWith('/') || treatment.imagem.startsWith('http')
               ? treatment.imagem
-              : require(`../../../assets/images/${treatment.imagem}`);
+              : `/assets/images/${treatment.imagem.includes('/')
+                ? treatment.imagem
+                : 'treatments/' + treatment.imagem}`;
 
             return (
               <Col key={treatment.id} lg={2} md={3} sm={4} xs={6} className="mb-1 wow fadeIn" data-wow-delay={`${0.1 + index * 0.05}s`}>

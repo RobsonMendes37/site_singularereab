@@ -1,62 +1,41 @@
 
-export const homeData = {
+// Carregamento dinâmico via JSON (CMS)
+let dynamicHome: any = null;
+try {
+    dynamicHome = require('./home.json');
+} catch (e) {
+    console.warn('Erro ao carregar dados da Home dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticHomeData = {
     seo: {
         title: "Clínica Singulare - Reabilitação Infantil em Fortaleza | Fisioterapia e Terapia Ocupacional",
         description: "Centro especializado em reabilitação infantil em Fortaleza/CE. Fisioterapia pediátrica, Terapia Ocupacional, Fonoaudiologia e Psicologia Infantil. Atendimento humanizado e personalizado para crianças com necessidades especiais.",
         keywords: [
             'clínica reabilitação infantil fortaleza',
-            'fisioterapia pediátrica fortaleza',
-            'terapia ocupacional infantil fortaleza',
-            'fonoaudiologia infantil fortaleza',
-            'psicologia infantil fortaleza',
-            'TEA autismo fortaleza',
-            'paralisia cerebral tratamento fortaleza',
-            'atraso desenvolvimento infantil',
-            'clínica crianças especiais fortaleza',
-            'fisioterapia bebês prematuros',
-            'estimulação precoce fortaleza'
+            'fisioterapia pediátrica fortaleza'
         ]
     },
     sections: {
-        hero: {
-            id: "home-top"
-        },
-        about: {
-            title: "Sobre Nós"
-        },
-        services: {
-            title: "Nossos Serviços",
-            description: "Oferecemos uma abordagem multidisciplinar completa para o desenvolvimento e reabilitação infantil, com profissionais altamente qualificados e equipamentos de última geração."
-        },
-        treatments: {
-            title: "Tratamentos"
-        },
+        hero: { id: "home-top" },
+        treatments: { title: "Tratamentos" },
         gallery: {
             title: "Conheça Nossa Estrutura",
-            description: "Ambientes cuidadosamente planejados e equipamentos de última geração para proporcionar o melhor tratamento e desenvolvimento para cada criança",
+            description: "Ambientes cuidadosamente planejados...",
             badge: "NOSSA ESTRUTURA"
         },
-        team: {
-            title: "Nossa Equipe"
-        },
-        testimonials: {
-            title: "Depoimentos"
-        },
+        team: { title: "Nossa Equipe" },
+        testimonials: { title: "Depoimentos" },
         blog: {
             title: "Blog & Notícias",
-            description: "Artigos e informações especializadas sobre desenvolvimento e reabilitação infantil",
+            description: "Artigos e informações especializadas",
             cta: "Ver Todos os Artigos"
         },
         contact: {
             title: "Venha nos Visitar!",
             cta: "Ainda com dúvidas? Entre em contato",
-            subtitle: "Agende via WhatsApp",
-            mapLabels: {
-                routes: "Rotas",
-                copy: "Copiar",
-                copied: "Copiado!",
-                viewLarger: "Ver mapa ampliado"
-            }
+            subtitle: "Agende via WhatsApp"
         },
         footer: {
             scheduleTitle: "Horário de Atendimento",
@@ -66,3 +45,5 @@ export const homeData = {
         }
     }
 };
+
+export const homeData = dynamicHome || staticHomeData;

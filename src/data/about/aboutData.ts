@@ -20,7 +20,16 @@ export interface AboutData {
   galeria: string[]; // Lista de imagens da galeria (pasta espaco)
 }
 
-export const aboutData: AboutData = {
+// Carregamento dinâmico via JSON (CMS)
+let dynamicAbout: any = null;
+try {
+  dynamicAbout = require('./about.json');
+} catch (e) {
+  console.warn('Erro ao carregar dados do Sobre dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticAbout: AboutData = {
   titulo: "Sobre nós",
   texto: "Somos uma clínica de referência em reabilitação de crianças com necessidades específicas e especiais. Nosso maior objetivo é torná-las capazes de desenvolver o máximo do seu potencial, promovendo mais autonomia nas tarefas diárias, gerando uma maior autoestima através de atendimento lúdico, encantamento e muito amo",
   textoBotao: "Conheça Nossa História",
@@ -35,6 +44,8 @@ export const aboutData: AboutData = {
     "espaco6.png"
   ]
 };
+
+export const aboutData: AboutData = dynamicAbout || staticAbout;
 // 💡 DICAS:
 // - Para trocar vídeo: coloque o novo arquivo em src/assets/videos/ e altere "videoArquivo"
 // - Para alterar texto: modifique o conteúdo entre aspas

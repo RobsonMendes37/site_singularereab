@@ -1,0 +1,28 @@
+{
+    "slides": [
+        {
+            "id": 1,
+            "titulo": "Reabilitação Infantil",
+            "subtitulo": "Cuidado e Amor para o Desenvolvimento do Seu Filho",
+            "imagemFundo": "site/hero2.jpeg",
+            "botaoTexto": "Saiba Mais",
+            "botaoLink": "/sobre/historia"
+        },
+        {
+            "id": 2,
+            "titulo": "Amor que Transforma Vidas",
+            "subtitulo": "Terapias que Acolhem e Desenvolvem Potenciais",
+            "imagemFundo": "site/familia.jpg",
+            "botaoTexto": "Nossos Tratamentos",
+            "botaoLink": "/tratamentos"
+        },
+        {
+            "id": 3,
+            "titulo": "Autonomia e Superação",
+            "subtitulo": "Uma Equipe Dedicada ao Futuro da Sua Criança",
+            "imagemFundo": "site/hero-img.jpg",
+            "botaoTexto": "Fale Conosco",
+            "botaoLink": "/contato"
+        }
+    ]
+}

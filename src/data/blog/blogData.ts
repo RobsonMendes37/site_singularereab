@@ -15,8 +15,19 @@
  */
 
 import { BlogPost } from '../../types/blog.types';
+import { loadCollection } from '../../utils/cmsLoader';
 
-export const blogPostsData: BlogPost[] = [
+// Carregamento dinâmico dos posts via JSON (CMS)
+let dynamicBlogPosts: BlogPost[] = [];
+try {
+  const context = (require as any).context('./posts', false, /\.json$/);
+  dynamicBlogPosts = loadCollection<BlogPost>(context);
+} catch (e) {
+  console.warn('Erro ao carregar posts dinâmicos:', e);
+}
+
+// Dados estáticos (mantidos como backup/fallback)
+const staticBlogPosts: BlogPost[] = [
   {
     id: 1,
     slug: "sinais-atraso-desenvolvimento", // NÃO ALTERAR
@@ -70,32 +81,32 @@ Na Singulare, tratamos cada sinal com seriedade e carinho. Uma avaliação espec
     title: "A Importância da Terapia Ocupacional no Desenvolvimento Infantil",
     description: "Entenda como a Terapia Ocupacional pode auxiliar crianças com dificuldades nas atividades do dia a dia, coordenação motora e integração sensorial.",
     content: `
-Muitos pais perguntam: *"Mas criança precisa de terapia ocupacional? O que ela 'ocupa'?"*
-A resposta é simples: a ocupação da criança é **brincar e aprender**. A Terapia Ocupacional (TO) existe para garantir que ela consiga fazer isso com autonomia e alegria.
-
-### O trabalho "invisível" da TO
-O terapeuta ocupacional é como um detetive que investiga por que certas tarefas simples parecem difíceis para seu filho.
-
-#### 1. Integração Sensorial
-Seu filho tapa os ouvidos com barulho? Não gosta de sujar a mão? Ou vive trombando nas coisas?
-Isso pode ser uma questão sensorial. A TO ajuda o cérebro da criança a organizar essas sensações, tornando o mundo menos caótico para ela.
-
-#### 2. Coordenação Fina (Mãos Hábeis)
-Para escrever, abotoar uma camisa ou usar talheres, precisamos de movimentos precisos. Trabalhamos isso de forma lúdica, fortalecendo a musculatura e a coordenação das mãos.
-
-#### 3. Autonomia no Dia a Dia
-O objetivo final é a independência. Queremos ver seu filho:
-*   Comendo sozinho.
-*   Vestindo a própria roupa.
-*   Escovando os dentes.
-
-### Sinais de que a TO pode ajudar
-*   Dificuldade em segurar o lápis (letra muito fraca ou forte demais).
-*   Aversão a certas texturas de roupas ou alimentos (seletividade).
-*   Desajeitado motoramente (cai muito, derruba coisas).
-
-Na Singulare, transformamos esses desafios em conquistas através da brincadeira. Cada pequena vitória do seu filho é celebrada por nós!
-    `,
+ Muitos pais perguntam: *"Mas criança precisa de terapia ocupacional? O que ela 'ocupa'?"*
+ A resposta é simples: a ocupação da criança é **brincar e aprender**. A Terapia Ocupacional (TO) existe para garantir que ela consiga fazer isso com autonomia e alegria.
+ 
+ ### O trabalho "invisível" da TO
+ O terapeuta ocupacional é como um detetive que investiga por que certas tarefas simples parecem difíceis para seu filho.
+ 
+ #### 1. Integração Sensorial
+ Seu filho tapa os ouvidos com barulho? Não gosta de sujar a mão? Ou vive trombando nas coisas?
+ Isso pode ser uma questão sensorial. A TO ajuda o cérebro da criança a organizar essas sensações, tornando o mundo menos caótico para ela.
+ 
+ #### 2. Coordenação Fina (Mãos Hábeis)
+ Para escrever, abotoar uma camisa ou usar talheres, precisamos de movimentos precisos. Trabalhamos isso de forma lúdica, fortalecendo a musculatura e a coordenação das mãos.
+ 
+ #### 3. Autonomia no Dia a Dia
+ O objetivo final é la independência. Queremos ver seu filho:
+ *   Comendo sozinho.
+ *   Vestindo a própria roupa.
+ *   Escovando os dentes.
+ 
+ ### Sinais de que a TO pode ajudar
+ *   Dificuldade em segurar o lápis (letra muito fraca ou forte demais).
+ *   Aversão a certas texturas de roupas ou alimentos (seletividade).
+ *   Desajeitado motoramente (cai muito, derruba coisas).
+ 
+ Na Singulare, transformamos esses desafios em conquistas através da brincadeira. Cada pequena vitória do seu filho é celebrada por nós!
+     `,
     category: "Tratamentos",
     date: "2024-12-10",
     readTime: 6,
@@ -114,32 +125,32 @@ Na Singulare, transformamos esses desafios em conquistas através da brincadeira
     title: "10 Dicas para Estimular a Linguagem do Seu Filho em Casa",
     description: "Aprenda estratégias práticas e eficazes para estimular o desenvolvimento da linguagem e comunicação das crianças no ambiente familiar.",
     content: `
-Você sabia que a estimulação da fala começa muito antes do "mamãe" ou "papai"? A comunicação nasce da conexão entre vocês no dia a dia.
-Separamos dicas práticas para você transformar a rotina em um laboratório de palavras!
-
-### 1. Narre a Vida
-Vire um narrador. Vai dar banho? "Olha a água morna... vamos lavar o pé... agora o sabonete cheiroso". Isso enche o "banco de dados" de palavras do seu filho.
-
-### 2. O Poder da Pausa
-Faça uma pergunta e **espere**. Conte até 10 mentalmente. A criança precisa de tempo para processar e responder, seja com um sorriso, um olhar ou um som. Não preencha o silêncio imediatamente.
-
-### 3. Livros são Portais
-Leia todos os dias. Aponte para as figuras. "Cadê o gato? Olha o gato aqui!". Livros trazem palavras, cores e conceitos novos.
-
-### 4. Sons Divertidos (Onomatopeias)
-Bichos e barulhos são ótimos!
-*   "O carro faz Vruuuuum!"
-*   "A vaca faz Muuuu!"
-É divertido e fácil de imitar.
-
-### 5. Cante com o Corpo
-Músicas com gestos ("Dona Aranha", "A Roda do Ônibus") conectam movimento e som, facilitando a memorização.
-
-### 6. Evite corrigir, apenas modele
-Se ele disser "opato" (sapato), evite dizer "Não é opato". Apenas responda naturalmente: "Isso! O **sapato** azul!". Assim, você ensina o certo sem frustrar a tentativa dele.
-
-> **Dica de Ouro:** A comunicação deve ser leve e prazerosa. Se você sente que seu filho está demorando muito para falar ou não reage aos sons, conte com nossa equipe de fonoaudiologia para uma avaliação.
-    `,
+ Você sabia que a estimulação da fala começa muito antes do "mamãe" ou "papai"? A comunicação nasce da conexão entre vocês no dia a dia.
+ Separamos dicas práticas para você transformar a rotina em um laboratório de palavras!
+ 
+ ### 1. Narre a Vida
+ Vire um narrador. Vai dar banho? "Olha a água morna... vamos lavar o pé... agora o sabonete cheiroso". Isso enche o "banco de dados" de palavras do seu filho.
+ 
+ ### 2. O Poder da Pausa
+ Faça uma pergunta e **espere**. Conte até 10 mentalmente. A criança precisa de tempo para processar e responder, seja com um sorriso, um olhar ou um som. Não preencha o silêncio imediatamente.
+ 
+ ### 3. Livros são Portais
+ Leia todos os dias. Aponte para as figuras. "Cadê o gato? Olha o gato aqui!". Livros trazem palavras, cores e conceitos novos.
+ 
+ ### 4. Sons Divertidos (Onomatopeias)
+ Bichos e barulhos são ótimos!
+ *   "O carro faz Vruuuuum!"
+ *   "A vaca faz Muuuu!"
+ É divertido e fácil de imitar.
+ 
+ ### 5. Cante com o Corpo
+ Músicas com gestos ("Dona Aranha", "A Roda do Ônibus") conectam movimento e som, facilitando a memorização.
+ 
+ ### 6. Evite corrigir, apenas modele
+ Se ele disser "opato" (sapato), evite dizer "Não é opato". Apenas responda naturalmente: "Isso! O **sapato** azul!". Assim, você ensina o certo sem frustrar a tentativa dele.
+ 
+ > **Dica de Ouro:** A comunicação deve ser leve e prazerosa. Se você sente que seu filho está demorando muito para falar ou não reage aos sons, conte com nossa equipe de fonoaudiologia para uma avaliação.
+     `,
     category: "Dicas para Pais",
     date: "2025-01-24",
     readTime: 5,
@@ -153,6 +164,9 @@ Se ele disser "opato" (sapato), evite dizer "Não é opato". Apenas responda nat
     featured: true
   }
 ];
+
+// Exporta os posts dinâmicos se existirem, caso contrário usa os estáticos
+export const blogPostsData: BlogPost[] = dynamicBlogPosts.length > 0 ? dynamicBlogPosts : staticBlogPosts;
 
 // 💡 DICAS:
 // - Para adicionar novo post: copie um bloco { } e altere as informações
