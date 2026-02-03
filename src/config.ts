@@ -41,22 +41,22 @@ export const config = {
     phoneLink: "tel:+558596242225",
     emailLink: "mailto:contato@clinicasingulare.com.br",
     whatsappLink: "https://wa.me/558596242225",
-    whatsappLinkWithMessage: "https://wa.me/558596242225?text=Olá! Vim através do site e gostaria de verificar os horários disponíveis para consulta."
+    whatsappLinkWithMessage: "https://wa.me/558596242225?text=Olá! Vim através do site Singulare e gostaria de mais informações."
   },
 
   // Redes sociais
   social: {
     facebook: {
-      url: "https://facebook.com/clinicasingulare"
+      url: "https://facebook.com/"
     },
     instagram: {
-      url: "https://instagram.com/clinicasingulare"
+      url: "https://instagram.com/singularereab"
     },
     linkedin: {
-      url: "https://linkedin.com/company/clinicasingulare"
+      url: "https://linkedin.com/"
     },
     youtube: {
-      url: "https://youtube.com/clinicasingulare"
+      url: "https://youtube.com/"
     }
   },
 

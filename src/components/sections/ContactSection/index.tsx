@@ -113,7 +113,7 @@ const ContactSection: React.FC = () => {
               {/* Botão WhatsApp Destaque */}
               {/* Botão WhatsApp Destaque */}
               <a
-                href={whatsapp ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}?text=Olá! Vim através do site e gostaria de verificar os horários disponíveis para consulta.` : '#'}
+                href={whatsapp ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}?text=Olá! Vim através do site Singulare e gostaria de mais informações.` : '#'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-whatsapp-main"
@@ -134,7 +134,7 @@ const ContactSection: React.FC = () => {
               <div className="contact-options">
                 {/* WhatsApp */}
                 <a
-                  href={whatsapp ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}?text=Olá! Vim através do site e gostaria de verificar os horários disponíveis para consulta.` : '#'}
+                  href={whatsapp ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}?text=Olá! Vim através do site Singulare e gostaria de mais informações.` : '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-button contact-button-whatsapp"
